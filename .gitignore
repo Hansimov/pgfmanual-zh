@@ -1,12 +1,17 @@
 *.*
 latex-temp/
 references/
+tikz-tutorial-zh/
 
 !.gitignore
 !*.md
+
 !*.tex
 !*.bib
 !*.pdf
 
 !*.eps
 !*.jpg
+!*.png
+
+!*.py

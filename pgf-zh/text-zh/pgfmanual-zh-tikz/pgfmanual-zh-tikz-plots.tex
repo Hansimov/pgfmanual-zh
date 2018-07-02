@@ -151,10 +151,10 @@ this, if necessary. (This is exactly the format that \textsc{gnuplot}
 produces when you say |set terminal table|.) 
 
 \begin{codeexample}[]
-\tikz \draw plot[mark=x,smooth] file {plots/pgfmanual-sine.table};
+\tikz \draw plot[mark=x,smooth] file {./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 
-The file |plots/pgfmanual-sine.table| reads:
+The file |./text-zh/plots/pgfmanual-sine.table| reads:
 \begin{codeexample}[code only]
 #Curve 0, 20 points
 #x y type
@@ -168,7 +168,7 @@ The file |plots/pgfmanual-sine.table| reads:
 \end{codeexample}
 It was produced from the following source, using |gnuplot|:
 \begin{codeexample}[code only]
-set table  "../plots/pgfmanual-sine.table"
+set table  "./text-zh/plots/pgfmanual-sine.table"
 set format "%.5f"
 set samples 20
 plot [x=0:10] sin(x)
@@ -427,7 +427,7 @@ The following styles influence the plot:
 \end{codeexample}
  This is most useful for globally setting a prefix for all plots by saying:
 \begin{codeexample}[code only]
-\tikzset{every plot/.style={prefix=plots/}}
+\tikzset{every plot/.style={prefix=./text-zh/plots/}}
 \end{codeexample}
 \end{stylekey}
 
@@ -466,7 +466,7 @@ In detail, the following options govern how marks are drawn:
   drawn.
 
 \begin{codeexample}[]
-\tikz \draw plot[mark=x,mark repeat=3,smooth] file {plots/pgfmanual-sine.table};
+\tikz \draw plot[mark=x,mark repeat=3,smooth] file {./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 \end{key}
 
@@ -476,7 +476,7 @@ In detail, the following options govern how marks are drawn:
   on.
 
 \begin{codeexample}[]
-\tikz \draw plot[mark=x,mark repeat=3,mark phase=6,smooth] file {plots/pgfmanual-sine.table};
+\tikz \draw plot[mark=x,mark repeat=3,mark phase=6,smooth] file {./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 \end{key}
 
@@ -487,7 +487,7 @@ In detail, the following options govern how marks are drawn:
 
 \begin{codeexample}[]
 \tikz \draw plot[mark=x,mark indices={1,4,...,10,11,12,...,16,20},smooth]
-  file {plots/pgfmanual-sine.table};
+  file {./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 \end{key}
 
@@ -513,7 +513,7 @@ In detail, the following options govern how marks are drawn:
 \begin{codeexample}[]
 \tikz \fill[fill=blue!20]
   plot[mark=triangle*,mark options={color=blue,rotate=180}]
-    file{plots/pgfmanual-sine.table} |- (0,0);
+    file{./text-zh/plots/pgfmanual-sine.table} |- (0,0);
 \end{codeexample}
 \end{key}
 	
@@ -544,7 +544,7 @@ use options to change the behavior of |plot|.
   smooth curve:
 
 \begin{codeexample}[]
-\tikz\draw plot[smooth] file{plots/pgfmanual-sine.table};
+\tikz\draw plot[smooth] file{./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 
   Note that the smoothing algorithm is not very intelligent. You will
@@ -588,21 +588,21 @@ use options to change the behavior of |plot|.
   piecewise constant series of lines: 
 
 \begin{codeexample}[]
-\tikz\draw plot[const plot] file{plots/pgfmanual-sine.table};
+\tikz\draw plot[const plot] file{./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 \end{key}
 
 \begin{key}{/tikz/const plot mark left}
   Just an alias for |/tikz/const plot|.
 \begin{codeexample}[]
-\tikz\draw plot[const plot mark left,mark=*] file{plots/pgfmanual-sine.table};
+\tikz\draw plot[const plot mark left,mark=*] file{./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 \end{key}
 
 \begin{key}{/tikz/const plot mark right}
   A variant of |/tikz/const plot| which places its mark on the right ends:
 \begin{codeexample}[]
-\tikz\draw plot[const plot mark right,mark=*] file{plots/pgfmanual-sine.table};
+\tikz\draw plot[const plot mark right,mark=*] file{./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 \end{key}
 
@@ -610,7 +610,7 @@ use options to change the behavior of |plot|.
   A variant of |/tikz/const plot| which places its mark in the middle
   of the horizontal lines: 
 \begin{codeexample}[]
-\tikz\draw plot[const plot mark mid,mark=*] file{plots/pgfmanual-sine.table};
+\tikz\draw plot[const plot mark mid,mark=*] file{./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
   More precisely, it generates vertical lines in the middle between
   each pair of consecutive points. If the mesh width is constant, this
@@ -624,7 +624,7 @@ use options to change the behavior of |plot|.
   marks, they will be placed on left open ends: 
 
 \begin{codeexample}[]
-\tikz\draw plot[jump mark left, mark=*] file{plots/pgfmanual-sine.table};
+\tikz\draw plot[jump mark left, mark=*] file{./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 \end{key}
 
@@ -634,7 +634,7 @@ use options to change the behavior of |plot|.
   marks, they will be placed on right open ends: 
 
 \begin{codeexample}[]
-\tikz\draw plot[jump mark right, mark=*] file{plots/pgfmanual-sine.table};
+\tikz\draw plot[jump mark right, mark=*] file{./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 \end{key}
 
@@ -645,7 +645,7 @@ use options to change the behavior of |plot|.
   segments: 
 
 \begin{codeexample}[]
-\tikz\draw plot[jump mark right, mark=*] file{plots/pgfmanual-sine.table};
+\tikz\draw plot[jump mark right, mark=*] file{./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 
   In case of non--constant mesh widths, the same remarks as for |const plot mark mid| apply.
@@ -658,7 +658,7 @@ use options to change the behavior of |plot|.
   resulting in a sort of ``comb'' or ``bar diagram.''
 
 \begin{codeexample}[]
-\tikz\draw[ultra thick] plot[ycomb,thin,mark=*] file{plots/pgfmanual-sine.table};
+\tikz\draw[ultra thick] plot[ycomb,thin,mark=*] file{./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 
 \begin{codeexample}[]
@@ -698,7 +698,7 @@ use options to change the behavior of |plot|.
   operations. It thus allows to use any fill- or pattern style. 
 
 \begin{codeexample}[]
-\tikz\draw[draw=blue,fill=blue!60!black] plot[ybar] file{plots/pgfmanual-sine.table};
+\tikz\draw[draw=blue,fill=blue!60!black] plot[ybar] file{./text-zh/plots/pgfmanual-sine.table};
 \end{codeexample}
 
 \begin{codeexample}[]

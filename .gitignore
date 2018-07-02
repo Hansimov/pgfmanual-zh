@@ -2,7 +2,7 @@
 latex-temp/
 references/
 
-LICENSE
+!LICENSE
 
 !.gitignore
 !*.md

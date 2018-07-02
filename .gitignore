@@ -1,10 +1,12 @@
 *.*
 latex-temp/
 references/
-tikz-tutorial-zh/
+
+LICENSE
 
 !.gitignore
 !*.md
+!*.txt
 
 !*.tex
 !*.bib
@@ -13,5 +15,6 @@ tikz-tutorial-zh/
 !*.eps
 !*.jpg
 !*.png
+!*.gnuplot
 
 !*.py

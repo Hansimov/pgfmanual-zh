@@ -1,0 +1,13 @@
+*.*
+latex-temp/
+references/
+/pgf-en/
+/pgf-zh/
+!.gitignore
+!*.md
+!*.tex
+!*.bib
+!*.pdf
+
+!*.eps
+!*.jpg

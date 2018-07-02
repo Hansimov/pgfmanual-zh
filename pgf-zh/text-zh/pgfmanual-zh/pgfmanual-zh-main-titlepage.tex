@@ -1,0 +1,230 @@
+% The titlepage
+
+\newbox\mybox
+{
+  \parindent0pt
+  \null
+  \colorlet{mintgreen}{green!50!black!50}
+
+  \thispagestyle{empty}
+  \vskip3cm
+  \vfill
+  \hfil
+  \begin{tikzpicture}[overlay]
+    \coordinate (front) at (0,0);
+    \coordinate (horizon) at (0,.31\paperheight);
+    \coordinate (bottom) at (0,-.6\paperheight);
+    \coordinate (sky) at (0,.57\paperheight);
+    \coordinate (left) at (-.51\paperwidth,0);
+    \coordinate (right) at (.51\paperwidth,0);
+
+    \shade [bottom color=blue!30!black!10,top color=blue!30!black!50]
+      ([yshift=-5mm]horizon -|  left) rectangle (sky -| right);
+    \shade [bottom color=black!70!green!25,top color=black!70!green!10]
+      (front -| left) -- (horizon -| left)
+      decorate [decoration=random steps] { -- (horizon -| right) }
+      -- (front -| right) -- cycle;
+    \shade [top color=black!70!green!25,bottom color=black!25]
+      ([yshift=-5mm-1pt]front -| left) rectangle ([yshift=1pt]front -| right);
+    \fill [black!25] (bottom -| left) rectangle ([yshift=-5mm]front -| right);
+
+    \def\nodeshadowed[#1]#2;{\node[scale=2,above,#1]{\global\setbox\mybox=\hbox{#2}\copy\mybox};
+      \node[scale=2,above,#1,yscale=-1,scope fading=south,opacity=0.4]{\box\mybox};}
+
+    \nodeshadowed [at={(-5,5  )},yslant=0.05] {\Huge Ti\textcolor{orange}{\emph{k}}Z};
+    \nodeshadowed [at={( 0,5.3)}] {\huge \textcolor{mintgreen}{\&}};
+    \nodeshadowed [at={( 5,5  )},yslant=-0.05] {\Huge \textsc{PGF}};
+    % \nodeshadowed [at={( 0,2  )}] {Manual for Version \pgftypesetversion};
+    \nodeshadowed [at={( 0,2  )}] {\tikzname\ \pgftypesetversion 中文手册};
+
+    \foreach \where in {-9cm,9cm}
+    {\nodeshadowed [at={(\where,5cm)}] {
+    \tikz \draw [green!20!black, rotate=90]
+    [l-system={rule set={F -> FF-[-F+F]+[+F-F]}, axiom=F, order=4,
+      step=2pt, randomize step percent=50, angle=30, randomize angle percent=5}]
+    lindenmayer system;};}
+
+    \foreach \i in {0.5,0.6,...,2}
+      \fill [white,decoration=Koch snowflake,opacity=.9]
+            [shift=(horizon),shift={(rand*11,rnd*7)},scale=\i]
+            [double copy shadow={opacity=0.2,shadow xshift=0pt,shadow
+              yshift=3*\i pt,fill=white,draw=none}]
+        decorate {
+          decorate {
+            decorate {
+              (0,0) -- ++(60:1) -- ++(-60:1) -- cycle
+            }
+          }
+        };
+
+  \node (left text) [text width=.5\paperwidth-2cm,below right,at={(-.5\paperwidth+1cm,-1.5cm)}]
+  {
+    \fontfamily{pcr}
+    \def\textbraceleft{\char`\{}
+    \def\textbraceright{\char`\}}
+    \def\textbackslash{\char`\\}
+    \begin{lstlisting}[basicstyle=\scriptsize\color{black},
+                       keywordstyle=\bfseries\color{white},
+                       identifierstyle=\bfseries\color{black},
+                       keywords={tikzpicture,shade,fill,draw,path,node},
+                       literate={-}{{-}}1]
+\begin{tikzpicture}
+  \coordinate (front) at (0,0);
+  \coordinate (horizon) at (0,.31\paperheight);
+  \coordinate (bottom) at (0,-.6\paperheight);
+  \coordinate (sky) at (0,.57\paperheight);
+  \coordinate (left) at (-.51\paperwidth,0);
+  \coordinate (right) at (.51\paperwidth,0);
+
+  \shade [bottom color=white,
+          top color=blue!30!black!50]
+              ([yshift=-5mm]horizon -|  left)
+    rectangle (sky -| right);
+
+  \shade [bottom color=black!70!green!25,
+          top color=black!70!green!10]
+    (front -| left) -- (horizon -| left)
+    decorate [decoration=random steps] {
+      -- (horizon -| right)  }
+    -- (front -| right) -- cycle;
+
+  \shade [top color=black!70!green!25,
+         bottom color=black!25]
+              ([yshift=-5mm-1pt]front -| left)
+    rectangle ([yshift=1pt]front -| right);
+
+  \fill [black!25]
+              (bottom -| left)
+    rectangle ([yshift=-5mm]front -| right);
+
+  \def\nodeshadowed[#1]#2;{
+    \node[scale=2,above,#1]{
+      \global\setbox\mybox=\hbox{#2}
+      \copy\mybox};
+    \node[scale=2,above,#1,yscale=-1,
+          scope fading=south,opacity=0.4]{\box\mybox};
+  }
+\end{lstlisting}
+};
+
+  \node (right text) [text width=.5\paperwidth-2cm,below right,at={(1cm,-1.5cm)}]
+  {
+    \fontfamily{pcr}
+    \def\textbraceleft{\char`\{}
+    \def\textbraceright{\char`\}}
+    \def\textbackslash{\char`\\}
+    \begin{lstlisting}[basicstyle=\scriptsize\color{black},
+                       keywordstyle=\bfseries\color{white},
+                       identifierstyle=\bfseries\color{black},
+                       keywords={tikzpicture,shade,fill,draw,path,node},
+                       literate={-}{{-}}1]
+  \nodeshadowed [at={(-5,8  )},yslant=0.05]
+    {\Huge Ti\textcolor{orange}{\emph{k}}Z};
+  \nodeshadowed [at={( 0,8.3)}]
+    {\huge \textcolor{green!50!black!50}{\&}};
+  \nodeshadowed [at={( 5,8  )},yslant=-0.05]
+    {\Huge \textsc{PGF}};
+  \nodeshadowed [at={( 0,5  )}]
+    {Manual for Version \pgftypesetversion};
+
+  \foreach \where in {-9cm,9cm} {
+    \nodeshadowed [at={(\where,5cm)}] { \tikz
+      \draw [green!20!black, rotate=90,
+             l-system={rule set={F -> FF-[-F+F]+[+F-F]},
+               axiom=F, order=4,step=2pt,
+               randomize step percent=50, angle=30,
+               randomize angle percent=5}] l-system; }}
+
+  \foreach \i in {0.5,0.6,...,2}
+    \fill
+      [white,opacity=\i/2,
+       decoration=Koch snowflake,
+       shift=(horizon),shift={(rand*11,rnd*7)},
+       scale=\i,double copy shadow={
+         opacity=0.2,shadow xshift=0pt,
+         shadow yshift=3*\i pt,fill=white,draw=none}]
+      decorate {
+        decorate {
+          decorate {
+            (0,0)- ++(60:1) -- ++(-60:1) -- cycle
+          } } };
+
+   \node (left text) ...
+   \node (right text) ...
+
+   \fill [decorate,decoration={footprints,foot of=gnome},
+          opacity=.5,brown]        (rand*8,-rnd*10)
+     to [out=rand*180,in=rand*180] (rand*8,-rnd*10);
+\end{tikzpicture}
+  \end{lstlisting}
+  };
+
+  \fill [decorate,decoration=footprints,
+         decoration={footprints,foot of=gnome},
+         opacity=.5,brown]        (rand*8,-rnd*10)
+    to [out=rand*180,in=rand*180] (rand*8,-rnd*10);
+\end{tikzpicture}
+\vfill
+\vbox{}
+\clearpage
+}
+
+{
+  \vbox{}
+  \vskip0pt plus 1fill
+  F\"ur meinen Vater, damit er noch viele sch\"one \TeX-Graphiken
+  erschaffen kann.
+  \vskip1em
+  \hfill\emph{Till}
+  \vskip0pt plus 3fill
+
+  \parindent=0pt
+  Copyright 2007 to 2013 by Till Tantau
+
+  \medskip
+  Permission is granted to copy, distribute and/or modify \emph{the documentation}
+  under the terms of the \textsc{gnu} Free Documentation License, Version 1.2
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+  A copy of the license is included in the section entitled \textsc{gnu}
+  Free Documentation License.
+
+  \medskip
+  Permission is granted to copy, distribute and/or modify \emph{the
+    code of the package} under the terms of the \textsc{gnu} Public License, Version 2
+  or any later version published by the Free Software Foundation.
+  A copy of the license is included in the section entitled \textsc{gnu}
+  Public License.
+
+  \medskip
+  Permission is also granted to distribute and/or modify \emph{both
+    the documentation and the code} under the conditions of the LaTeX
+  Project Public License, either version 1.3 of this license or (at
+  your option) any later version. A copy of the license is included in
+  the section entitled \LaTeX\ Project Public License.
+
+  \vbox{}
+  \clearpage
+}
+
+% \title{\bfseries The \tikzname\ and {\Large PGF} Packages\\
+%   \large Manual for version \pgfversion\\[1mm]
+% \large\href{http://sourceforge.net/projects/pgf}{\texttt{http://sourceforge.net/projects/pgf}}}
+\title{\bfseries \tikzname\ 和 {\Large PGF} 宏包\\
+  \large \tikzname\ \pgfversion 中文手册\footnote{{\color{blue}翻译者：Hansimov。此项目开源在 GitHub，欢迎提出建议或参与翻译：https://github.com/Hansimov/pgfmanual-zh}}\\[1mm]
+\large\href{http://sourceforge.net/projects/pgf}{\texttt{http://sourceforge.net/projects/pgf}}}
+
+% \author{Till Tantau\footnote{Editor of this documentation. Parts of
+%     this documentation have been written by other authors as indicated
+%     in these parts or chapters and in Section~\ref{section-authors}.}\\
+\author{Till Tantau\footnote{该手册的编者。手册的部分内容由另外一些作者写成，详见~\ref{section-authors}~小节。}\\
+  \normalsize Institut f\"ur Theoretische Informatik\\[-1mm]
+  \normalsize Universit\"at zu L\"ubeck}
+
+\date{August 29, 2015 \footnote{{\color{blue}中文手册更新时间：\the\year 年 \the\month 月 \the\day 日}}}
+
+\maketitle
+
+\tableofcontents
+
+\clearpage

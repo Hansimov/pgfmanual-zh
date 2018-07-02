@@ -8,45 +8,63 @@
 % See the file doc/generic/pgf/licenses/LICENSE for more details.
 
 
-\section{Introduction}
+% \section{Introduction}
+\section{引言}
 
-Welcome to the documentation of \tikzname\ and the underlying
-\pgfname\ system. What began as a small La\TeX\ style for creating the 
-graphics in my (Till Tantau's) PhD thesis directly with pdf\LaTeX\ has now
-grown to become a full-flung graphics language with a manual of over a
-thousand pages. The wealth of options offered by \tikzname\ is often
-daunting to beginners; but fortunately this documentation comes with a
-number slowly-paced tutorials that will teach you almost all you
-should know about \tikzname\ without your having to read the rest.
+\begin{onehalfspacing}
 
-I wish to start with the questions ``What is \tikzname?''
-Basically, it just defines a number of \TeX\ commands that draw
-graphics. For example, the code |\tikz \draw (0pt,0pt) -- (20pt,6pt);|
-yields the line \tikz \draw (0pt,0pt) -- (20pt,6pt); and the code
-|\tikz \fill[orange] (1ex,1ex) circle (1ex);| yields \tikz
-\fill[orange] (1ex,1ex) circle (1ex);. In a sense, when you use
-\tikzname\ you ``program'' your graphics, just as you ``program'' your
-document when you use \TeX. This also explains the name: \tikzname\
-is a recursive accronym in the tradition of ``\textsc{gnu} is not
-unix'' and means ``\tikzname\ ist \emph{kein} Zeichenprogramm,'' which
-translates to ``\tikzname\ is not a drawing program,'' cautioning the
-reader as to what to expect. With \tikzname\ you get all the advantages of the
-``\TeX-approach to typesetting'' for your graphics: quick creation of
-simple graphics, precise positioning, the use of macros, often
-superior typography. You also inherit all the disadvantages: steep
-learning curve, no \textsc{wysiwyg}, small changes require a long
-recompilation time, and the code does not really ``show'' how things
-will look like. 
+% Welcome to the documentation of \tikzname\ and the underlying
+% \pgfname\ system. What began as a small La\TeX\ style for creating the 
+% graphics in my (Till Tantau's) PhD thesis directly with pdf\LaTeX\ has now
+% grown to become a full-flung graphics language with a manual of over a
+% thousand pages. The wealth of options offered by \tikzname\ is often
+% daunting to beginners; but fortunately this documentation comes with a
+% number slowly-paced tutorials that will teach you almost all you
+% should know about \tikzname\ without your having to read the rest.
 
-Now that we know what \tikzname\ is, what about ``\pgfname''?
-As mentioned earlier, \tikzname\ started out as a project to implement
-\TeX\ graphics macros that can be used both with pdf\LaTeX\ and also
-with the classical (PostScript-based) \LaTeX. In other words, I wanted
-to implement a ``portable graphics format'' for \TeX\ -- hence the
-name \pgfname. These early macros are still around and they form the
-``basic layer'' of the system described in this manual, but most of
-the interaction an author has theses days is with \tikzname\ -- which
-has become a whole language of its own.
+欢迎阅读 \tikzname\ 和底层 \pgfname\ 系统的文档。
+一开始这只是一个小小的 La\TeX\ 样式，用来在我（Till Tantau）的博士论文里画图，如今它已经变成了飞速发展的图形语言，手册有一千多页。
+\tikzname\ 的大量选项常常吓到新手，不过好消息是，这个文档还有一些慢节奏的教程，你不必看其他部分，就能学到几乎所有你需要知道的关于 \tikzname\ 的内容。
+
+% I wish to start with the questions ``What is \tikzname?''
+% Basically, it just defines a number of \TeX\ commands that draw
+% graphics. For example, the code |\tikz \draw (0pt,0pt) -- (20pt,6pt);|
+% yields the line \tikz \draw (0pt,0pt) -- (20pt,6pt); and the code
+% |\tikz \fill[orange] (1ex,1ex) circle (1ex);| yields \tikz
+% \fill[orange] (1ex,1ex) circle (1ex);. In a sense, when you use
+% \tikzname\ you ``program'' your graphics, just as you ``program'' your
+% document when you use \TeX. This also explains the name: \tikzname\
+% is a recursive accronym in the tradition of ``\textsc{gnu} is not
+% unix'' and means ``\tikzname\ ist \emph{kein} Zeichenprogramm,'' which
+% translates to ``\tikzname\ is not a drawing program,'' cautioning the
+% reader as to what to expect. With \tikzname\ you get all the advantages of the
+% ``\TeX-approach to typesetting'' for your graphics: quick creation of
+% simple graphics, precise positioning, the use of macros, often
+% superior typography. You also inherit all the disadvantages: steep
+% learning curve, no \textsc{wysiwyg}, small changes require a long
+% recompilation time, and the code does not really ``show'' how things
+% will look like. 
+
+我想从“什么是 \tikzname ？”这个问题开始。大体上，它只是定义一些 \TeX\ 中的绘图命令。
+比如说，代码 |\tikz \draw (0pt,0pt) -- (20pt,6pt);| 会生成一条线 \tikz \draw (0pt,0pt) -- (20pt,6pt);，代码 |\tikz \fill[orange] (1ex,1ex) circle (1ex);| 会生成 \tikz \fill[orange] (1ex,1ex) circle (1ex);。
+在某种程度上，当你用 \tikzname\ 的时候，你是在\textbf{编写}图形\textbf{程序}，就像你用 \TeX \textbf{编写}文档\textbf{程序}一样。
+这也解释了 \tikzname\ 这个名字的由来：它是一个递归缩写，沿袭了 ``\textsc{gnu} is not unix'' 的风格。它的德文含义是 ``\tikzname\ ist \emph{kein} Zeichenprogramm''，翻译成英文就是 ``\tikzname\ is not a drawing program''，中文意思是``\tikzname\ 不是一个绘图程序''，它提醒读者注意这个宏包的真正意图。
+\tikzname\ 采用``\TeX 式的排版''，因此有这样一些优点：迅速创建简单图形，精准定位，可以使用宏，以及一流的排版。
+同样，它也继承了 \TeX\ 系统的缺点：学习曲线陡峭，不是``所见即所得''\footnote{{\color{blue}\textsc{wysiwyg}，What You See Is What You Get。}}，微小的改变就需要长时间的重新编译，并且代码并不能真正``展示出''事物将有的样子。
+
+% Now that we know what \tikzname\ is, what about ``\pgfname''?
+% As mentioned earlier, \tikzname\ started out as a project to implement
+% \TeX\ graphics macros that can be used both with pdf\LaTeX\ and also
+% with the classical (PostScript-based) \LaTeX. In other words, I wanted
+% to implement a ``portable graphics format'' for \TeX\ -- hence the
+% name \pgfname. These early macros are still around and they form the
+% ``basic layer'' of the system described in this manual, but most of
+% the interaction an author has theses days is with \tikzname\ -- which
+% has become a whole language of its own.
+
+现在我们知道什么是 \tikzname\ 了，那么 \pgfname 呢？
+
+\end{onehalfspacing}
 
 
 \subsection{The Layers Below \tikzname}

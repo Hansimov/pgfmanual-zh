@@ -1,0 +1,51 @@
+% \part{Installation and Configuration}
+\part{安装和配置}
+
+{\Large \emph{by Till Tantau}}
+
+
+\bigskip
+\noindent
+% This part explains how the system is installed. Typically, someone has
+% already done so for your system, so this part can be skipped; but if
+% this is not the case and you are the poor fellow who has to do the
+% installation, read the present part.
+这部分介绍如何安装该系统。通常已经有人帮你装好了，所以你可以跳过这部分；但是如果事与愿违，你是那个不得不自己安装的可怜的家伙，那么请阅读这一部分。
+
+\vskip1cm
+
+\begin{codeexample}[graphic=white]
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,on grid,semithick,
+                    every state/.style={fill=red,draw=none,circular drop shadow,text=white}]
+
+  \node[initial,state] (A)                    {$q_a$};
+  \node[state]         (B) [above right=of A] {$q_b$};
+  \node[state]         (D) [below right=of A] {$q_d$};
+  \node[state]         (C) [below right=of B] {$q_c$};
+  \node[state]         (E) [below=of D]       {$q_e$};
+
+  \path (A) edge              node {0,1,L} (B)
+            edge              node {1,1,R} (C)
+        (B) edge [loop above] node {1,1,L} (B)
+            edge              node {0,1,L} (C)
+        (C) edge              node {0,1,L} (D)
+            edge [bend left]  node {1,0,R} (E)
+        (D) edge [loop below] node {1,1,R} (D)
+            edge              node {0,1,R} (A)
+        (E) edge [bend left]  node {1,0,R} (A);
+
+   \node [right=1cm,text width=8cm] at (C)
+   {
+     The current candidate for the busy beaver for five states. It is
+     presumed that this Turing machine writes a maximum number of
+     $1$'s before halting among all Turing machines with five states
+     and the tape alphabet $\{0, 1\}$. Proving this conjecture is an
+     open research problem. 中文测试
+   };
+\end{tikzpicture}
+\end{codeexample}
+
+% \include{./text-zh/pgfmanual-zh-installation/pgfmanual-zh-installation}
+% \include{./text-zh/pgfmanual-zh-installation/pgfmanual-zh-license}
+% \include{./text-zh/pgfmanual-zh-installation/pgfmanual-zh-drivers}
+

@@ -4,52 +4,8 @@
 \begin{document}
 \begin{preview}
 
-% \begin{tikzpicture}
-% % [   level 1/.style={grow=right, sibling distance=4ex},
-% %     level 2/.style={grow=right, sibling distance=4ex}
-% % ]
-% \tikzstyle{every node} = [draw=blue, align=center]
-% \tikzstyle{lv1} = [grow=right, edge from parent path={(\tikzparentnode.east) -- ++(5em,0) |- (\tikzchildnode.west)}, level distance = 16em, sibling distance=6ex]
-% \tikzstyle{lv2} = [grow=right, edge from parent path={(\tikzparentnode.east) -- ++(5em,0) |- (\tikzchildnode.west)}, level distance = 20em, sibling distance=12ex]
-% \tikzstyle{nd0} = [draw=red,    thick, anchor=west, align=center, minimum width= 8em, text width = 8em]
-% \tikzstyle{nd1} = [draw=yellow,        anchor=west, align=left,   minimum width= 8em, text width = 18em]
-% \tikzstyle{nd2} = [draw=green,         anchor=west, align=left,   minimum width= 8em, text width = 25em]
-
-% \node [nd0] {\tikzname\ / \pgfname\ 中文手册}
-%     [lv1]
-%     child {node [nd1] {Introduction}
-%         [lv2]
-%         child {node [nd2] {The Layers Below \tikzname}}
-%         child {node [nd2] {Comparison with Other Graphics Packages}}
-%         child {node [nd2] {Utility Packages}}
-%         child {node [nd2] {How to Read This Manual}}
-%         child {node [nd2] {Authors and Acknowledgements}}
-%         child {node [nd2] {Getting Help}}
-%     }
-%     child {node [nd1] {Tutorials and Guidelines}
-%         [lv1]
-%         child {node [nd2] {Tutorial: A Picture for Karl’s Students}}
-%         child {node [nd2] {Tutorial: A Petri-Net for Hagen}}
-%         child {node [nd2] {Tutorial: Euclid’s Amber Version of the Elements}}
-%         child {node [nd2] {Tutorial: Diagrams as Simple Graphs}}
-%         child {node [nd2] {Tutorial: A Lecture Map for Johannes}}
-%         child {node [nd2] {Tutorial: Guidelines on Graphics}}
-%     }
-%     child {node [nd1] {Installation and Configurations}}
-%     child {node [nd1] {Ti\emph{k}Z ist \emph{kein} Zeichenprogramm}}
-%     child {node [nd1] {Graph Drawing}}
-%     child {node [nd1] {Data Visualizations}}
-%     child {node [nd1] {Utilities}}
-%     child {node [nd1] {Mathematical and Objected Engines}}
-%     child {node [nd1] {Utilities}}
-%     child {node [nd1] {The Basic Layer}}
-%     child {node [nd1] {The System Layer}}
-%     child {node [nd1] {References and Index}};
-
-% \end{tikzpicture}
-% \Newpage
-
 \begin{tikzpicture}[grow'=right, sibling distance=4ex]
+
 \tikzstyle{level 1} = [level distance= 20em]
 \tikzstyle{level 2} = [level distance= 28em]
 \tikzstyle{level 3} = [level distance= 30em]
@@ -57,17 +13,16 @@
 % \tikzstyle{edge from parent} = [draw, edge from parent fork right]
 \tikzstyle{nd0} = [draw=black, minimum width=8em, text width=10em, align=center]
 \tikzstyle{nd1} = [draw=black, minimum width=8em, text width=20em, align=center]
-\tikzstyle{nd2} = [draw=black, minimum width=8em, text width=26em, align=left]
+\tikzstyle{nd2} = [draw=black, minimum width=8em, text width=28em, align=left]
 
 \tikzstyle{every tree node} = [fill=red!30, font=\bfseries]
 \tikzstyle{done}  = [fill=green!30]
 \tikzstyle{doing} = [fill=cyan!30]
 \tikzstyle{not}   = [fill=red!30]
 
-
 \Tree 
 [ .\node [nd0, doing] {\tikzname\ \& PGF \\ \pgfversion\ \\ 中文手册};
-    [ . \node [nd1, doing] {Introduction};
+    [ . \node [nd1, doing] {Introduction}; 
         [ . \node [nd2, done] {The Layers Below \tikzname}; ]
         [ . \node [nd2, doing] {Comparison with Other Graphics Packages}; ]
         [ . \node [nd2, not] {Utility Packages}; ]
@@ -75,7 +30,7 @@
         [ . \node [nd2, not] {Authors and Acknowledgements}; ]
         [ . \node [nd2, not] {Getting Help}; ]
     ]
-    [ . \node [nd1] {Tutorials and Guidelines};
+    [ . \node [nd1] {Tutorials and Guidelines}; 
         [ . \node [nd2] {Tutorial: A Picture for Karl's Students}; ]
         [ . \node [nd2] {Tutorial: A Petri-Net for Hagen}; ]
         [ . \node [nd2] {Tutorial: Euclid's Amber Version of the Elements}; ]
@@ -88,7 +43,7 @@
         [ . \node [nd2] {Licenses and Copyright}; ]
         [ . \node [nd2] {Supported Formats}; ]
     ]
-    [ . \node [nd1] {Ti\emph{k}Z ist \emph{kein} Zeichenprogramm};
+    [ . \node [nd1] {Ti\emph{k}Z ist \emph{kein} Zeichenprogramm}; 
         [ . \node [nd2] {Design Principles}; ]
         [ . \node [nd2] {Hierarchical Structures: \\ Package, Environments, Scopes, and Styles}; ]
         [ . \node [nd2] {Specifying Coordinates}; ]
@@ -105,7 +60,7 @@
         [ . \node [nd2] {Decorated Paths}; ]
         [ . \node [nd2] {Transformations}; ]
     ]
-    [ . \node [nd1] {Graph Drawing};
+    [ . \node [nd1] {Graph Drawing}; 
         [ . \node [nd2] {Introduction to Algorithmic Graph Drawing}; ]
         [ . \node [nd2] {Using Graph Drawing in \tikzname}; ]
         [ . \node [nd2] {Using Graph Drawing in PGF}; ]
@@ -120,7 +75,7 @@
         [ . \node [nd2] {The Display Layer}; ]
         [ . \node [nd2] {The Binding Layer}; ]
     ]
-    [ . \node [nd1] {Libraries};
+    [ . \node [nd1] {Libraries}; 
         [ . \node [nd2] {Angle Library}; ]
         [ . \node [nd2] {Arrow Tip Library}; ]
         [ . \node [nd2] {Automata Drawing Library}; ]
@@ -183,7 +138,7 @@
         [ . \node [nd2] {Number Printing}; ]
         [ . \node [nd2] {Object-Oriented Programming}; ]
     ]
-    [ . \node [nd1] {The Basic Layer};
+    [ . \node [nd1] {The Basic Layer}; 
         [ . \node [nd2] {Design Principles}; ]
         [ . \node [nd2] {Hierarchical Structures: \\ Package, Environments, Scopes, and Text}; ]
         [ . \node [nd2] {Specifying Coordinates}; ]
@@ -204,7 +159,7 @@
         [ . \node [nd2] {Adding libraries to PGF: temporary registers}; ]
         [ . \node [nd2] {Quick Commands}; ]
     ]
-    [ . \node [nd1] {The System Layer};
+    [ . \node [nd1] {The System Layer}; 
         [ . \node [nd2] {Design of the System Layer}; ]
         [ . \node [nd2] {Commands of the System Layer}; ]
         [ . \node [nd2] {The Soft Path Subsystem}; ]

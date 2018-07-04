@@ -8,11 +8,11 @@
 
 \tikzstyle{level 1} = [level distance= 20em]
 \tikzstyle{level 2} = [level distance= 28em]
-\tikzstyle{level 3} = [level distance= 30em]
+\tikzstyle{level 3} = [level distance= 38em]
 \tikzstyle{edge from parent} = [draw, edge from parent path={(\tikzchildnode.west) -- ++(-2em,0) |- (\tikzparentnode.east)}]
 % \tikzstyle{edge from parent} = [draw, edge from parent fork right]
 \tikzstyle{nd0} = [draw=black, minimum width=8em, text width=10em, align=center]
-\tikzstyle{nd1} = [draw=black, minimum width=8em, text width=20em, align=center]
+\tikzstyle{nd1} = [draw=black, minimum width=8em, text width=18em, align=center]
 \tikzstyle{nd2} = [draw=black, minimum width=8em, text width=28em, align=left]
 
 \tikzstyle{every tree node} = [fill=red!30, font=\bfseries]
@@ -21,7 +21,8 @@
 \tikzstyle{not}   = [fill=red!30]
 
 \Tree 
-[ .\node [nd0, doing] {\tikzname\ \& PGF \\ \pgfversion\ \\ 中文手册};
+% [ .\node [nd0, doing] {\tikzname\ \& PGF \\ \pgfversion\ \\ 中文手册};
+[ .\node [nd0, doing] {\tikzname\ \& PGF \\ \pgfversion\ };
     [ . \node [nd1, doing] {Introduction}; 
         [ . \node [nd2, done] {The Layers Below \tikzname}; ]
         [ . \node [nd2, doing] {Comparison with Other Graphics Packages}; ]
@@ -130,7 +131,7 @@
         [ . \node [nd2] {Extended Color Support}; ]
         [ . \node [nd2] {Parser Module}; ]
     ]
-    [ . \node [nd1] {Mathematical and Objected Engines}; 
+    [ . \node [nd1] {Mathematical \\ and \\ Objected-Oriented Engines}; 
         [ . \node [nd2] {Design Principles}; ]
         [ . \node [nd2] {Mathematical Expressions}; ]
         [ . \node [nd2] {Additional Mathematical Commands}; ]

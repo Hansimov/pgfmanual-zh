@@ -35,3 +35,7 @@ PGF/TikZ 相关的学习资源很多，可以参考这个项目：
 * 有强烈的兴趣
 
 那么欢迎加入该项目的 Gitter 聊天室联系我：[pgfmanual-zh/Lobby](https://gitter.im/pgfmanual-zh/Lobby)
+
+## 翻译进度
+
+![翻译进度](https://github.com/Hansimov/pgfmanual-zh/blob/master/pgf-zh/schedule/translation-schedule.png)

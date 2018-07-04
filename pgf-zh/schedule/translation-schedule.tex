@@ -4,7 +4,7 @@
 \begin{document}
 \begin{preview}
 
-\begin{tikzpicture}[grow'=right, sibling distance=4ex]
+\begin{tikzpicture}[grow'=right, sibling distance=3ex]
 
 \tikzstyle{level 1} = [level distance= 20em]
 \tikzstyle{level 2} = [level distance= 28em]
@@ -168,6 +168,19 @@
     ]
     [ . \node [nd1, done] {References and Index}; ]
 ]
+
+% \node [below right,text width= 7em, fill=red!30              ] (rect red)   at (current bounding box.north west) {Not Translated};
+% \node [below right,text width= 7em, yshift =  -5ex, fill=cyan!30] (rect cyan)  at (current bounding box.north west) {Translating};
+% \node [below right,text width= 7em, yshift = -10ex,fill=green!30] (rect green) at (current bounding box.north west) {Translated};
+
+% \node[right= 1em of rect red,   text=red!30  ] {尚未翻译};
+% \node[right= 1em of rect cyan,  text=cyan!30 ] {正在翻译};
+% \node[right= 1em of rect green, text=green!30] {翻译完成};
+
+\node [below right,text width= 4em, fill=red!30                 ] (rect red)   at (current bounding box.north west) {\textbf{尚未翻译}};
+\node [below right,text width= 4em, yshift =  -5ex, fill=cyan!30] (rect cyan)  at (current bounding box.north west) {\textbf{正在翻译}};
+\node [below right,text width= 4em, yshift = -10ex,fill=green!30] (rect green) at (current bounding box.north west) {\textbf{翻译完成}};
+
 \end{tikzpicture}
 
 

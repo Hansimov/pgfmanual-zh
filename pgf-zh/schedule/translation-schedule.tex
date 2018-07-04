@@ -1,0 +1,219 @@
+\documentclass{article}
+\input{translation-schedule-settings}
+
+\begin{document}
+\begin{preview}
+
+% \begin{tikzpicture}
+% % [   level 1/.style={grow=right, sibling distance=4ex},
+% %     level 2/.style={grow=right, sibling distance=4ex}
+% % ]
+% \tikzstyle{every node} = [draw=blue, align=center]
+% \tikzstyle{lv1} = [grow=right, edge from parent path={(\tikzparentnode.east) -- ++(5em,0) |- (\tikzchildnode.west)}, level distance = 16em, sibling distance=6ex]
+% \tikzstyle{lv2} = [grow=right, edge from parent path={(\tikzparentnode.east) -- ++(5em,0) |- (\tikzchildnode.west)}, level distance = 20em, sibling distance=12ex]
+% \tikzstyle{nd0} = [draw=red,    thick, anchor=west, align=center, minimum width= 8em, text width = 8em]
+% \tikzstyle{nd1} = [draw=yellow,        anchor=west, align=left,   minimum width= 8em, text width = 18em]
+% \tikzstyle{nd2} = [draw=green,         anchor=west, align=left,   minimum width= 8em, text width = 25em]
+
+% \node [nd0] {\tikzname\ / \pgfname\ 中文手册}
+%     [lv1]
+%     child {node [nd1] {Introduction}
+%         [lv2]
+%         child {node [nd2] {The Layers Below \tikzname}}
+%         child {node [nd2] {Comparison with Other Graphics Packages}}
+%         child {node [nd2] {Utility Packages}}
+%         child {node [nd2] {How to Read This Manual}}
+%         child {node [nd2] {Authors and Acknowledgements}}
+%         child {node [nd2] {Getting Help}}
+%     }
+%     child {node [nd1] {Tutorials and Guidelines}
+%         [lv1]
+%         child {node [nd2] {Tutorial: A Picture for Karl’s Students}}
+%         child {node [nd2] {Tutorial: A Petri-Net for Hagen}}
+%         child {node [nd2] {Tutorial: Euclid’s Amber Version of the Elements}}
+%         child {node [nd2] {Tutorial: Diagrams as Simple Graphs}}
+%         child {node [nd2] {Tutorial: A Lecture Map for Johannes}}
+%         child {node [nd2] {Tutorial: Guidelines on Graphics}}
+%     }
+%     child {node [nd1] {Installation and Configurations}}
+%     child {node [nd1] {Ti\emph{k}Z ist \emph{kein} Zeichenprogramm}}
+%     child {node [nd1] {Graph Drawing}}
+%     child {node [nd1] {Data Visualizations}}
+%     child {node [nd1] {Utilities}}
+%     child {node [nd1] {Mathematical and Objected Engines}}
+%     child {node [nd1] {Utilities}}
+%     child {node [nd1] {The Basic Layer}}
+%     child {node [nd1] {The System Layer}}
+%     child {node [nd1] {References and Index}};
+
+% \end{tikzpicture}
+% \Newpage
+
+\begin{tikzpicture}[grow'=right, sibling distance=4ex]
+\tikzstyle{level 1} = [level distance= 20em]
+\tikzstyle{level 2} = [level distance= 28em]
+\tikzstyle{level 3} = [level distance= 30em]
+\tikzstyle{edge from parent} = [draw, edge from parent path={(\tikzchildnode.west) -- ++(-2em,0) |- (\tikzparentnode.east)}]
+% \tikzstyle{edge from parent} = [draw, edge from parent fork right]
+\tikzstyle{nd0} = [draw=black, minimum width=8em, text width=10em, align=center]
+\tikzstyle{nd1} = [draw=black, minimum width=8em, text width=20em, align=center]
+\tikzstyle{nd2} = [draw=black, minimum width=8em, text width=26em, align=left]
+
+\tikzstyle{every tree node} = [fill=red!30, font=\bfseries]
+\tikzstyle{done}  = [fill=green!30]
+\tikzstyle{doing} = [fill=cyan!30]
+\tikzstyle{not}   = [fill=red!30]
+
+
+\Tree 
+[ .\node [nd0, doing] {\tikzname\ \& PGF \\ \pgfversion\ \\ 中文手册};
+    [ . \node [nd1, doing] {Introduction};
+        [ . \node [nd2, done] {The Layers Below \tikzname}; ]
+        [ . \node [nd2, doing] {Comparison with Other Graphics Packages}; ]
+        [ . \node [nd2, not] {Utility Packages}; ]
+        [ . \node [nd2, not] {How to Read This Manual}; ]
+        [ . \node [nd2, not] {Authors and Acknowledgements}; ]
+        [ . \node [nd2, not] {Getting Help}; ]
+    ]
+    [ . \node [nd1] {Tutorials and Guidelines};
+        [ . \node [nd2] {Tutorial: A Picture for Karl's Students}; ]
+        [ . \node [nd2] {Tutorial: A Petri-Net for Hagen}; ]
+        [ . \node [nd2] {Tutorial: Euclid's Amber Version of the Elements}; ]
+        [ . \node [nd2] {Tutorial: Diagrams as Simple Graphs}; ]
+        [ . \node [nd2] {Tutorial: A Lecture Map for Johannes}; ]
+        [ . \node [nd2] {Tutorial: Guidelines on Graphics}; ]
+    ]
+    [ . \node [nd1] {Installation and Configurations}; 
+        [ . \node [nd2] {Installation}; ]
+        [ . \node [nd2] {Licenses and Copyright}; ]
+        [ . \node [nd2] {Supported Formats}; ]
+    ]
+    [ . \node [nd1] {Ti\emph{k}Z ist \emph{kein} Zeichenprogramm};
+        [ . \node [nd2] {Design Principles}; ]
+        [ . \node [nd2] {Hierarchical Structures: \\ Package, Environments, Scopes, and Styles}; ]
+        [ . \node [nd2] {Specifying Coordinates}; ]
+        [ . \node [nd2] {Syntax for Path Specifications}; ]
+        [ . \node [nd2] {Actions on Paths}; ]
+        [ . \node [nd2] {Arrows}; ]
+        [ . \node [nd2] {Nodes and Edges}; ]
+        [ . \node [nd2] {Pics: Small Pictures on Paths}; ]
+        [ . \node [nd2] {Specifying Graphs}; ]
+        [ . \node [nd2] {Matrices and Alignment}; ]
+        [ . \node [nd2] {Making Trees Grow}; ]
+        [ . \node [nd2] {Plots of Functions}; ]
+        [ . \node [nd2] {Transparency}; ]
+        [ . \node [nd2] {Decorated Paths}; ]
+        [ . \node [nd2] {Transformations}; ]
+    ]
+    [ . \node [nd1] {Graph Drawing};
+        [ . \node [nd2] {Introduction to Algorithmic Graph Drawing}; ]
+        [ . \node [nd2] {Using Graph Drawing in \tikzname}; ]
+        [ . \node [nd2] {Using Graph Drawing in PGF}; ]
+        [ . \node [nd2] {Graph Drawing Layouts: Trees}; ]
+        [ . \node [nd2] {Graph Drawing Algorithms: Layered Layouts}; ]
+        [ . \node [nd2] {Graph Drawing Algorithms: Force-Based Methods}; ]
+        [ . \node [nd2] {Graph Drawing Algorithms: Circular Layouts}; ]
+        [ . \node [nd2] {Graph Drawing Layouts: Phylogenetic Trees}; ]
+        [ . \node [nd2] {Graph Drawing Algorithms: Edge Routing}; ]
+        [ . \node [nd2] {The Algorithm Layer}; ]
+        [ . \node [nd2] {Writing Graph Drawing Algorithms in C}; ]
+        [ . \node [nd2] {The Display Layer}; ]
+        [ . \node [nd2] {The Binding Layer}; ]
+    ]
+    [ . \node [nd1] {Libraries};
+        [ . \node [nd2] {Angle Library}; ]
+        [ . \node [nd2] {Arrow Tip Library}; ]
+        [ . \node [nd2] {Automata Drawing Library}; ]
+        [ . \node [nd2] {Babel Library}; ]
+        [ . \node [nd2] {Background Library}; ]
+        [ . \node [nd2] {Calc Library}; ]
+        [ . \node [nd2] {Calendar Library}; ]
+        [ . \node [nd2] {Chains}; ]
+        [ . \node [nd2] {Circuit Libraries}; ]
+        [ . \node [nd2] {Decoration Library}; ]
+        [ . \node [nd2] {Entity-Relationship Diagram Drawing Library}; ]
+        [ . \node [nd2] {Externalization Library}; ]
+        [ . \node [nd2] {Fading Library}; ]
+        [ . \node [nd2] {Fitting Library}; ]
+        [ . \node [nd2] {Fixed Point Arithmetic Library}; ]
+        [ . \node [nd2] {Floating Point Unit Library}; ]
+        [ . \node [nd2] {Lindenmayer System Drawing Library}; ]
+        [ . \node [nd2] {Math Library}; ]
+        [ . \node [nd2] {Matrix Library}; ]
+        [ . \node [nd2] {Mindmap Drawing Library}; ]
+        [ . \node [nd2] {Paper Folding Diagrams Library}; ]
+        [ . \node [nd2] {Pattern Library}; ]
+        [ . \node [nd2] {Petri-Net Drawing Library}; ]
+        [ . \node [nd2] {Plot Handler Library}; ]
+        [ . \node [nd2] {Plot Mark Library}; ]
+        [ . \node [nd2] {Profiler Library}; ]
+        [ . \node [nd2] {Shadings Library}; ]
+        [ . \node [nd2] {Shadows Library}; ]
+        [ . \node [nd2] {Shape Library}; ]
+        [ . \node [nd2] {Spy Library: Magnifying Parts of Pictures}; ]
+        [ . \node [nd2] {SVG-Path Library}; ]
+        [ . \node [nd2] {To Path Library}; ]
+        [ . \node [nd2] {Through Library}; ]
+        [ . \node [nd2] {Tree Library}; ]
+        [ . \node [nd2] {Turtle Graphics Library}; ]
+    ]
+    [ . \node [nd1] {Data Visualization}; 
+        [ . \node [nd2] {Introduction to Data Visualization}; ]
+        [ . \node [nd2] {Creating Data Visualizations}; ]
+        [ . \node [nd2] {Providing Data for a Data Visualization}; ]
+        [ . \node [nd2] {Axes}; ]
+        [ . \node [nd2] {Visualizers}; ]
+        [ . \node [nd2] {Style Sheets and Legends}; ]
+        [ . \node [nd2] {Polar Axes}; ]
+        [ . \node [nd2] {The Data Visualization Backend}; ]
+    ]
+    [ . \node [nd1] {Utilities}; 
+        [ . \node [nd2] {Key Management}; ]
+        [ . \node [nd2] {Repeating Things: The Foreach Statement}; ]
+        [ . \node [nd2] {Date and Calendar Utility Macros}; ]
+        [ . \node [nd2] {Page Management}; ]
+        [ . \node [nd2] {Extended Color Support}; ]
+        [ . \node [nd2] {Parser Module}; ]
+    ]
+    [ . \node [nd1] {Mathematical and Objected Engines}; 
+        [ . \node [nd2] {Design Principles}; ]
+        [ . \node [nd2] {Mathematical Expressions}; ]
+        [ . \node [nd2] {Additional Mathematical Commands}; ]
+        [ . \node [nd2] {Customizing the Mathematical Engine}; ]
+        [ . \node [nd2] {Number Printing}; ]
+        [ . \node [nd2] {Object-Oriented Programming}; ]
+    ]
+    [ . \node [nd1] {The Basic Layer};
+        [ . \node [nd2] {Design Principles}; ]
+        [ . \node [nd2] {Hierarchical Structures: \\ Package, Environments, Scopes, and Text}; ]
+        [ . \node [nd2] {Specifying Coordinates}; ]
+        [ . \node [nd2] {Constructing Paths}; ]
+        [ . \node [nd2] {Decorations}; ]
+        [ . \node [nd2] {Using Paths}; ]
+        [ . \node [nd2] {Defining New Arrow Tip Kinds}; ]
+        [ . \node [nd2] {Nodes and Shapes}; ]
+        [ . \node [nd2] {Matrices}; ]
+        [ . \node [nd2] {Coordinate, Canvas, and Nonlinear Transformations}; ]
+        [ . \node [nd2] {Patterns}; ]
+        [ . \node [nd2] {Declaring and Using Images}; ]
+        [ . \node [nd2] {Externalizing Graphics}; ]
+        [ . \node [nd2] {Creating Plots}; ]
+        [ . \node [nd2] {Layered Graphics}; ]
+        [ . \node [nd2] {Shadings}; ]
+        [ . \node [nd2] {Transparency}; ]
+        [ . \node [nd2] {Adding libraries to PGF: temporary registers}; ]
+        [ . \node [nd2] {Quick Commands}; ]
+    ]
+    [ . \node [nd1] {The System Layer};
+        [ . \node [nd2] {Design of the System Layer}; ]
+        [ . \node [nd2] {Commands of the System Layer}; ]
+        [ . \node [nd2] {The Soft Path Subsystem}; ]
+        [ . \node [nd2] {The Protocol Subsystem}; ]
+    ]
+    [ . \node [nd1, done] {References and Index}; ]
+]
+\end{tikzpicture}
+
+
+\end{preview}
+\end{document}

@@ -1,0 +1,1 @@
+latexmk -pv -xelatex pgfmanual-zh.tex

@@ -1,0 +1,178 @@
+\documentclass[border=10pt]{standalone}
+% \usepackage{tikz}
+\usepackage[edges]{forest}
+\newcommand\pgfname{\textsc{pgf}}
+\newcommand\tikzname{Ti\emph{k}Z}
+\tikzset{
+  nd0/.style={draw=black, minimum width=8em, text width=10em, align=center},
+  nd1/.style={draw=black, minimum width=8em, text width=20em, align=center},
+  nd2/.style={draw=black, minimum width=8em, text width=26em, align=left},
+  every tree node/.style={fill=red!30, font=\bfseries},
+  done/.style={fill=green!30},
+  doing/.style={fill=cyan!30},
+  not/.style={fill=red!30},
+}
+\begin{document}
+
+% \begin{tikzpicture}
+
+\begin{forest}
+  for tree={every tree node,  grow'=0},
+  forked edges,
+  [\tikzname\ \& PGF\\\pgfversion, nd0, doing
+    [Introduction, nd1, doing
+        [The Layers Below \tikzname, nd2, done]
+        [Comparison with Other Graphics Packages, nd2, doing]
+        [Utility Packages, nd2, not]
+        [How to Read This Manual, nd2, not]
+        [Authors and Acknowledgements, nd2, not]
+        [Getting Help, nd2, not]
+    ]
+    [Tutorials and Guidelines, nd1
+        [Tutorial: A Picture for Karl's Students, nd2]
+        [Tutorial: A Petri-Net for Hagen, nd2]
+        [Tutorial: Euclid's Amber Version of the Elements, nd2]
+        [Tutorial: Diagrams as Simple Graphs, nd2]
+        [Tutorial: A Lecture Map for Johannes, nd2]
+        [Tutorial: Guidelines on Graphics, nd2]
+    ]
+    [Installation and Configurations, nd1
+        [Installation, nd2]
+        [Licenses and Copyright, nd2]
+        [Supported Formats, nd2]
+    ]
+    [Ti\emph{k}Z ist \emph{kein} Zeichenprogramm, nd1
+        [Design Principles, nd2]
+        [Hierarchical Structures:\\{Package, Environments, Scopes, and Styles}, nd2]
+        [Specifying Coordinates, nd2]
+        [Syntax for Path Specifications, nd2]
+        [Actions on Paths, nd2]
+        [Arrows, nd2]
+        [Nodes and Edges, nd2]
+        [Pics: Small Pictures on Paths, nd2]
+        [Specifying Graphs, nd2]
+        [Matrices and Alignment, nd2]
+        [Making Trees Grow, nd2]
+        [Plots of Functions, nd2]
+        [Transparency, nd2]
+        [Decorated Paths, nd2]
+        [Transformations, nd2]
+    ]
+    [Graph Drawing, nd1
+        [Introduction to Algorithmic Graph Drawing, nd2]
+        [Using Graph Drawing in \tikzname, nd2]
+        [Using Graph Drawing in PGF, nd2]
+        [Graph Drawing Layouts: Trees, nd2]
+        [Graph Drawing Algorithms: Layered Layouts, nd2]
+        [Graph Drawing Algorithms: Force-Based Methods, nd2]
+        [Graph Drawing Algorithms: Circular Layouts, nd2]
+        [Graph Drawing Layouts: Phylogenetic Trees, nd2]
+        [Graph Drawing Algorithms: Edge Routing, nd2]
+        [The Algorithm Layer, nd2]
+        [Writing Graph Drawing Algorithms in C, nd2]
+        [The Display Layer, nd2]
+        [The Binding Layer, nd2]
+    ]
+    [Libraries, nd1
+        [Angle Library, nd2]
+        [Arrow Tip Library, nd2]
+        [Automata Drawing Library, nd2]
+        [Babel Library, nd2]
+        [Background Library, nd2]
+        [Calc Library, nd2]
+        [Calendar Library, nd2]
+        [Chains, nd2]
+        [Circuit Libraries, nd2]
+        [Decoration Library, nd2]
+        [Entity-Relationship Diagram Drawing Library, nd2]
+        [Externalization Library, nd2]
+        [Fading Library, nd2]
+        [Fitting Library, nd2]
+        [Fixed Point Arithmetic Library, nd2]
+        [Floating Point Unit Library, nd2]
+        [Lindenmayer System Drawing Library, nd2]
+        [Math Library, nd2]
+        [Matrix Library, nd2]
+        [Mindmap Drawing Library, nd2]
+        [Paper Folding Diagrams Library, nd2]
+        [Pattern Library, nd2]
+        [Petri-Net Drawing Library, nd2]
+        [Plot Handler Library, nd2]
+        [Plot Mark Library, nd2]
+        [Profiler Library, nd2]
+        [Shadings Library, nd2]
+        [Shadows Library, nd2]
+        [Shape Library, nd2]
+        [Spy Library: Magnifying Parts of Pictures, nd2]
+        [SVG-Path Library, nd2]
+        [To Path Library, nd2]
+        [Through Library, nd2]
+        [Tree Library, nd2]
+        [Turtle Graphics Library, nd2]
+    ]
+    [Data Visualization, nd1
+        [Introduction to Data Visualization, nd2]
+        [Creating Data Visualizations, nd2]
+        [Providing Data for a Data Visualization, nd2]
+        [Axes, nd2]
+        [Visualizers, nd2]
+        [Style Sheets and Legends, nd2]
+        [Polar Axes, nd2]
+        [The Data Visualization Backend, nd2]
+    ]
+    [Utilities, nd1
+        [Key Management, nd2]
+        [Repeating Things: The Foreach Statement, nd2]
+        [Date and Calendar Utility Macros, nd2]
+        [Page Management, nd2]
+        [Extended Color Support, nd2]
+        [Parser Module, nd2]
+    ]
+    [Mathematical and Objected Engines, nd1
+        [Design Principles, nd2]
+        [Mathematical Expressions, nd2]
+        [Additional Mathematical Commands, nd2]
+        [Customizing the Mathematical Engine, nd2]
+        [Number Printing, nd2]
+        [Object-Oriented Programming, nd2]
+    ]
+    [The Basic Layer, nd1
+        [Design Principles, nd2]
+        [Hierarchical Structures:\\{Package, Environments, Scopes, and Text}, nd2]
+        [Specifying Coordinates, nd2]
+        [Constructing Paths, nd2]
+        [Decorations, nd2]
+        [Using Paths, nd2]
+        [Defining New Arrow Tip Kinds, nd2]
+        [Nodes and Shapes, nd2]
+        [Matrices, nd2]
+        [{Coordinate, Canvas, and Nonlinear Transformations}, nd2]
+        [Patterns, nd2]
+        [Declaring and Using Images, nd2]
+        [Externalizing Graphics, nd2]
+        [Creating Plots, nd2]
+        [Layered Graphics, nd2]
+        [Shadings, nd2]
+        [Transparency, nd2]
+        [Adding libraries to PGF: temporary registers, nd2]
+        [Quick Commands, nd2]
+    ]
+    [The System Layer, nd1
+        [Design of the System Layer, nd2]
+        [Commands of the System Layer, nd2]
+        [The Soft Path Subsystem, nd2]
+        [The Protocol Subsystem, nd2]
+    ]
+    [References and Index, nd1, done]
+  ]
+% \coordinate [below=of bot] (coord);
+% \foreach \i in {0,...,2}
+%   \node at (coord -| t\i) {$t=\i$};
+\end{forest}
+
+% \node [below right,text width= 4em, fill=red!30                 ] (rect red)   at (current bounding box.north west) {\textbf{abc}};
+% \node [below right,text width= 4em, yshift =  -5ex, fill=cyan!30] (rect cyan)  at (current bounding box.north west) {\textbf{def}};
+% \node [below right,text width= 4em, yshift = -10ex,fill=green!30] (rect green) at (current bounding box.north west) {\textbf{yyy}};
+
+
+\end{document}

@@ -70,12 +70,12 @@
 
 
 % \subsection{The Layers Below \tikzname}
-\subsection{\tikzname\ 底下的图层}
+\subsection{\tikzname\ 底下的层}
 
 \begin{onehalfspacing}
 
 % It turns out that there are actually \emph{two} layers below \tikzname:
-事实上，在 \tikzname\ 底下有两个图层（layer）：
+事实上，在 \tikzname\ 底下有两层（layer）：
 
 \begin{description}
 % \item[System layer:] This layer provides a complete abstraction of what is
@@ -145,7 +145,7 @@
 % command:
 理论上，\tikzname\ 本身只是几个可能的“前端”之一，集成了一些命令或者特定的语法，使基本层更容易使用。
 直接使用基本层有一个问题，就是代码通常都很“冗长”。
-比如要画一个简单的三角形，用基本层你可能需要多达 5 条命令：第 1 条命令从三角形的一个角开始一条路径，第2 条命令将这条路径延伸到第二个角，第 3 条命令连接第三个角，第 4 条命令闭合路径，第 5 条命令将三角形“绘制”出来（而非“填充”）。
+比如要画一个简单的三角形，用基本层你可能需要多达 5 条命令：第 1 条命令从三角形的一个角开始一条路径，第2 条命令将这条路径延伸到第二个角，第 3 条命令连接第三个角，第 4 条命令闭合路径，第 5 条命令将三角形“绘画”（paint）出来（不同于“填充”（fill））。
 如果用 \tikzname\ 这个前端，这些可以归为一句 \textsc{metafont} 式的简单命令：
 \begin{verbatim}
 \draw (0,0) -- (1,0) -- (1,1) -- cycle;
@@ -191,158 +191,209 @@
 % other packages.
 \tikzname\ 并不是 \TeX\ 中唯一的图形宏包。接下来，我会将 \tikzname\ 和其他宏包作一个非常合理的对比。
 \begin{enumerate}
-% \item
+\item
 %   The standard \LaTeX\ |{picture}| environment allows you to create
 %   simple graphics, but little more. This is certainly not
 %   due to a lack of knowledge or imagination on the part of
 %   \LaTeX's designer(s). Rather, this is the price paid for the
 %   |{picture}| environment's portability: It works together with all
 %   backend drivers.
-\item 标准的 \LaTeX\ |{picture}| 环境可以创建基本图形，但只是一点点。这并不是 \LaTeX\ 的设计者缺乏知识或者想象力，相反，这是 |{picture}| 环境的可移植性带来的代价：它要在所有后端驱动上都能用。
-% \item
+标准的 \LaTeX\ |{picture}| 环境可以创建基本图形，但只是一点点。这并不是 \LaTeX\ 的设计者缺乏知识或者想象力，相反，这是 |{picture}| 环境的可移植性带来的代价：它得和所有后端驱动打交道。
+\item
 %   The |pstricks| package is certainly powerful enough to create
 %   any conceivable kind of graphic, but it is not really portable. Most
 %   importantly, it does not work with |pdftex| nor with any other
 %   driver that produces anything but PostScript code.
-\item 
-|pstricks| 宏包
+|pstricks| 宏包确实很强大，可以创建任何你能想到的图形，但是它不够方便。更重要的是，它既不兼容 |pdftex|，也不兼容任何其他驱动，除了 PostScript 代码，别的什么也不能产生。
 
-  Compared to \tikzname, |pstricks| has a similar support base. There
-  are many nice extra packages for special purpose situations that have
-  been contributed by users over the last decade.
-  The \tikzname\ syntax is more consistent than the |pstricks| syntax
-  as \tikzname\ was developed ``in a more centralized manner'' and
-  also ``with the shortcomings on |pstricks| in mind.''
+  % Compared to \tikzname, |pstricks| has a similar support base. There
+  % are many nice extra packages for special purpose situations that have
+  % been contributed by users over the last decade.
+  % The \tikzname\ syntax is more consistent than the |pstricks| syntax
+  % as \tikzname\ was developed ``in a more centralized manner'' and
+  % also ``with the shortcomings on |pstricks| in mind.''
+|pstricks| 的基础支持和 \tikzname\ 类似，在过去十年里，使用者们出于特定用途，贡献了许多出色的额外宏包。\tikzname\ 的语法比 |pstricks| 更一致，因为\tikzname\ 的开发“更加中心化”，并且“牢记 |pstricks| 的缺点”。
 \item
-  The |xypic| package is an older package for creating
-  graphics. However, it is more difficult to use and to learn because
-  the syntax and the documentation are a bit cryptic.
+  % The |xypic| package is an older package for creating
+  % graphics. However, it is more difficult to use and to learn because
+  % the syntax and the documentation are a bit cryptic.
+|xypic| 是一个更老的绘图宏包，它更难学习和使用，因为它的语法和文档有点晦涩。
 \item
-  The |dratex| package is a small graphic package for creating a
-  graphics. Compared to the other package, including \tikzname, it is
-  very small, which may or may not be an advantage.
+  % The |dratex| package is a small graphic package for creating a
+  % graphics. Compared to the other package, including \tikzname, it is
+  % very small, which may or may not be an advantage.
+|dratex| 是一个小的绘图宏包，相比其他宏包（包括 \tikzname），它真的很小，也许是个优点，也许不是。
 \item
-  The |metapost| program is a powerful alternative to
-  \tikzname. It used to be an external program, which entailed a
-  bunch of problems, but in Lua\TeX\ it is now build in. An obstacle
-  with |metapost| is the inclusion of labels. This is \emph{much}
-  easier to achieve using \pgfname. 
+  % The |metapost| program is a powerful alternative to
+  % \tikzname. It used to be an external program, which entailed a
+  % bunch of problems, but in Lua\TeX\ it is now build in. An obstacle
+  % with |metapost| is the inclusion of labels. This is \emph{much}
+  % easier to achieve using \pgfname. 
+|metapost| 是 \tikzname\ 一个强大的替代物，它一般作为外部程序使用，不过伴随着一堆问题，但是 Lua\TeX\ 现在已经将它集成进去了。
+|metapost| 嵌入标签有点麻烦，而用 \pgfname\ 则\emph{非常}容易。
 \item
-  The |xfig| program is an important alternative to \tikzname\ for
-  users who do not wish to ``program'' their graphics as is necessary
-  with \tikzname\ and the other packages above. There is a conversion
-  program that will convert |xfig| graphics to \tikzname.
+  % The |xfig| program is an important alternative to \tikzname\ for
+  % users who do not wish to ``program'' their graphics as is necessary
+  % with \tikzname\ and the other packages above. There is a conversion
+  % program that will convert |xfig| graphics to \tikzname.
+如果使用者不想\textbf{编写}图形\textbf{程序}（而这在 \tikzname\ 和其他宏包中是必要的），那么可以用 |xfig| 替代 \tikzname。有程序可以将 |xfig| 图形转换成 \tikzname。
 \end{enumerate}
 
 \end{onehalfspacing}
 
-\subsection{Utility Packages}
+% \subsection{Utility Packages}
+\subsection{实用宏包}
 
-The \pgfname\ package comes along with a number of utility package that
-are not really about creating graphics and which can be used
-independently of \pgfname. However, they are bundled with \pgfname,
-partly out of convenience, partly because their functionality is
-closely intertwined with \pgfname. These utility packages are:
+\begin{onehalfspacing}
+
+% The \pgfname\ package comes along with a number of utility package that
+% are not really about creating graphics and which can be used
+% independently of \pgfname. However, they are bundled with \pgfname,
+% partly out of convenience, partly because their functionality is
+% closely intertwined with \pgfname. These utility packages are:
+\pgfname\ 宏包伴随着一些实用宏包（utility package），它们并不和绘图相关，并且可以独立于 \pgfname\ 使用。不过它们和 \pgfname\ 打包在一起，一部分是为了方便，另一部分是因为它们的功能和 \pgfname\ 紧密相关。这些实用宏包有：
+
 \begin{enumerate}
-\item The |pgfkeys| package defines a powerful key management
-  facility. It can be used completely independently of \pgfname.
-\item The |pgffor| package defines a useful |\foreach| statement.
-\item The |pgfcalendar| package defines macros for creating
-  calendars. Typically, these calendars will be rendered using
-  \pgfname's graphic engine, but you can use |pgfcalendar| also
-  typeset calendars using normal text. The package also defines
-  commands for ``working'' with dates.
-\item The |pgfpages| package is used to assemble several pages into a
-  single page. It provides commands for assembling several
-  ``virtual pages'' into a single ``physical page.'' The idea is that
-  whenever \TeX\ has a page ready for ``shipout,'' |pgfpages| interrupts
-  this shipout and instead stores the page to be shipped out in a
-  special box. When enough ``virtual pages'' have been accumulated in
-  this way, they are scaled down and arranged on a ``physical page,''
-  which then \emph{really} shipped out. This mechanism allows you to
-  create ``two page on one page'' versions of a document directly inside
-  \LaTeX\ without the use of any external programs. However,
-  |pgfpages| can do quite a lot more than that. You can use it to put
-  logos and watermark on pages, print up to 16 pages on one page, add
-  borders to pages, and more.
+% \item The |pgfkeys| package defines a powerful key management
+%   facility. It can be used completely independently of \pgfname.
+\item |pgfkeys| 宏包提供了强大的关键字（key）管理功能，可以完全独立于 \pgfname\ 使用。
+% \item The |pgffor| package defines a useful |\foreach| statement.
+\item |pgffor| 宏包定义了一个有用的 |\foreach| 语句。
+% \item The |pgfcalendar| package defines macros for creating
+%   calendars. Typically, these calendars will be rendered using
+%   \pgfname's graphic engine, but you can use |pgfcalendar| also
+%   typeset calendars using normal text. The package also defines
+%   commands for ``working'' with dates.
+\item |pgfcalendar| 宏包定义了创建日历的宏，通常这些日历可以用 \pgfname\ 的图形引擎渲染，但是你也可以用 |pgfcalender| 在普通文本中排版日历。该宏包还定义了一些命令用于处理日期。
+% \item The |pgfpages| package is used to assemble several pages into a
+%   single page. It provides commands for assembling several
+%   ``virtual pages'' into a single ``physical page.'' The idea is that
+%   whenever \TeX\ has a page ready for ``shipout,'' |pgfpages| interrupts
+%   this shipout and instead stores the page to be shipped out in a
+%   special box. When enough ``virtual pages'' have been accumulated in
+%   this way, they are scaled down and arranged on a ``physical page,''
+%   which then \emph{really} shipped out. This mechanism allows you to
+%   create ``two page on one page'' versions of a document directly inside
+%   \LaTeX\ without the use of any external programs. However,
+%   |pgfpages| can do quite a lot more than that. You can use it to put
+%   logos and watermark on pages, print up to 16 pages on one page, add
+%   borders to pages, and more.
+\item |pgfpages| 宏包用于将多页合并成一页，它提供了将多张“虚拟页”合并成单张“物理页”的命令。思路是每当 \TeX\ 准备好将一页“输出”（shipout）时，|pgfpages| 打断这个输出，并且将该页存到一个特殊的盒子（box）里。等到积累了足够的“虚拟页”，会将它们按比例缩小，并且排列到一张“物理页”中，然后将其\emph{真正地}输出来。
+这个机制可以让你把文档的每两页并成一页，而且直接在 \LaTeX\ 中操作，不需要借助任何外部程序。
+|pgfpages| 还能做得更多，你可以在页面中加上徽标（logo）、水印（watermark）和边框（border），或者是将 16 页合成 1 页，等等。
 \end{enumerate}
 
+\end{onehalfspacing}
 
+% \subsection{How to Read This Manual}
+\subsection{如何阅读本手册}
 
-\subsection{How to Read This Manual}
+\begin{onehalfspacing}
 
-This manual describes both the design of \tikzname\ and
-its usage. The organization is very roughly according to
-``user-friendliness.'' The commands and subpackages that are easiest
-and most frequently used are described first, more low-level and
-esoteric features are discussed later.
+% This manual describes both the design of \tikzname\ and
+% its usage. The organization is very roughly according to
+% ``user-friendliness.'' The commands and subpackages that are easiest
+% and most frequently used are described first, more low-level and
+% esoteric features are discussed later.
+本手册讲述了 \tikzname\ 的设计和使用。文档几乎是遵循“用户友好”的原则组织的，最简单和最常用的命令和子宏包最先介绍，底层的和深奥的特性则在后面介绍。
 
-If you have not yet installed \tikzname, please read the installation
-first. Second, it might be a good idea to read the tutorial. Finally,
-you might wish to skim through the description of \tikzname. Typically,
-you will not need to read the sections on the basic layer. You will
-only need to read the part on the system layer if you intend to write
-your own frontend or if you wish to port \pgfname\ to a new driver.
+% If you have not yet installed \tikzname, please read the installation
+% first. Second, it might be a good idea to read the tutorial. Finally,
+% you might wish to skim through the description of \tikzname. Typically,
+% you will not need to read the sections on the basic layer. You will
+% only need to read the part on the system layer if you intend to write
+% your own frontend or if you wish to port \pgfname\ to a new driver.
+第一，如果你还没装 \tikzname，请先阅读安装步骤。
+第二，建议你通读教程部分。
+第三，你可能想浏览一遍 \tikzname\ 的描述。
+如果你想写自己的前端，或者将 \pgfname\ 对接到新的驱动，那么通常情况下，你不必阅读“基本层”那章，只需要阅读“系统层”这章就行了。
 
-The ``public'' commands and environments provided by the system
-are described throughout the text. In each such description, the
-described command, environment or option is printed in red. Text shown
-in green is optional and can be left out.
+% The ``public'' commands and environments provided by the system
+% are described throughout the text. In each such description, the
+% described command, environment or option is printed in red. Text shown
+% in green is optional and can be left out.
+系统中“公开”（public）的命令和环境会在正文中介绍，\emph{命令}、\emph{环境}和\emph{选项}用红色，绿色表示该部分是可选的，可以不加。
 
+\end{onehalfspacing}
 
-\subsection{Authors and Acknowledgements}
+% \subsection{Authors and Acknowledgements}
+\subsection{作者与致谢}
 \label{section-authors}
 
-The bulk of the \pgfname\ system and its documentation was written by
-Till Tantau. A further member of the main team is Mark Wibrow, who
-is responsible, for example, for the \pgfname\ mathematical engine,
-many shapes, the decoration engine, and matrices. The third member is
-Christian Feuers\"anger who contributed the floating point library,
-image externalization, extended key processing, and automatic hyperlinks
-in the manual.
+\begin{onehalfspacing}
+% The bulk of the \pgfname\ system and its documentation was written by
+% Till Tantau. A further member of the main team is Mark Wibrow, who
+% is responsible, for example, for the \pgfname\ mathematical engine,
+% many shapes, the decoration engine, and matrices. The third member is
+% Christian Feuers\"anger who contributed the floating point library,
+% image externalization, extended key processing, and automatic hyperlinks
+% in the manual.
+大部分 \pgfname\ 系统及其文档是 Till Tantau 写的。
+主要团队的另一位成员是 Mark Wibrow，他负责 \pgfname\ 的数学引擎、许多形状、装饰引擎以及矩阵库。
+第三位成员是 Christian Feuers\"anger，他贡献了浮点库、图像外化（image externalization）、扩展的关键字处理以及手册中的自动超链接。
 
-Furthermore, occasional contributions have been made by Christophe
-Jorssen, Jin-Hwan Cho, Olivier Binda, Matthias Schulz, Ren\'ee Ahrens,
-Stephan Schuster, and Thomas Neumann.
+% Furthermore, occasional contributions have been made by Christophe
+% Jorssen, Jin-Hwan Cho, Olivier Binda, Matthias Schulz, Ren\'ee Ahrens,
+% Stephan Schuster, and Thomas Neumann.
+还有一些人作出了临时的贡献，包括：Christophe Jorssen、Jin-Hwan Cho、Olivier Binda、Matthias Schulz、Ren\'ee Ahrens、Stephan Schuster 以及 Thomas Neumann。
 
-Additionally, numerous people have contributed to the \pgfname\ system
-by writing emails, spotting bugs, or sending libraries and patches.
-Many thanks to all these people, who are too numerous to name them
-all!
+% Additionally, numerous people have contributed to the \pgfname\ system
+% by writing emails, spotting bugs, or sending libraries and patches.
+% Many thanks to all these people, who are too numerous to name them
+% all!
+此外，还有许多人也为 \pgfname\ 作出了贡献，比如写邮件、发现错误（spot bug）、或者是提交库和补丁。
+非常感谢他们中的所有人，只是人数太多，无法一一陈列姓名。
 
+\end{onehalfspacing}
 
+% \subsection{Getting Help}
+\subsection{获取帮助}
 
-\subsection{Getting Help}
+\begin{onehalfspacing}
 
-When you need help with \pgfname\ and \tikzname, please do the
-following:
+% When you need help with \pgfname\ and \tikzname, please do the
+% following:
+如果你在使用 \pgfname\ 和 \tikzname\ 时需要帮助，请照下面这样做：
 
 \begin{enumerate}
 \item
-  Read the manual, at least the part that has to do with your problem.
+  % Read the manual, at least the part that has to do with your problem.
+  阅读手册，至少是和你的问题相关的那部分。
 \item
-  If that does not solve the problem, try having a look at the
-  sourceforge development page for \pgfname\ and \tikzname\ (see the
-  title of this document). Perhaps someone has already reported a
-  similar problem and someone has found a solution.
+  % If that does not solve the problem, try having a look at the
+  % sourceforge development page for \pgfname\ and \tikzname\ (see the
+  % title of this document). Perhaps someone has already reported a
+  % similar problem and someone has found a solution.
+  如果阅读手册没有解决问题，试着看一下 sourceforge 上 \pgfname\ 和 \tikzname\ 的开发页面（见本手册标题页）。
+  也许有人已经报告了一个相同的问题，并且有人已经找到了一个解决方法。
 \item
-  On the website you will find numerous forums for getting
-  help. There, you can write to help forums, file bug reports, join
-  mailing lists, and so on.
+  % On the website you will find numerous forums for getting
+  % help. There, you can write to help forums, file bug reports, join
+  % mailing lists, and so on.
+  在网站上你能找到很多求助的论坛，你可以在论坛发帖，提交错误报告，加入邮件列表，等等。
 \item
-  Before you file a bug report, especially a bug report concerning the
-  installation, make sure that this is really a bug. In particular,
-  have a look at the |.log| file that results when you \TeX\ your
-  files. This |.log| file should show that all the right files are
-  loaded from the right directories. Nearly all installation problems
-  can be resolved by looking at the |.log| file.
+  % Before you file a bug report, especially a bug report concerning the
+  % installation, make sure that this is really a bug. In particular,
+  % have a look at the |.log| file that results when you \TeX\ your
+  % files. This |.log| file should show that all the right files are
+  % loaded from the right directories. Nearly all installation problems
+  % can be resolved by looking at the |.log| file.
+  在你提交错误报告前，尤其是和安装有关的，请确保这真的是个错误。
+  特别是要看一下 \TeX\ 处理后得到的 |.log| 文件，它应该显示所有正确的文件都从正确的文件夹导入了。
+  几乎所有的安装问题，都能通过查看 |.log| 文件解决。
 \item
-  \emph{As a last resort} you can try to email me (Till Tantau) or, if
-  the problem concerns the mathematical engine, Mark Wibrow. I do
-  not mind getting emails, I simply get way too many of them. Because
-  of this, I cannot guarantee that your emails will be answered timely
-  or even at all. Your chances that your problem will be fixed are
-  somewhat higher if you mail to the \pgfname\ mailing list
-  (naturally, I read this list and answer questions when I have the
-  time).
+  % \emph{As a last resort} you can try to email me (Till Tantau) or, if
+  % the problem concerns the mathematical engine, Mark Wibrow. I do
+  % not mind getting emails, I simply get way too many of them. Because
+  % of this, I cannot guarantee that your emails will be answered timely
+  % or even at all. Your chances that your problem will be fixed are
+  % somewhat higher if you mail to the \pgfname\ mailing list
+  % (naturally, I read this list and answer questions when I have the
+  % time).
+  如果\emph{万不得已}，你可以给我（Till Tantau）发邮件，如果问题和数学引擎相关，那么找 Mark Wibrow。
+  我不介意收到邮件，我收到太多了。因此，我无法保证及时甚至是能够回复你的邮件。
+  如果你发到 \pgfname\ 的邮件列表，也许问题解决的可能性要更高一些（当然了，如果有时间，我会查看这个列表并且回答问题）。
 \end{enumerate}
+
+\end{onehalfspacing}
+

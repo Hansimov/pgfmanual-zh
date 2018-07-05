@@ -16,23 +16,25 @@
 \tikzstyle{nd2} = [draw=black, minimum width=8em, text width=28em, align=left]
 
 \tikzstyle{every tree node} = [fill=red!30, font=\bfseries]
-\tikzstyle{done}  = [fill=green!30]
-\tikzstyle{doing} = [fill=cyan!30]
 \tikzstyle{not}   = [fill=red!30]
+\tikzstyle{doing} = [fill=cyan!30]
+\tikzstyle{done}  = [fill=green!30]
+\tikzstyle{better}   = [fill=green!80!black]
 
+% \tiny % Add this to work under xelatex
 \Tree 
 % [ .\node [nd0, doing] {\tikzname\ \& PGF \\ \pgfversion\ \\ 中文手册};
 [ .\node [nd0, doing] {\tikzname\ \& PGF \\ \pgfversion\ };
-    [ . \node [nd1, doing] {Introduction}; 
+    [ . \node [nd1, done] {Introduction}; 
         [ . \node [nd2, done] {The Layers Below \tikzname}; ]
-        [ . \node [nd2, doing] {Comparison with Other Graphics Packages}; ]
-        [ . \node [nd2, not] {Utility Packages}; ]
-        [ . \node [nd2, not] {How to Read This Manual}; ]
-        [ . \node [nd2, not] {Authors and Acknowledgements}; ]
-        [ . \node [nd2, not] {Getting Help}; ]
+        [ . \node [nd2, done] {Comparison with Other Graphics Packages}; ]
+        [ . \node [nd2, done] {Utility Packages}; ]
+        [ . \node [nd2, done] {How to Read This Manual}; ]
+        [ . \node [nd2, done] {Authors and Acknowledgements}; ]
+        [ . \node [nd2, done] {Getting Help}; ]
     ]
-    [ . \node [nd1] {Tutorials and Guidelines}; 
-        [ . \node [nd2] {Tutorial: A Picture for Karl's Students}; ]
+    [ . \node [nd1, doing] {Tutorials and Guidelines}; 
+        [ . \node [nd2, doing] {Tutorial: A Picture for Karl's Students}; ]
         [ . \node [nd2] {Tutorial: A Petri-Net for Hagen}; ]
         [ . \node [nd2] {Tutorial: Euclid's Amber Version of the Elements}; ]
         [ . \node [nd2] {Tutorial: Diagrams as Simple Graphs}; ]
@@ -177,9 +179,10 @@
 % \node[right= 1em of rect cyan,  text=cyan!30 ] {正在翻译};
 % \node[right= 1em of rect green, text=green!30] {翻译完成};
 
-\node [below right,text width= 4em, fill=red!30                 ] (rect red)   at (current bounding box.north west) {\textbf{尚未翻译}};
-\node [below right,text width= 4em, yshift =  -5ex, fill=cyan!30] (rect cyan)  at (current bounding box.north west) {\textbf{正在翻译}};
-\node [below right,text width= 4em, yshift = -10ex,fill=green!30] (rect green) at (current bounding box.north west) {\textbf{翻译完成}};
+\node [below right,text width= 4em,                 not   ] at (current bounding box.north west) {\textbf{尚未翻译}};
+\node [below right,text width= 4em, yshift =  -5ex, doing ] at (current bounding box.north west) {\textbf{正在翻译}};
+\node [below right,text width= 4em, yshift = -10ex, done  ] at (current bounding box.north west) {\textbf{翻译完成}};
+% \node [below right,text width= 4em, yshift = -15ex, better] at (current bounding box.north west) {\textbf{翻译润色}};
 
 \end{tikzpicture}
 

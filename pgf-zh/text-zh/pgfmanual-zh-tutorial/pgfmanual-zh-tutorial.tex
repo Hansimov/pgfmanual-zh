@@ -7,44 +7,62 @@
 %
 % See the file doc/generic/pgf/licenses/LICENSE for more details.
 
-\section{Tutorial: A Picture for Karl's Students}
+% \section{Tutorial: A Picture for Karl's Students}
+\section{教程：给 Karl 的学生的一张图}
 
-This tutorial is intended for new users of \tikzname. It
-does not give an exhaustive account of all the features of \tikzname,
-just of those that you are likely to use right away. 
+\bohs
 
-Karl is a math and chemistry high-school teacher. He used to create
-the graphics in his worksheets and exams using \LaTeX's |{picture}|
-environment. While the results were acceptable, creating the graphics
-often turned out to be a lengthy process. Also, there tended to be
-problems with lines having slightly wrong angles and circles also
-seemed to be hard to get right. Naturally, his students could not care
-less whether the lines had the exact right angles and they find
-Karl's exams too difficult no matter how nicely they were drawn. But
-Karl was never entirely satisfied with the result.
+% This tutorial is intended for new users of \tikzname. It
+% does not give an exhaustive account of all the features of \tikzname,
+% just of those that you are likely to use right away. 
+该教程是写给 \tikzname\ 的新手的，它并不详细罗列 \tikzname\ 的所有特性，而是只讲那些你可能立马会用到的。
 
-Karl's son, who was even less satisfied with the results (he did not
-have to take the exams, after all),  told Karl that he might wish
-to try out a new package for creating graphics. A bit confusingly,
-this package seems to have two names: First, Karl had to download and
-install a package called \pgfname. Then it turns out that inside this
-package there is another package called \tikzname, which is supposed to
-stand for ``\tikzname\ ist \emph{kein}  Zeichenprogramm.'' Karl finds this
-all a bit strange and \tikzname\ seems to indicate that the package
-does not do what he needs. However, having used \textsc{gnu}
-software for quite some time and ``\textsc{gnu} not being Unix,''
-there seems to be hope yet. His son assures him that \tikzname's name is
-intended to warn people that \tikzname\ is not a program that you can
-use to draw graphics with your mouse or tablet. Rather, it is more
-like a ``graphics language.''
+% Karl is a math and chemistry high-school teacher. He used to create
+% the graphics in his worksheets and exams using \LaTeX's |{picture}|
+% environment. While the results were acceptable, creating the graphics
+% often turned out to be a lengthy process. Also, there tended to be
+% problems with lines having slightly wrong angles and circles also
+% seemed to be hard to get right. Naturally, his students could not care
+% less whether the lines had the exact right angles and they find
+% Karl's exams too difficult no matter how nicely they were drawn. But
+% Karl was never entirely satisfied with the result.
+Karl 是一名高中数学和化学老师，他以前用 \LaTeX\ 的 |{picture}| 环境，为习题和考试画图。
+尽管结果可以接受，但是绘图通常要花很久，并且还有一些问题，比如线之间有微小的角度错误，圆形好像也很难画对。
+当然，他的学生并不关心线之间的角度对不对，因为 Karl 出的试题太难了，画得再好也没用。
+但 Karl 对绘图的结果从不满意。
 
+% Karl's son, who was even less satisfied with the results (he did not
+% have to take the exams, after all),  told Karl that he might wish
+% to try out a new package for creating graphics. A bit confusingly,
+% this package seems to have two names: First, Karl had to download and
+% install a package called \pgfname. Then it turns out that inside this
+% package there is another package called \tikzname, which is supposed to
+% stand for ``\tikzname\ ist \emph{kein}  Zeichenprogramm.'' Karl finds this
+% all a bit strange and \tikzname\ seems to indicate that the package
+% does not do what he needs. However, having used \textsc{gnu}
+% software for quite some time and ``\textsc{gnu} not being Unix,''
+% there seems to be hope yet. His son assures him that \tikzname's name is
+% intended to warn people that \tikzname\ is not a program that you can
+% use to draw graphics with your mouse or tablet. Rather, it is more
+% like a ``graphics language.''
+Karl 的儿子对绘图结果更不满意（毕竟他不要考试），儿子告诉 Karl 他也许愿意试试一个新的宏包来绘图。
+令人困惑的是，这个宏包似乎有两个名字：首先 Karl 需要下载和安装一个叫 \pgfname\ 的宏包，接着他发现这个宏包里还有另一个宏包，叫 \tikzname，应该代表“\tikzname\ ist \emph{kein}  Zeichenprogramm”（\tikzname\ 不是一个画图程序）。Karl 觉得有点奇怪，从 \tikzname\ 的名字来看，似乎并不能满足自己的要求。
+不过，由于他用过一段时间的 \textsc{gnu} 软件，并且知道“\textsc{gnu}'s Not Unix!”（\textsc{gnu} 不是 Unix）这句典故，因此似乎有点希望。
+他儿子告诉他，\tikzname\ 起这个名字，是为了提醒人们，\tikzname\ 不是一个用鼠标和平板画图的程序，相反，它更像是一门“图形语言”。
 
-\subsection{Problem Statement}
+\eohs
 
-Karl wants to put a graphic on the next worksheet for his
-students. He is currently teaching his students about sine and
-cosine. What he would like to have is something that looks like this
-(ideally):
+% \subsection{Problem Statement}
+\subsection{问题陈述}
+
+\bohs
+% Karl wants to put a graphic on the next worksheet for his
+% students. He is currently teaching his students about sine and
+% cosine. What he would like to have is something that looks like this
+% (ideally):
+Karl 想在下次学生习题中放一张图，他现在正在教正弦和余弦。他想得到这样的图（理想情况）：
+
+\eohs
 
 \noindent
 \begin{tikzpicture}
@@ -99,40 +117,51 @@ cosine. What he would like to have is something that looks like this
 
   \draw[xshift=1.85cm] node [right,text width=6cm,information text]
     {
-      The {\color{anglecolor} angle $\alpha$} is $30^\circ$ in the
-      example ($\pi/6$ in radians). The {\color{sincolor}sine of
-        $\alpha$}, which is the height of the red line, is
+      % The {\color{anglecolor} angle $\alpha$} is $30^\circ$ in the
+      % example ($\pi/6$ in radians). The {\color{sincolor}sine of
+      %   $\alpha$}, which is the height of the red line, is
+      在本例中，{\color{anglecolor} 角 $\alpha$} 为 $30^\circ$ （等于 $\pi / 6$ 弧度），{\color{sincolor} $\alpha$ 的正弦}，也就是红色线段的高度，为
       \[
       {\color{sincolor} \sin \alpha} = 1/2.
       \]
-      By the Theorem of Pythagoras we have ${\color{coscolor}\cos^2 \alpha} +
-      {\color{sincolor}\sin^2\alpha} =1$. Thus the length of the blue
-      line, which is the {\color{coscolor}cosine of $\alpha$}, must be
+      % By the Theorem of Pythagoras we have ${\color{coscolor}\cos^2 \alpha} +
+      % {\color{sincolor}\sin^2\alpha} =1$. Thus the length of the blue
+      % line, which is the {\color{coscolor}cosine of $\alpha$}, must be
+      根据勾股定理，我们有 ${\color{coscolor}\cos^2 \alpha} + {\color{sincolor}\sin^2\alpha} =1$。因此蓝色线段的长度，也就是~{\color{coscolor} $\alpha$ 的余弦}，肯定为
       \[
       {\color{coscolor}\cos\alpha} = \sqrt{1 - 1/4} = \textstyle
-      \frac{1}{2} \sqrt 3.
+      \sqrt{3}/2.
       \]%
-      This shows that {\color{tancolor}$\tan \alpha$}, which is the
-      height of the orange line, is
+      % This shows that {\color{tancolor}$\tan \alpha$}, which is the
+      % height of the orange line, is
+      由此可以得到~{\color{tancolor} $\tan \alpha$}，也就是橙色线段的高度，为
       \[
-      {\color{tancolor}\tan\alpha} = \frac{{\color{sincolor}\sin
-          \alpha}}{\color{coscolor}\cos \alpha} = 1/\sqrt 3.
+      {\color{tancolor}\tan\alpha} = \frac{{\color{sincolor} \sin \alpha}}{{\color{coscolor}\cos \alpha}} = 1/\sqrt 3.
       \]%
     };
 \end{tikzpicture}
 
 
-\subsection{Setting up the Environment}
+% \subsection{Setting up the Environment}
+\subsection{设置环境}
 
-In \tikzname, to draw a picture, at the start of the picture
-you need to tell \TeX\ or \LaTeX\ that you want to start a picture. In
-\LaTeX\ this is done using the environment |{tikzpicture}|, in plain
-\TeX\ you just use |\tikzpicture| to start the picture and
-|\endtikzpicture| to end it.
+\bohs
 
-\subsubsection{Setting up the Environment in \LaTeX}
+% In \tikzname, to draw a picture, at the start of the picture
+% you need to tell \TeX\ or \LaTeX\ that you want to start a picture. In
+% \LaTeX\ this is done using the environment |{tikzpicture}|, in plain
+% \TeX\ you just use |\tikzpicture| to start the picture and
+% |\endtikzpicture| to end it.
+要在 \tikzname\ 中画一张图片，你需要在图片开头告诉 \TeX\ 或者 \LaTeX\ 你想开始画一张图。
+在 \LaTeX\ 中需要用 |{tikzpicture}| 环境，在 plain \TeX\ 中你只要用 |\tikzpicture| 开始图片，再用 |\endtikzpicture| 结束图片。
 
-Karl, being a \LaTeX\ user, thus sets up his file as follows:
+\eohs
+
+% \subsubsection{Setting up the Environment in \LaTeX}
+\subsubsection{设置 \LaTeX\ 中的环境}
+
+% Karl, being a \LaTeX\ user, thus sets up his file as follows:
+Karl 是一个 \LaTeX\ 用户，所以他的设置是这样的：
 
 \begin{codeexample}[code only]
 \documentclass{article} % say
@@ -146,8 +175,13 @@ We are working on
 \end{document}
 \end{codeexample}
 
-When executed, that is, run via |pdflatex| or via |latex| followed by
-|dvips|, the resulting will contain something that looks like this:
+\bohs
+
+% When executed, that is, run via |pdflatex| or via |latex| followed by
+% |dvips|, the resulting will contain something that looks like this:
+当程序执行时，也就是用 |pdflatex|，或者是 |latex| 加上 |dvips|，输出包含这样的内容：
+
+\eohs
 
 \begin{codeexample}[width=7cm]
 We are working on
@@ -157,39 +191,60 @@ We are working on
 \end{tikzpicture}.
 \end{codeexample}
 
-Admittedly, not quite the whole picture, yet, but we
-do have the axes established. Well, not quite, but we have the lines
-that make up the axes drawn. Karl suddenly has a sinking feeling
-that the picture is still some way off.
+\bohs
 
-Let's have a more detailed look at the code. First, the package
-|tikz| is loaded. This package is a so-called ``frontend'' to the
-basic \pgfname\ system. The basic layer, which is also described in this
-manual, is somewhat more, well, basic and thus harder to use. The
-frontend makes things easier by providing a simpler syntax.
+% Admittedly, not quite the whole picture, yet, but we
+% do have the axes established. Well, not quite, but we have the lines
+% that make up the axes drawn. Karl suddenly has a sinking feeling
+% that the picture is still some way off.
+诚然，图还算不上完整，不过我们已经建好坐标轴，还画好组成坐标轴的线了。
+Karl 突然有点沮丧，似乎离画完还有不少距离。
 
-Inside the environment there are two |\draw| commands. They mean:
-``The path, which is specified following the command up to the
-semicolon, should be drawn.'' The first path is specified
-as |(-1.5,0) -- (0,1.5)|, which means ``a straight line from the point
-at position $(-1.5,0)$ to the point at position $(0,1.5)$.'' Here, the
-positions are specified within a special coordinate system in which,
-initially, one unit is 1cm.
+% Let's have a more detailed look at the code. First, the package
+% |tikz| is loaded. This package is a so-called ``frontend'' to the
+% basic \pgfname\ system. The basic layer, which is also described in this
+% manual, is somewhat more, well, basic and thus harder to use. The
+% frontend makes things easier by providing a simpler syntax.
+让我们更仔细地看一下代码。首先导入 |tikz| 库，也就是基础 \pgfname\ 系统所谓的“前端”。
+本手册还会提到基本层，更基础也更难用。
+这个前端语法更简单，让画图变得更容易了。
 
-Karl is quite pleased to note that the environment automatically
-reserves enough space to encompass the picture.
+% Inside the environment there are two |\draw| commands. They mean:
+% ``The path, which is specified following the command up to the
+% semicolon, should be drawn.'' The first path is specified
+% as |(-1.5,0) -- (0,1.5)|, which means ``a straight line from the point
+% at position $(-1.5,0)$ to the point at position $(0,1.5)$.'' Here, the
+% positions are specified within a special coordinate system in which,
+% initially, one unit is 1cm.
+里面有两句 |\draw| 命令，意思是：“从此处到逗号间指定的路径，需要画出来。”
+第一条路径指定为 |(-1.5,0) -- (0,1.5)|，意思是：“一条从点 $(-1.5,0)$ 到点 $(-1.5,0)$ 的线”。
+在这里，位置是用一个特殊的坐标系统指定的，初始的单位长度是 1cm。
 
+% Karl is quite pleased to note that the environment automatically
+% reserves enough space to encompass the picture.
+Karl 很高兴地注意到，环境中已经预留了足够的空间来容纳图片。
 
-\subsubsection{Setting up the Environment in Plain \TeX}
+\eohs
 
-Karl's wife Gerda, who also happens to be a math teacher, is not a
-\LaTeX\ user, but uses plain \TeX\ since she prefers to do things
-``the old way.'' She can also use \tikzname. Instead of
-|\usepackage{tikz}| she has to write |\input tikz.tex| and instead of
-|\begin{tikzpicture}| she writes |\tikzpicture| and  instead of
-  |\end{tikzpicture}| she writes |\endtikzpicture|.
+% \subsubsection{Setting up the Environment in Plain \TeX}
+\subsubsection{设置 Plain \TeX\ 中的环境}
 
-Thus, she would use:
+\bohs
+
+% Karl's wife Gerda, who also happens to be a math teacher, is not a
+% \LaTeX\ user, but uses plain \TeX\ since she prefers to do things
+% ``the old way.'' She can also use \tikzname. Instead of
+% |\usepackage{tikz}| she has to write |\input tikz.tex| and instead of
+% |\begin{tikzpicture}| she writes |\tikzpicture| and  instead of
+% |\end{tikzpicture}| she writes |\endtikzpicture|.
+Karl 的妻子 Gerda，恰好也是一名数学老师，她不是 \LaTeX\ 用户，而是用 plain \TeX\ ，因为她更喜欢“老派的方法”。
+她也能用 \tikzname，不过不是 |\usepackage{tikz}|，而是 |\input tikz.tex|，同样，|\begin{tikzpicture}| 和 |\end{tikzpicture}| 也应该换成 |\tikzpicture| 和 |\endtikzpicture|。
+
+% Thus, she would use:
+因此她应该用下面的语句：
+
+\eohs
+
 \begin{codeexample}[code only]
 %% Plain TeX file
 \input tikz.tex
@@ -204,24 +259,38 @@ We are working on
 \bye
 \end{codeexample}
 
-Gerda can typeset this file using either |pdftex| or |tex| together
-with |dvips|. \tikzname\ will automatically discern which driver she is
-using. If she wishes to use |dvipdfm| together with |tex|, she
-either needs to modify the file |pgf.cfg| or can write
-|\def\pgfsysdriver{pgfsys-dvipdfm.def}| somewhere \emph{before} she
-inputs |tikz.tex| or |pgf.tex|.
+\bohs
 
+% Gerda can typeset this file using either |pdftex| or |tex| together
+% with |dvips|. \tikzname\ will automatically discern which driver she is
+% using. If she wishes to use |dvipdfm| together with |tex|, she
+% either needs to modify the file |pgf.cfg| or can write
+% |\def\pgfsysdriver{pgfsys-dvipdfm.def}| somewhere \emph{before} she
+% inputs |tikz.tex| or |pgf.tex|.
+Gerda 既能用 |pdftex| 也能用 |tex| 加 |dvips| 来排版这个文件。
+\tikzname\ 会自动识别她用了哪个驱动。
+如果她想用 |dvipdfm| 结合 |tex|，她既可以选择修改 |pfg.cfg| 文件，也可以选择在导入 |tikz.tex| 或是 |pgf.tex| 之前加上 |\def\pgfsysdriver{pgfsys-dvipdfm.def}|。
 
+\eohs
 
-\subsubsection{Setting up the Environment in Con\TeX t}
+% \subsubsection{Setting up the Environment in Con\TeX t}
+\subsubsection{设置 Con\TeX t 中的环境}
 
-Karl's uncle Hans uses Con\TeX t. Like Gerda, Hans can also use
-\tikzname. Instead of |\usepackage{tikz}| he says
-|\usemodule[tikz]|. Instead of |\begin{tikzpicture}| he writes
-  |\starttikzpicture| and  instead of |\end{tikzpicture}| he writes
-|\stoptikzpicture|.
+\bohs
 
-His version of the example looks like this:
+% Karl's uncle Hans uses Con\TeX t. Like Gerda, Hans can also use
+% \tikzname. Instead of |\usepackage{tikz}| he says
+% |\usemodule[tikz]|. Instead of |\begin{tikzpicture}| he writes
+%   |\starttikzpicture| and  instead of |\end{tikzpicture}| he writes
+% |\stoptikzpicture|.
+Karl 的叔叔 Hans 用 Con\TeX t，Hans 也能像 Gerda 一样使用 \tikzname。
+他需要把 |\usepackage{tikz}| 换成 |\usemodule[tikz]|，同样，|\begin{tikzpicture}| 和 |\end{tikzpicture}| 也要换成 |\starttikzpicture| 和 |\stoptikzpicture|。
+
+% His version of the example looks like this:
+他的样例代码像这样：
+
+\eohs
+
 \begin{codeexample}[code only]
 %% ConTeXt file
 \usemodule[tikz]
@@ -235,55 +304,87 @@ His version of the example looks like this:
 \stoptext
 \end{codeexample}
 
-Hans will now typeset this file in the usual way using
-|texexec| or |context|.
+\bohs
 
+% Hans will now typeset this file in the usual way using
+% |texexec| or |context|.
+Hans 现在就能像平常一样，用 |texexec| 或者 |context| 来排版这个文件了。
 
+\eohs
 
-\subsection{Straight Path Construction}
+% \subsection{Straight Path Construction}
+\subsection{直线路径创建}
 
-The basic building block of all pictures in \tikzname\ is the path.
-A \emph{path} is a series of straight lines and curves that are
-connected (that is not the whole picture, but let us ignore the
-complications for the moment). You start a path by specifying the
-coordinates of the start position as a point in round brackets, as in
-|(0,0)|. This is followed by a series of ``path extension
-operations.'' The simplest is |--|, which we used already. It must be
-followed by another coordinate and it extends the path in a straight
-line to this new position. For example, if we were to turn the two
-paths of the axes into one path, the following would result:
+\bohs
+
+% The basic building block of all pictures in \tikzname\ is the path.
+% A \emph{path} is a series of straight lines and curves that are
+% connected (that is not the whole picture, but let us ignore the
+% complications for the moment). You start a path by specifying the
+% coordinates of the start position as a point in round brackets, as in
+% |(0,0)|. This is followed by a series of ``path extension
+% operations.'' The simplest is |--|, which we used already. It must be
+% followed by another coordinate and it extends the path in a straight
+% line to this new position. For example, if we were to turn the two
+% paths of the axes into one path, the following would result:
+\tikzname\ 里所有图片的基本单元是路径（path）。
+\emph{路径}就是相连的直线和曲线（并不是整个图片都是如此，不过让我们暂时忽略复杂的部分）。
+你指定一个起点作为路径开始，圆括号中为点的坐标，比如 |(0,0)|。
+紧接着是一系列的“路径扩展操作”，最简单的是 |--|，我们之前用过，它后面必须跟着另一个坐标，它将原来的路径沿直线延伸到新的位置。
+比如，如果我们打算把坐标轴的两条路径并成一条，那么会得到下面的结果：
+
+\eohs
 
 \begin{codeexample}[]
 \tikz \draw (-1.5,0) -- (1.5,0) -- (0,-1.5) -- (0,1.5);
 \end{codeexample}
 
-Karl is a bit confused by the fact that there is no |{tikzpicture}|
-environment, here. Instead, the little command |\tikz| is used. This
-command either takes one argument (starting with an opening brace as in
-|\tikz{\draw (0,0) -- (1.5,0)}|, which yields \tikz{\draw (0,0)
- --(1.5,0);}) or collects everything up to the next semicolon and
-puts it inside a |{tikzpicture}| environment. As a rule of thumb, all
-\tikzname\ graphic drawing commands must occur as an argument of |\tikz|
-or inside a |{tikzpicture}| environment. Fortunately, the command
-|\draw| will only be defined inside this environment, so there is
-little chance that you will accidentally do something wrong here.
+\bohs
 
+% Karl is a bit confused by the fact that there is no |{tikzpicture}|
+% environment, here. Instead, the little command |\tikz| is used. This
+% command either takes one argument (starting with an opening brace as in
+% |\tikz{\draw (0,0) -- (1.5,0)}|, which yields \tikz{\draw (0,0)
+%  --(1.5,0);}) or collects everything up to the next semicolon and
+% puts it inside a |{tikzpicture}| environment. As a rule of thumb, all
+% \tikzname\ graphic drawing commands must occur as an argument of |\tikz|
+% or inside a |{tikzpicture}| environment. Fortunately, the command
+% |\draw| will only be defined inside this environment, so there is
+% little chance that you will accidentally do something wrong here.
+Karl 有点困惑，因为这里没见到 |{tikzpicture}| 环境，而是用了一个小命令 |\tikz|。
+这个命令既可以接受单个参数（放在花括号中，比如 |\tikz{\draw (0,0) -- (1.5,0)}| 会生成一条线 \tikz{\draw (0,0) --(1.5,0);}），
+也可以将其放到 |{tikzpicture}| 环境中，每句用以分号结尾。
+一般来说，所有的 \tikzname\ 绘图命令必须作为 |\tikz| 的参数，或者放在 |{tikzpicture}| 环境里。
+幸运的是，|\draw| 命令只定义在这种环境下，因此你很少会有出错的机会。
 
+\eohs
 
-\subsection{Curved Path Construction}
+% \subsection{Curved Path Construction}
+\subsection{曲线路径创建}
 
-The next thing Karl wants to do is to draw the circle. For this,
-straight lines obviously will not do. Instead, we need some way to
-draw curves. For this, \tikzname\ provides a special syntax. One or two
-``control points'' are needed. The math behind them is not quite
-trivial, but here is the basic idea: Suppose you are at point $x$ and
-the first control point is $y$. Then the curve will start ``going in
-the direction of~$y$ at~$x$,'' that is, the tangent of the curve at $x$
-will point toward~$y$. Next, suppose the curve should end at $z$ and
-the second support point is $w$. Then the curve will, indeed, end at
-$z$ and the tangent of the curve at point $z$ will go through $w$.
+\bohs
 
-Here is an example (the control points have been added for clarity):
+% The next thing Karl wants to do is to draw the circle. For this,
+% straight lines obviously will not do. Instead, we need some way to
+% draw curves. For this, \tikzname\ provides a special syntax. One or two
+% ``control points'' are needed. The math behind them is not quite
+% trivial, but here is the basic idea: Suppose you are at point $x$ and
+% the first control point is $y$. Then the curve will start ``going in
+% the direction of~$y$ at~$x$,'' that is, the tangent of the curve at $x$
+% will point toward~$y$. Next, suppose the curve should end at $z$ and
+% the second support point is $w$. Then the curve will, indeed, end at
+% $z$ and the tangent of the curve at point $z$ will go through $w$.
+Karl 下一步想做的就是画圆，很明显用直线做不到，所以我们需要一些方法绘制曲线。
+为此，\tikzname\ 提供了一个特殊的语法，需要用一到两个“控制点”。
+它背后的数学并不简单，但是基本思想是：
+假设你位于点 $x$，第一个控制点是 $y$，那么曲线开始时会沿着从 $x$ 到 $y$ 的方向，也就是说，该曲线在点 $x$ 处的切线经过 $y$。
+接着，假设曲线的结束点为 $z$，第二个控制点是 $w$，那么该曲线就会在点 $z$ 处结束，并且曲线在点 $z$ 处的切线经过 $w$。
+
+% Here is an example (the control points have been added for clarity):
+例子如下（为了更清楚地说明，这里画上了控制点）：
+
+\eohs
+
 \begin{codeexample}[]
 \begin{tikzpicture}
   \filldraw [gray] (0,0) circle [radius=2pt]
@@ -294,13 +395,20 @@ Here is an example (the control points have been added for clarity):
 \end{tikzpicture}
 \end{codeexample}
 
-The general syntax for extending a path in a ``curved'' way is
-|.. controls| \meta{first control point} |and| \meta{second control
-  point} |..| \meta{end point}. You can leave out the |and|
-\meta{second control point}, which causes the first one to be used
-twice.
+\bohs
 
-So, Karl can now add the first half circle to the picture:
+% The general syntax for extending a path in a ``curved'' way is
+% |.. controls| \meta{first control point} |and| \meta{second control
+%   point} |..| \meta{end point}. You can leave out the |and|
+% \meta{second control point}, which causes the first one to be used
+% twice.
+以曲线方式延伸路径的通用语法是 |.. controls| \metazh{第一个控制点} |and| \metazh{第二个控制点} |..| \metazh{结束点}。
+你可以略掉 |and| \metazh{第二个控制点}，此时第二个控制点和第一个相同。
+
+% So, Karl can now add the first half circle to the picture:
+所以，Karl 现在可以把一个半圆加进图片了：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -311,37 +419,60 @@ So, Karl can now add the first half circle to the picture:
 \end{tikzpicture}
 \end{codeexample}
 
-Karl is happy with the result, but finds specifying circles in this
-way to be extremely awkward. Fortunately, there is a much simpler way.
+\bohs
 
+% Karl is happy with the result, but finds specifying circles in this
+% way to be extremely awkward. Fortunately, there is a much simpler way.
+Karl 看到结果很开心，但是觉得用这种方法指定圆太笨拙了，不过还好有个简单得多的方法。
 
-\subsection{Circle Path Construction}
+\eohs
 
-In order to draw a circle, the path construction operation |circle| can
-be used. This operation is followed by a radius in brackets as in
-the following example: (Note that the previous position is used as the
-\emph{center} of the circle.)
+% \subsection{Circle Path Construction}
+\subsection{圆形路径创建}
+
+\bohs
+
+% In order to draw a circle, the path construction operation |circle| can
+% be used. This operation is followed by a radius in brackets as in
+% the following example: (Note that the previous position is used as the
+% \emph{center} of the circle.)
+路径创建操作 |circle| 可以用来画圆，后面跟着半径，写在方括号里，例子如下：（注意到前面的点作为\emph{圆心}。）
+
+\eohs
 
 \begin{codeexample}[]
 \tikz \draw (0,0) circle [radius=10pt];
 \end{codeexample}
 
-You can also append an ellipse to the path using the |ellipse|
-operation. Instead of a single radius you can specify two of them:
+\bohs
+
+% You can also append an ellipse to the path using the |ellipse|
+% operation. Instead of a single radius you can specify two of them:
+你还可以用 |ellipse| 画椭圆，它有两个半径：
+
+\eohs
 
 \begin{codeexample}[]
 \tikz \draw (0,0) ellipse [x radius=20pt, y radius=10pt];
 \end{codeexample}
 
-To draw an ellipse whose axes are not horizontal and vertical, but
-point in an arbitrary direction (a ``turned ellipse'' like \tikz
-\draw[rotate=30] (0,0) ellipse [x radius=6pt, y radius=3pt];) you can use
-transformations, which are explained later. The code for the little
-ellipse is |\tikz \draw[rotate=30] (0,0) ellipse [x radius=6pt, y radius=3pt];|, by
-the way.
+\bohs
 
-So, returning to Karl's problem, he can write
-|\draw (0,0) circle [radius=1cm];| to draw the circle:
+% To draw an ellipse whose axes are not horizontal and vertical, but
+% point in an arbitrary direction (a ``turned ellipse'' like \tikz
+% \draw[rotate=30] (0,0) ellipse [x radius=6pt, y radius=3pt];) you can use
+% transformations, which are explained later. The code for the little
+% ellipse is |\tikz \draw[rotate=30] (0,0) ellipse [x radius=6pt, y radius=3pt];|, by
+% the way.
+要画一个轴线倾斜成任意角度而不是横平竖直的椭圆，比如一个“旋转的椭圆” \tikz \draw[rotate=30] (0,0) ellipse [x radius=6pt, y radius=3pt];，
+你可以加上变换，这个后面会解释。
+顺带一提，这个小椭圆的代码是：\ltz{\\tikz \\draw[rotate=30] (0,0) ellipse [x radius=6pt, y radius=3pt];}。
+
+% So, returning to Karl's problem, he can write
+% |\draw (0,0) circle [radius=1cm];| to draw the circle:
+所以，回到 Karl 的问题，他可以用 \ltz{\\draw (0,0) circle [radius=1cm];} 来画圆：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -351,26 +482,38 @@ So, returning to Karl's problem, he can write
 \end{tikzpicture}
 \end{codeexample}
 
+\bohs
 
-At this point, Karl is a bit alarmed that the circle is so small when
-he wants the final picture to be much bigger. He is pleased to learn
-that \tikzname\ has powerful transformation options and scaling
-everything by a factor of three is very easy. But let us leave the
-size as it is for the moment to save some space.
+% At this point, Karl is a bit alarmed that the circle is so small when
+% he wants the final picture to be much bigger. He is pleased to learn
+% that \tikzname\ has powerful transformation options and scaling
+% everything by a factor of three is very easy. But let us leave the
+% size as it is for the moment to save some space.
+此时 Karl 有点担心，因为这个圆太小了，而他最后想要的图片要大得多。
+他很高兴地了解到，\tikzname\ 有强大的变换选项，所以把每样东西都放大三倍非常容易。
+不过我们暂时先保留这个尺寸，省点地方。
 
+\eohs
 
+% \subsection{Rectangle Path Construction}
+\subsection{矩形路径创建}
 
+\bohs
 
-\subsection{Rectangle Path Construction}
+% The next things we would like to have is the grid in the background.
+% There are several ways to produce it. For example, one might draw lots of
+% rectangles. Since rectangles are so common, there is a special syntax
+% for them: To add a rectangle to the current path, use the |rectangle|
+% path construction operation. This operation should be followed by another
+% coordinate and will append a rectangle to the path such that the
+% previous coordinate and the next coordinates are corners of the
+% rectangle. So, let us add two rectangles to the picture:
+我们下一步想画背景中的网格，有好几种方法可以实现。
+比如你可以画许多矩形。因为矩形很常用，所以有个专门的语法：可以用 |rectangle| 在当前路径中画一个矩形。
+这个操作后面需要跟另外一个坐标，这样前后两个坐标就构成了矩形对角的两个点，并将矩形绘制出来。
+所以让我们在图片中加两个矩形：
 
-The next things we would like to have is the grid in the background.
-There are several ways to produce it. For example, one might draw lots of
-rectangles. Since rectangles are so common, there is a special syntax
-for them: To add a rectangle to the current path, use the |rectangle|
-path construction operation. This operation should be followed by another
-coordinate and will append a rectangle to the path such that the
-previous coordinate and the next coordinates are corners of the
-rectangle. So, let us add two rectangles to the picture:
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -382,30 +525,44 @@ rectangle. So, let us add two rectangles to the picture:
 \end{tikzpicture}
 \end{codeexample}
 
-While this may be nice in other situations, this is not really leading
-anywhere with Karl's problem: First, we would need an awful lot of
-these rectangles and then there is the border that is not ``closed.''
+\bohs
 
-So, Karl is about to resort to simply drawing four vertical and four
-horizontal lines using the nice |\draw| command, when he learns that
-there is a |grid| path construction operation.
+% While this may be nice in other situations, this is not really leading
+% anywhere with Karl's problem: First, we would need an awful lot of
+% these rectangles and then there is the border that is not ``closed.''
+也许在其他情况下这个方法还不错，但是并没有真的解决 Karl 的问题：首先我们需要很多很多矩形，并且边界处是不“闭合”的。
 
+% So, Karl is about to resort to simply drawing four vertical and four
+% horizontal lines using the nice |\draw| command, when he learns that
+% there is a |grid| path construction operation.
+所以，正当 Karl 准备用 |\draw| 命令画四条横线、四条竖线时，他得知有一个 |grid| （网格）路径创建操作。
 
+\eohs
 
-\subsection{Grid Path Construction}
+% \subsection{Grid Path Construction}
+\subsection{网格路径创建}
 
-The |grid| path operation adds a grid to the current path. It will add
-lines making up a grid that fills the rectangle whose one corner is
-the current point and whose other corner is the point following the
-|grid| operation. For example, the code
-|\tikz \draw[step=2pt] (0,0) grid (10pt,10pt);| produces \tikz
-\draw[step=2pt] (0,0) grid (10pt,10pt);. Note how the optional
-argument for |\draw| can be used to specify a grid width (there are
-also |xstep| and |ystep| to define the steppings independently). As
-Karl will learn soon, there are \emph{lots} of things that can be
-influenced using such options.
+\bohs
 
-For Karl, the following code could be used:
+% The |grid| path operation adds a grid to the current path. It will add
+% lines making up a grid that fills the rectangle whose one corner is
+% the current point and whose other corner is the point following the
+% |grid| operation. For example, the code
+% |\tikz \draw[step=2pt] (0,0) grid (10pt,10pt);| produces \tikz
+% \draw[step=2pt] (0,0) grid (10pt,10pt);. Note how the optional
+% argument for |\draw| can be used to specify a grid width (there are
+% also |xstep| and |ystep| to define the steppings independently). As
+% Karl will learn soon, there are \emph{lots} of things that can be
+% influenced using such options.
+|grid| 路径操作在当前路径加上网格。它会画出组成网格的线，|grid| 前后两个点坐标构成了网格矩形的两个对角。
+比如，代码 |\tikz \draw[step=2pt] (0,0) grid (10pt,10pt);| 生成网格 \tikz \draw[step=2pt] (0,0) grid (10pt,10pt);。
+注意到 |\draw| 后面的选项，可以指定网格的宽度（还可以用 |xstep| 和 |ystep| 来分别设置网格间隔）。
+正如 Karl 很快会学到的，用这些选项可以影响\emph{非常多}的事物。
+
+% For Karl, the following code could be used:
+Karl 可以用下面的代码：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -416,14 +573,22 @@ For Karl, the following code could be used:
 \end{tikzpicture}
 \end{codeexample}
 
-Having another look at the desired picture, Karl notices that it would
-be nice for the grid to be more subdued. (His son told him that grids
-tend to be distracting if they are not subdued.) To subdue the grid,
-Karl adds two more options to the |\draw| command that draws the
-grid. First, he uses the color |gray| for the grid lines. Second, he
-reduces the line width to |very thin|. Finally, he swaps the ordering
-of the commands so that the grid is drawn first and everything else on
-top.
+\bohs
+
+% Having another look at the desired picture, Karl notices that it would
+% be nice for the grid to be more subdued. (His son told him that grids
+% tend to be distracting if they are not subdued.) To subdue the grid,
+% Karl adds two more options to the |\draw| command that draws the
+% grid. First, he uses the color |gray| for the grid lines. Second, he
+% reduces the line width to |very thin|. Finally, he swaps the ordering
+% of the commands so that the grid is drawn first and everything else on
+% top.
+Karl 又看了一眼理想中的图片，他注意到，要是网格更柔和一点就好了。%
+（他儿子告诉他，如果网格不柔和，会让人分心。）
+为了让网格柔和，他又在 |\draw| 后面加了两个选项。
+首先他把网格线的颜色设为 |gray|，然后将网格的线宽减到了 |very thin|，最后，他调换了命令的顺序，先画网格，再在上面画其他的。
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -435,18 +600,26 @@ top.
 \end{codeexample}
 
 
-\subsection{Adding a Touch of  Style}
+% \subsection{Adding a Touch of Style}
+\subsection{加一点样式}
 
-Instead of the options |gray,very thin| Karl could also have
-said |help lines|. \emph{Styles} are predefined sets of options
-that can be used to organize how a graphic is drawn. By saying
-|help lines| you say ``use the style that I (or someone else)
-has set for drawing help lines.'' If Karl decides, at some later
-point, that grids should be drawn, say, using the color |blue!50|
-instead of |gray|, he could provide the following option somewhere:
+\bohs
+
+% Instead of the options |gray,very thin| Karl could also have
+% said |help lines|. \emph{Styles} are predefined sets of options
+% that can be used to organize how a graphic is drawn. By saying
+% |help lines| you say ``use the style that I (or someone else)
+% has set for drawing help lines.'' If Karl decides, at some later
+% point, that grids should be drawn, say, using the color |blue!50|
+% instead of |gray|, he could provide the following option somewhere:
+
+
+\eohs
+
 \begin{codeexample}[code only]
 help lines/.style={color=blue!50,very thin}
 \end{codeexample}
+
 The effect of this ``style setter'' is that in the current
 scope or environment the |help lines| option has the same effect as
 |color=blue!50,very thin|.

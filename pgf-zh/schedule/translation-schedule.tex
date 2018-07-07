@@ -11,15 +11,17 @@
 \tikzstyle{level 3} = [level distance= 38em]
 \tikzstyle{edge from parent} = [draw, edge from parent path={(\tikzchildnode.west) -- ++(-2em,0) |- (\tikzparentnode.east)}]
 % \tikzstyle{edge from parent} = [draw, edge from parent fork right]
-\tikzstyle{nd0} = [draw=black, minimum width=8em, minimum height = 12ex, font = \Large \bfseries, inner sep=2ex, text width=10em, align=center]
-\tikzstyle{nd1} = [draw=black, minimum width=8em, minimum height =  8ex, font = \large \bfseries, inner sep=2ex, text width=20em, align=center]
+\tikzstyle{nd0} = [draw=black, minimum width=8em, minimum height = 12ex, font = \Large \bfseries, inner sep=2.0ex, text width=10em, align=center]
+\tikzstyle{nd1} = [draw=black, minimum width=8em, minimum height =  8ex, font = \large \bfseries, inner sep=2.0ex, text width=20em, align=center]
 \tikzstyle{nd2} = [draw=black, minimum width=8em,                                                 inner sep=0.8ex, text width=28em, align=left]
 
-\tikzstyle{every tree node} = [fill=red!30, font=\bfseries]
-\tikzstyle{not}   = [fill=red!30]
-\tikzstyle{doing} = [fill=cyan!30]
-\tikzstyle{done}  = [fill=green!30]
-\tikzstyle{better}   = [fill=green!80!black]
+\tikzstyle{not}        = [fill=red!30]
+\tikzstyle{doing}      = [fill=cyan!30]
+\tikzstyle{done}       = [fill=cyan!80]
+\tikzstyle{improving}  = [fill=green!30]
+\tikzstyle{improved}  = [fill=green!80]
+
+\tikzstyle{every tree node} = [not, font=\bfseries]
 
 % \tiny % Add this to work under xelatex
 \Tree 
@@ -179,10 +181,11 @@
 % \node[right= 1em of rect cyan,  text=cyan!30 ] {正在翻译};
 % \node[right= 1em of rect green, text=green!30] {翻译完成};
 
-\node [below right,text width= 4em,                 not   ] at (current bounding box.north west) {\textbf{尚未翻译}};
-\node [below right,text width= 4em, yshift =  -6ex, doing ] at (current bounding box.north west) {\textbf{正在翻译}};
-\node [below right,text width= 4em, yshift = -12ex, done  ] at (current bounding box.north west) {\textbf{翻译完成}};
-% \node [below right,text width= 4em, yshift = -15ex, better] at (current bounding box.north west) {\textbf{翻译润色}};
+\node [below right,text width= 4em,                 not      ] at (current bounding box.north west) {\textbf{尚未翻译}};
+\node [below right,text width= 4em, yshift =  -6ex, doing    ] at (current bounding box.north west) {\textbf{正在翻译}};
+\node [below right,text width= 4em, yshift = -12ex, done     ] at (current bounding box.north west) {\textbf{翻译完成}};
+\node [below right,text width= 4em, yshift = -18ex, improving] at (current bounding box.north west) {\textbf{正在润色}};
+\node [below right,text width= 4em, yshift = -24ex, improved ] at (current bounding box.north west) {\textbf{润色完成}};
 
 \end{tikzpicture}
 

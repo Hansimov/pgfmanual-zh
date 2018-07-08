@@ -31,7 +31,7 @@ PGF/TikZ 相关的学习资源很多，可以参考这个项目：
 
 如果你能力出众，不满足于贡献 issue，你也可以加入翻译工作。尽管目前我更倾向于个人完成整个项目，但是如果你具备如下条件：
 * 熟悉 TeX 和 PGF/TikZ
-* 擅长中英文写作
+* 擅长中英文写作和科技翻译
 * 有强烈的兴趣
 
 那么欢迎加入该项目的 Gitter 聊天室联系我：[pgfmanual-zh/Lobby](https://gitter.im/pgfmanual-zh/Lobby)

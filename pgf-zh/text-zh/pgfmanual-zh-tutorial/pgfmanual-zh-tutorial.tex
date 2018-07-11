@@ -601,7 +601,7 @@ Karl 又看了一眼理想中的图片，他注意到，要是网格更柔和一
 
 
 % \subsection{Adding a Touch of Style}
-\subsection{加一点样式}
+\subsection{添加一点样式}
 
 \bohs
 
@@ -1101,7 +1101,7 @@ Karl 现在想画上代表正弦值和余弦值的线段。
 % quite useful to ``get to the point $(\cos 30^\circ,\sin 30^\circ)$ on
 % the circle.''
 要用极坐标的方式指定点，可以用记号 \ltz{(30:1cm)}，意思是沿 30 度角方向延伸 1 cm。
-很明显，这个方法比“圆上一点 $(\cos 30^\circ,\sin 30^\circ)$”有用多了。
+很明显，这个方法比“圆上一点 $(\cos 30^\circ, \sin 30^\circ)$”方便多了。
 
 % You can add a single |+| sign in front of a coordinate or two of
 % them as in |+(0cm,1cm)| or |++(2cm,0cm)|. Such coordinates are interpreted
@@ -1128,17 +1128,27 @@ Karl 现在想画上代表正弦值和余弦值的线段。
 \end{tikzpicture}
 \end{codeexample}
 
-Karl used the fact $\sin 30^\circ = 1/2$. However, he very much
-doubts that his students know this, so it would be nice to have a way
-of specifying ``the point straight down from |(30:1cm)| that lies on
-the $x$-axis.'' This is, indeed, possible using a special syntax: Karl
-can write \verb!(30:1cm |- 0,0)!. In general, the meaning of
-|(|\meta{p}\verb! |- !\meta{q}|)| is ``the intersection of a vertical
-line through $p$ and a horizontal line through $q$.''
+\bohs
 
-Next, let us draw the cosine line. One way would be to say
-\verb!(30:1cm |- 0,0) -- (0,0)!. Another way is the following: we
-``continue'' from where the sine ends:
+% Karl used the fact $\sin 30^\circ = 1/2$. However, he very much
+% doubts that his students know this, so it would be nice to have a way
+% of specifying ``the point straight down from |(30:1cm)| that lies on
+% the $x$-axis.'' This is, indeed, possible using a special syntax: Karl
+% can write \verb!(30:1cm |- 0,0)!. In general, the meaning of
+% |(|\meta{p}\verb! |- !\meta{q}|)| is ``the intersection of a vertical
+% line through $p$ and a horizontal line through $q$.''
+Karl 这里用到了 $\sin 30^\circ = 1/2$，不过他觉得学生未必知道这个，所以他想，最好有方法能指定“\ltz{(30:1cm)} 到 $x$ 轴的垂足”。
+这确实是可行的，需要用一个特殊的语法：\ltz{(30:1cm |- 0,0)}。
+一般来说， {\color{blue} \texttt{(\meta{p} \ltz{\|-} \meta{q})}} 的意思是“过点 $p$ 的竖直线与过点 $q$ 的水平线的交点”。
+
+% Next, let us draw the cosine line. One way would be to say
+% \verb!(30:1cm |- 0,0) -- (0,0)!. Another way is the following: we
+% ``continue'' from where the sine ends:
+然后我们来画代表余弦值的线段。
+一种方法是：\ltz{(30:1cm \|- 0,0) -- (0,0)}。
+另一种方法如下：（我们接着正弦值线段那部分往下画）
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -1154,16 +1164,23 @@ Next, let us draw the cosine line. One way would be to say
 \end{tikzpicture}
 \end{codeexample}
 
-Note that there is no |--| between |(30:1cm)| and |++(0,-0.5)|. In
-detail, this path is interpreted as follows: ``First, the |(30:1cm)|
-tells me to move by pen to $(\cos 30^\circ,1/2)$. Next, there comes
-another coordinate specification, so I move my pen there without drawing
-anything. This new point is half a unit down from the last position,
-thus it is at $(\cos 30^\circ,0)$. Finally, I move the pen to the
-origin, but this time drawing something (because of the |--|).''
+\bohs
 
-To appreciate the difference between |+| and |++| consider the
-following example:
+% Note that there is no |--| between |(30:1cm)| and |++(0,-0.5)|. In
+% detail, this path is interpreted as follows: ``First, the |(30:1cm)|
+% tells me to move by pen to $(\cos 30^\circ,1/2)$. Next, there comes
+% another coordinate specification, so I move my pen there without drawing
+% anything. This new point is half a unit down from the last position,
+% thus it is at $(\cos 30^\circ,0)$. Finally, I move the pen to the
+% origin, but this time drawing something (because of the |--|).''
+注意，在 \ltz{(30:1cm)} 和 \ltz{++(0,-0.5)} 之间没有 \ltz{--}。
+具体点说，这条路径应该这样解释：“首先，\ltz{(30:1cm)} 告诉我，要把笔移到 $(\cos 30^\circ,1/2)$；接着，我读到了另一个点坐标，因此将笔移动到新位置，并且什么也不画，新点在旧点下方的半个单位长度，也就是 $(\cos 30^\circ,0)$；最后，我把笔移到原点，不过这次要画出来（因为有 \ltz{--}）。”
+
+% To appreciate the difference between |+| and |++| consider the
+% following example:
+下例展示了 \ltz{+} 和 \ltz{++} 的区别：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -1173,7 +1190,12 @@ following example:
 \end{tikzpicture}
 \end{codeexample}
 
-By comparison, when using a single |+|, the coordinates are different:
+\bohs
+
+% By comparison, when using a single |+|, the coordinates are different:
+和 \ltz{++} 相比，使用 \ltz{+} 时，路径中的坐标有所不同：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -1183,40 +1205,61 @@ By comparison, when using a single |+|, the coordinates are different:
 \end{tikzpicture}
 \end{codeexample}
 
+\bohs
 
-Naturally, all of this could have been written more clearly and more
-economically like this (either with a single of a double |+|):
+% Naturally, all of this could have been written more clearly and more
+% economically like this (either with a single of a double |+|):
+当然，这些全都可以采用更加清晰精简的写法（既不用 \ltz{+} 也不用 \ltz{++}）：
+
+\eohs
+
 \begin{codeexample}[]
 \tikz \draw (0,0) rectangle +(1,1)  (1.5,0) rectangle +(1,1);
 \end{codeexample}
 
 
-\subsection{Intersecting Paths}
+% \subsection{Intersecting Paths}
+\subsection{交叉路径}
 
-Karl is left with the line for $\tan \alpha$, which seems difficult to
-specify using transformations and polar coordinates. The first -- and
-easiest -- thing he can do is so simply use the coordinate
-|(1,{tan(30)})| since \tikzname's math engine knows how to compute
-things like |tan(30)|. Note the added braces since, otherwise,
-\tikzname's parser would think that the first closing parenthesis ends
-the coordinate (in general, you need to add braces around components
-of coordinates when these components contain parentheses). 
+\bohs
 
-Karl can, however, also use a more elaborate, but also more
-``geometric'' way of computing the length of the orange line: He can
-specify intersections of paths as coordinates. The line for $\tan
-\alpha$ starts at $(1,0)$ 
-and goes upward to a point that is at the intersection of a line going
-``up'' and a line going from the origin through |(30:1cm)|. Such
-computations are made available by the |intersections| library.
+% Karl is left with the line for $\tan \alpha$, which seems difficult to
+% specify using transformations and polar coordinates. The first -- and
+% easiest -- thing he can do is so simply use the coordinate
+% |(1,{tan(30)})| since \tikzname's math engine knows how to compute
+% things like |tan(30)|. Note the added braces since, otherwise,
+% \tikzname's parser would think that the first closing parenthesis ends
+% the coordinate (in general, you need to add braces around components
+% of coordinates when these components contain parentheses). 
+现在 Karl 就剩 $\tan \alpha$ 对应的线段了，似乎用变换或者极坐标都不好画。
+他能做的第一件事——也是最简单的一件事——就是用坐标 \ltz{(1,{tan(30)})}，因为 \tikzname\ 的数学引擎知道如何计算 \ltz{tan(30)} 这样的式子。
+注意外面加的花括号 \ltz{\{\}}，这是因为 \tikzname\ 的语法分析器在读到第一个圆右括号 \ltz{)} 时，会当成是坐标的闭合（通常，如果坐标中的元素包含圆括号，你需要在它外面再套一层花括号）。
 
-What Karl must do is to create two ``invisible'' paths that intersect
-at the position of interest. Creating paths that are not otherwise
-seen can be done using the |\path| command without any options like
-|draw| or |fill|. Then, Karl can add the |name path| option to the
-path for later reference. Once the paths have been constructed, Karl
-can use the |name intersections| to assign names to the coordinate for
-later reference.
+% Karl can, however, also use a more elaborate, but also more
+% ``geometric'' way of computing the length of the orange line: He can
+% specify intersections of paths as coordinates. The line for $\tan
+% \alpha$ starts at $(1,0)$ 
+% and goes upward to a point that is at the intersection of a line going
+% ``up'' and a line going from the origin through |(30:1cm)|. Such
+% computations are made available by the |intersections| library.
+Karl 还可以用一种更“精致”也更“几何”的方法，来计算橙色线段的长度：
+他可以指定路径的交点作为坐标。
+$\tan \alpha$ 值对应的线段起点是 $(1,0)$，然后向“上”，直到和发自原点、指向 \ltz{(30:1cm)} 的线相交。
+\ltz{intersections} 库可以支持这类运算。
+
+% What Karl must do is to create two ``invisible'' paths that intersect
+% at the position of interest. Creating paths that are not otherwise
+% seen can be done using the |\path| command without any options like
+% |draw| or |fill|. Then, Karl can add the |name path| option to the
+% path for later reference. Once the paths have been constructed, Karl
+% can use the |name intersections| to assign names to the coordinate for
+% later reference.
+Karl 要做的就是创建两条“隐形”路径，相交于目标位置。
+创建隐形路径可以用 \ltz{\\path}，不加任何 \ltz{draw} 或者 \ltz{fill} 这样的选项。
+再给路径加上 \ltz{name path} 选项，用于后续的引用。
+路径创建好后，Karl 就可以用 \ltz{name intersections} 选项来命名交点坐标，以供后续引用。
+
+\eohs
 
 \begin{codeexample}[code only]
 \path [name path=upward line] (1,0) -- (1,1);
@@ -1227,16 +1270,25 @@ later reference.
 \end{codeexample}
 
 
-\subsection{Adding Arrow Tips}
+% \subsection{Adding Arrow Tips}
+\subsection{添加箭头}
 
-Karl now wants to add the little arrow tips at the end of the axes. He has
-noticed that in many plots, even in scientific journals, these arrow tips
-seem to be missing, presumably because the generating programs cannot
-produce them. Karl thinks arrow tips belong at the end of axes. His
-son agrees. His students do not care about arrow tips.
+\bohs
 
-It turns out that adding arrow tips is pretty easy: Karl adds the option
-|->| to the drawing commands for the axes:
+% Karl now wants to add the little arrow tips at the end of the axes. He has
+% noticed that in many plots, even in scientific journals, these arrow tips
+% seem to be missing, presumably because the generating programs cannot
+% produce them. Karl thinks arrow tips belong at the end of axes. His
+% son agrees. His students do not care about arrow tips.
+Karl 现在想给坐标轴末尾加个小箭头，他注意到在许多图中，甚至是科学期刊里的，都没有这些箭头，也许是生成的程序做不到这一点。
+他觉得箭头应该在轴的尾端，他的儿子也同意，而他的学生并不关心箭头。
+
+% It turns out that adding arrow tips is pretty easy: Karl adds the option
+% |->| to the drawing commands for the axes:
+实际上加箭头非常容易：
+Karl 给画坐标轴的命令加上了一个 \ltz{->} 选项：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -1257,16 +1309,24 @@ It turns out that adding arrow tips is pretty easy: Karl adds the option
 \end{tikzpicture}
 \end{codeexample}
 
-If Karl had used the option |<-| instead of |->|, arrow tips would
-have been put at the beginning of the path. The option |<->| puts
-arrow tips at both ends of the path.
+\bohs
 
-There are certain restrictions to the kind of paths to which arrow tips
-can be added. As a rule of thumb, you can add arrow tips only to a
-single open ``line.'' For example, you cannot add tips to,
-say, a rectangle or a circle. However, you can add arrow
-tips to curved paths and to paths that have several segments, as in
-the following examples:
+% If Karl had used the option |<-| instead of |->|, arrow tips would
+% have been put at the beginning of the path. The option |<->| puts
+% arrow tips at both ends of the path.
+如果 Karl 用 \ltz{<-} 而非 \ltz{->}，箭头就会加在路径开头，而 \ltz{<->} 则会把箭头加在路径两端。
+
+% There are certain restrictions to the kind of paths to which arrow tips
+% can be added. As a rule of thumb, you can add arrow tips only to a
+% single open ``line.'' For example, you cannot add tips to,
+% say, a rectangle or a circle. However, you can add arrow
+% tips to curved paths and to paths that have several segments, as in
+% the following examples:
+对于可以添加箭头的路径类型，有一定的限制。
+一般来说，你只能给一条开放的“线”添加箭头。比如，你不能给矩形或者圆加箭头。
+不过你可以给曲线路径或者是多段路径加箭头，如下：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -1275,19 +1335,30 @@ the following examples:
 \end{tikzpicture}
 \end{codeexample}
 
-Karl has a more detailed look at the arrow that \tikzname\ puts at the
-end. It looks like this when he zooms it: \tikz[baseline]
-\draw[->,line width=1pt] (0pt,.5ex) -- ++(10pt,0pt);. The shape seems
-vaguely familiar and, indeed, this is exactly the end of \TeX's
-standard arrow used in something like $f\colon A \to B$.
+\bohs
 
-Karl likes the arrow, especially since it is not ``as thick'' as the
-arrows offered by many other packages. However, he expects that,
-sometimes, he might need to use some other kinds of arrow.
-To do so, Karl can say |>=|\meta{kind of end arrow tip}, where
-\meta{kind of end arrow tip} is a special arrow tip specification. For
-example, if Karl says |>=Stealth|, then he tells \tikzname\
-that he would like  ``stealth-fighter-like'' arrow tips:
+% Karl has a more detailed look at the arrow that \tikzname\ puts at the
+% end. It looks like this when he zooms it: \tikz[baseline]
+% \draw[->,line width=1pt] (0pt,.5ex) -- ++(10pt,0pt);. The shape seems
+% vaguely familiar and, indeed, this is exactly the end of \TeX's
+% standard arrow used in something like $f\colon A \to B$.
+Karl 仔细地观察了一下 \tikzname\ 画在尾端的箭头。
+放大后像这样：\tikz[baseline] \draw[->,line width=1pt] (0pt,.5ex) -- ++(10pt,0pt);。
+形状似乎有点相似，而且事实上，这就是 \TeX\ 中标准箭头的尾端，用在 $f\colon A \to B$ 这样的地方。
+
+% Karl likes the arrow, especially since it is not ``as thick'' as the
+% arrows offered by many other packages. However, he expects that,
+% sometimes, he might need to use some other kinds of arrow.
+% To do so, Karl can say |>=|\meta{kind of end arrow tip}, where
+% \meta{kind of end arrow tip} is a special arrow tip specification. For
+% example, if Karl says |>=Stealth|, then he tells \tikzname\
+% that he would like  ``stealth-fighter-like'' arrow tips:
+Karl 喜欢这个箭头，尤其是它没有很多其他宏包中的“那么粗”。
+不过他想，有时或许会用到其他类型的箭头。
+为此，Karl 可以用~{\color{blue} \ltz{>=}\metazh{箭头尾端类型}}，其中~{\color{blue} \metazh{箭头尾端类型}} 是一个特殊的箭头选项。
+比方说，如果 Karl 用 \ltz{>=Stealth}，那么这是在告诉 \tikzname\ 他喜欢“隐形战斗机式”的箭头：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[>=Stealth]
@@ -1296,35 +1367,55 @@ that he would like  ``stealth-fighter-like'' arrow tips:
 \end{tikzpicture}
 \end{codeexample}%>>
 
-Karl wonders whether such a military name for the arrow type is really
-necessary. He is not really mollified when his son tells him that
-Microsoft's PowerPoint uses the same name. He decides to have his
-students discuss this at some point.
+\bohs
 
-In addition to |Stealth| there are several other predefined kinds of
-arrow tips Karl can choose from, see Section~\ref{section-arrows}. Furthermore,
-he can define arrows types himself, if he needs new ones.
+% Karl wonders whether such a military name for the arrow type is really
+% necessary. He is not really mollified when his son tells him that
+% Microsoft's PowerPoint uses the same name. He decides to have his
+% students discuss this at some point.
+Karl 在想，箭头类型用这种军事上的名字是否真的有必要。
+虽然 Karl 的儿子告诉他，微软的 PowerPoint 也用了相同的名字，可是他仍旧不能平静。
+他决定有朝一日要让学生讨论一下这个话题。
 
+% In addition to |Stealth| there are several other predefined kinds of
+% arrow tips Karl can choose from, see Section~\ref{section-arrows}. Furthermore,
+% he can define arrows types himself, if he needs new ones.
+除了 \ltz{Stealth}，Karl 还可以选择另外几种预先定义好的箭头，参见第 \ref{section-arrows} 小节。
+此外，如果他需要新式箭头，也可以自己定义。
 
-\subsection{Scoping}
+\eohs
 
-Karl saw already that there are numerous graphic options that affect how
-paths are rendered. Often, he would like to apply certain options to
-a whole set of graphic commands. For example, Karl might wish to draw
-three paths using a |thick| pen, but would like everything else to
-be drawn ``normally.''
+% \subsection{Scoping}
+\subsection{设置作用域}
 
-If Karl wishes to set a certain graphic option for the whole picture,
-he can simply pass this option to the |\tikz| command or to the
-|{tikzpicture}| environment (Gerda would pass the options to
-|\tikzpicture| and Hans passes them to |\starttikzpicture|). However,
-if Karl wants to apply graphic options to a local group, he put these
-commands inside a |{scope}| environment (Gerda uses |\scope| and
-|\endscope|, Hans uses |\startscope| and |\stopscope|). This
-environment takes graphic options as an optional argument and these
-options apply to everything inside the scope, but not to anything outside.
+\bohs
 
-Here is an example:
+% Karl saw already that there are numerous graphic options that affect how
+% paths are rendered. Often, he would like to apply certain options to
+% a whole set of graphic commands. For example, Karl might wish to draw
+% three paths using a |thick| pen, but would like everything else to
+% be drawn ``normally.''
+Karl 已经见到许多图形选项，用于改变路径的渲染方式。
+他经常想在一套图形命令上用某些特定的图形选项。
+比如说，他可能想拿一支粗（\ltz{thick}）笔画三条路径，然后其他的都用“正常”选项。
+
+% If Karl wishes to set a certain graphic option for the whole picture,
+% he can simply pass this option to the |\tikz| command or to the
+% |{tikzpicture}| environment (Gerda would pass the options to
+% |\tikzpicture| and Hans passes them to |\starttikzpicture|). However,
+% if Karl wants to apply graphic options to a local group, he put these
+% commands inside a |{scope}| environment (Gerda uses |\scope| and
+% |\endscope|, Hans uses |\startscope| and |\stopscope|). This
+% environment takes graphic options as an optional argument and these
+% options apply to everything inside the scope, but not to anything outside.
+如果 Karl 想给整张图片设置一个特定的图形选项，那么他只需要把这个选项传给 \ltz{\\tikz} 或者放在 \ltz{\{tikzpicture\}} 环境中（Gerda 传给 \ltz{\\tikzpicture}，Hans 则传给 \ltz{\\starttikzpicture}）。
+然而，如果 Karl 只想在局部的某组命令中使用这些选项，那么他就需要将这些命令放在 \ltz{\{scope\}} 环境中（Gerda 用 \ltz{\\scope}，Hans 则用 \ltz{\\startscope} 和 \ltz{\\stopscope}）。
+这个环境把图形选项视为可选参数，只把他们应用在作用域内的命令中，对作用域外的没有影响。
+
+% Here is an example:
+例子如下：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[ultra thick]
@@ -1337,34 +1428,47 @@ Here is an example:
 \end{tikzpicture}
 \end{codeexample}
 
-Scoping has another interesting effect: Any changes to the clipping
-area are local to the scope. Thus, if you say |\clip| somewhere inside
-a scope, the effect of the |\clip| command ends at the end of the
-scope. This is useful since there is no other way of ``enlarging'' the
-clipping area.
+\bohs
 
-Karl has also already seen that giving options to commands like
-|\draw| apply only to that command. It turns out that the situation is
-slightly more complex. First, options to a command like |\draw| are
-not really options to the command, but they are ``path options'' and
-can be given anywhere on the path. So, instead of
-|\draw[thin] (0,0) -- (1,0);| one can also write
-|\draw (0,0) [thin] -- (1,0);| or |\draw (0,0) -- (1,0) [thin];|; all
-of these have the same effect. This might seem strange since in the
-last case, it would appear that the |thin| should take effect only
-``after'' the line from $(0,0)$ to $(1,0)$ has been drawn. However,
-most graphic options only apply to the whole path. Indeed, if you say
-both |thin| and |thick| on the same path, the last option given will
-``win.''
+% Scoping has another interesting effect: Any changes to the clipping
+% area are local to the scope. Thus, if you say |\clip| somewhere inside
+% a scope, the effect of the |\clip| command ends at the end of the
+% scope. This is useful since there is no other way of ``enlarging'' the
+% clipping area.
+设置作用域还有另外一个有趣的影响：
+对剪裁区域的任何改动，都局限在作用域内。
+所以，如果你在作用域内的某个地方用了 \ltz{\\clip}，那么剪裁的效果会在作用域外消失。
+这很有用，因为只有这种方法能“放大”剪裁的区域。
 
-When reading the above, Karl notices that only ``most'' graphic
-options apply to the whole path. Indeed, all transformation options do
-\emph{not} apply to the whole path, but only to ``everything following
-them on the path.'' We will have a more detailed look at this in a
-moment. Nevertheless, all options given during a path construction
-apply only to this path.
+% Karl has also already seen that giving options to commands like
+% |\draw| apply only to that command. It turns out that the situation is
+% slightly more complex. First, options to a command like |\draw| are
+% not really options to the command, but they are ``path options'' and
+% can be given anywhere on the path. So, instead of
+% |\draw[thin] (0,0) -- (1,0);| one can also write
+% |\draw (0,0) [thin] -- (1,0);| or |\draw (0,0) -- (1,0) [thin];|; all
+% of these have the same effect. This might seem strange since in the
+% last case, it would appear that the |thin| should take effect only
+% ``after'' the line from $(0,0)$ to $(1,0)$ has been drawn. However,
+% most graphic options only apply to the whole path. Indeed, if you say
+% both |thin| and |thick| on the same path, the last option given will
+% ``win.''
+Karl 还发现，传给 \ltz{\\draw} 这类命令的选项，只对当前命令有用。
+这下情况就有点复杂了。
+首先，传给 \ltz{\\draw} 这类命令的选项，并不是真的作用于命令，而是“路径选项”，可以在路径的任何位置给出。
+所以，除了用 \ltz{\\draw[thin] (0,0) -- (1,0);}，你还可以写成 \ltz{\\draw (0,0) [thin] -- (1,0);} 或者 \ltz{\\draw (0,0) -- (1,0) [thin];}。
+这些写法的效果是一样的。
+看上去有点奇怪，按理说在最后一种写法中，\ltz{thin} 应该只对线段 \ltz{(0,0) -- (1,0)} 之后绘制的元素有影响。
+事实上，如果你同时在路径中使用 \ltz{thin} 和 \ltz{thick}，那么最后写的选项会“胜出”。
 
+% When reading the above, Karl notices that only ``most'' graphic
+% options apply to the whole path. Indeed, all transformation options do
+% \emph{not} apply to the whole path, but only to ``everything following
+% them on the path.'' We will have a more detailed look at this in a
+% moment. Nevertheless, all options given during a path construction
+% apply only to this path.
 
+\eohs
 
 \subsection{Transformations}
 

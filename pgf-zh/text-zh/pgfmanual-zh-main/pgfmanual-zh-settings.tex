@@ -39,9 +39,11 @@ breaklines = true,
 breakatwhitespace=true,
 keepspaces = true,
 % showspaces=true,
+% escapechar=`,
+% mathescape=true,
 }
 
 \newcommand{\ltz}[1]{\lstinline[language=tikz]{#1}}
-
+% Some chars must be escaped when using \ltz: \(backslash) |(vertical line) {}(curly braces)
 
 % \usepackage{minted}

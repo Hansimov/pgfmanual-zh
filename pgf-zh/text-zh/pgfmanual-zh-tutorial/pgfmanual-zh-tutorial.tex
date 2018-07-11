@@ -612,7 +612,9 @@ Karl 又看了一眼理想中的图片，他注意到，要是网格更柔和一
 % has set for drawing help lines.'' If Karl decides, at some later
 % point, that grids should be drawn, say, using the color |blue!50|
 % instead of |gray|, he could provide the following option somewhere:
-
+除了用 \ltz{gray,very thin}，Karl 还可以用 \ltz{help lines}。\emph{样式}就是预定义的选项集合，用来组织图形的绘制。
+\ltz{help lines} 的意思是“使用我（或者其他人）已经设置好的绘制帮助线的样式”。
+如果 Karl 之后打算用颜色 \ltz{blue!50} 而不是 \ltz{gray} 画网格，他可以用下面的选项：
 
 \eohs
 
@@ -620,35 +622,57 @@ Karl 又看了一眼理想中的图片，他注意到，要是网格更柔和一
 help lines/.style={color=blue!50,very thin}
 \end{codeexample}
 
-The effect of this ``style setter'' is that in the current
-scope or environment the |help lines| option has the same effect as
-|color=blue!50,very thin|.
+\bohs
 
-Using styles makes your graphics code more flexible. You can
-change the way things look easily in a consistent manner.
-Normally, styles are defined at the beginning of a picture. However,
-you may sometimes wish to define a style globally, so that all
-pictures of your document can use this style. Then you can easily
-change the way all graphics look by changing this one style. In this
-situation you can use the |\tikzset| command at the beginning of the
-document as in
+% The effect of this ``style setter'' is that in the current
+% scope or environment the |help lines| option has the same effect as
+% |color=blue!50,very thin|.
+这个“样式设置”的作用是，在当前作用域或环境下，\ltz{help lines} 的效果等同于 \ltz{color=blue!50,very thin}。
+
+% Using styles makes your graphics code more flexible. You can
+% change the way things look easily in a consistent manner.
+% Normally, styles are defined at the beginning of a picture. However,
+% you may sometimes wish to define a style globally, so that all
+% pictures of your document can use this style. Then you can easily
+% change the way all graphics look by changing this one style. In this
+% situation you can use the |\tikzset| command at the beginning of the
+% document as in
+样式让图形代码更灵活，你可以用统一的方法更容易地修改图形的外观。
+通常样式在图片开头定义，不过你有时候可能想定义一个全局样式，这样所有图片就可以用这个样式了，然后只改这个样式就能改所有图片的样式。
+要想这样，你可以在文档开头用 \ltz{\tikzset} 命令：
+
+\eohs
+
 \begin{codeexample}[code only]
 \tikzset{help lines/.style=very thin}
 \end{codeexample}
 
-To build a hierarchy of styles you can have one style use
-another. So in order to define a style |Karl's grid| that is based on
-the |grid| style Karl could say
+\bohs
+
+% To build a hierarchy of styles you can have one style use
+% another. So in order to define a style |Karl's grid| that is based on
+% the |grid| style Karl could say
+你可以在一个样式中使用另一个样式，建立层级关系。
+所以要在 \ltz{grid} 的基础上定义一个 \ltz{Karl's grid} 样式，可以这样写：
+
+\eohs
+
 \begin{codeexample}[code only]
 \tikzset{Karl's grid/.style={help lines,color=blue!50}}
 ...
 \draw[Karl's grid] (0,0) grid (5,5);
 \end{codeexample}
 
-Styles are made even more powerful by parametrization. This means
-that, like other options, styles can also be used with a
-parameter. For instance, Karl could parameterize his grid so that, by
-default, it is blue, but he could also use another color.
+\bohs
+
+% Styles are made even more powerful by parametrization. This means
+% that, like other options, styles can also be used with a
+% parameter. For instance, Karl could parameterize his grid so that, by
+% default, it is blue, but he could also use another color.
+参数化可以让样式更强大，也就是说，像其他选项一样，样式也是能使用参数的。
+比如，Karl 可以将他的网格样式参数化，默认蓝色，但也可以用另外一种颜色。
+
+\eohs
 
 \begin{codeexample}[code only]
 \begin{tikzpicture}
@@ -661,54 +685,76 @@ default, it is blue, but he could also use another color.
 \end{codeexample}
 
 
-\subsection{Drawing Options}
+% \subsection{Drawing Options}
+\subsection{画图选项}
 
-Karl wonders what other options there are that influence how a path is
-drawn. He saw already that the |color=|\meta{color} option can be used
-to set the line's color. The option |draw=|\meta{color} does nearly
-the same, only it sets the color for the lines only and a different
-color can be used for filling (Karl will need this when he fills the
-arc for the angle).
+\bohs
 
-He saw that the style |very thin| yields very thin lines. Karl is not
-really surprised by this and neither is he surprised to learn that |thin|
-yields thin lines,  |thick| yields thick lines, |very thick| yields
-very thick lines, |ultra thick| yields really, really thick lines and
-|ultra thin| yields lines that are so thin that low-resolution printers
-and displays will have trouble showing them. He wonders what gives
-lines of ``normal'' thickness. It turns out that |thin| is the correct
-choice, since it gives the same thickness as \TeX's |\hrule|
-command. Nevertheless, Karl would like to know whether there is 
-anything ``in the middle'' between |thin| and |thick|. There is:
-|semithick|.
+% Karl wonders what other options there are that influence how a path is
+% drawn. He saw already that the |color=|\meta{color} option can be used
+% to set the line's color. The option |draw=|\meta{color} does nearly
+% the same, only it sets the color for the lines only and a different
+% color can be used for filling (Karl will need this when he fills the
+% arc for the angle).
+Karl 在想还有什么命令能够影响路径的绘制。
+他已经注意到 \ltz{color=}{\color{blue} \meta{color}} 可以设置线的颜色，而 \ltz{draw=}{\color{blue} \meta{color}} 的作用几乎一样，只不过它只设置线的轮廓颜色，而填充颜色可以设置成另外一种（后面要填充弧线时，Karl 会用到这个）。
 
-Another useful thing one can do with lines is to dash or dot them. For
-this, the two styles |dashed| and |dotted| can be used, yielding
-\tikz[baseline] \draw[dashed] (0,.5ex) -- ++(2em,0pt); and
-\tikz[baseline] \draw[dotted] (0,.5ex) 
--- ++(2em,0pt);. Both options also exist in a loose and a dense
-version, called |loosely dashed|, |densely dashed|, |loosely dotted|,
-and |densely dotted|. If he really, really  needs to, Karl can also
-define much more complex dashing patterns with the |dash pattern|
-option, but his son insists that dashing is to be used with utmost
-care and mostly distracts. Karl's son claims that complicated dashing
-patterns are evil. Karl's students do not care about dashing patterns.
+% He saw that the style |very thin| yields very thin lines. Karl is not
+% really surprised by this and neither is he surprised to learn that |thin|
+% yields thin lines,  |thick| yields thick lines, |very thick| yields
+% very thick lines, |ultra thick| yields really, really thick lines and
+% |ultra thin| yields lines that are so thin that low-resolution printers
+% and displays will have trouble showing them. He wonders what gives
+% lines of ``normal'' thickness. It turns out that |thin| is the correct
+% choice, since it gives the same thickness as \TeX's |\hrule|
+% command. Nevertheless, Karl would like to know whether there is 
+% anything ``in the middle'' between |thin| and |thick|. There is:
+% |semithick|.
+Karl 还注意到 \ltz{very thin} 生成了很细的线，对此他并不奇怪，毕竟 \ltz{thin} 生成细线，\ltz{thick} 生成粗线，\ltz{very thick} 生成很粗的线，\ltz{ultra thick} 生成超粗的线，\ltz{ultra thin}生成超细的线，细到低分辨率的打印机和显示器都很难显示。
+他想知道的是，线的“正常”粗细是多少。结果表明 \ltz{thin} 是正确的选项，因为它和 \TeX\ 的 \ltz{\\hrule} 命令生成的线粗细一样。
+尽管如此，Karl 还是想知道，是否有选项在 \ltz{thin} 和 \ltz{thick} 中间。
+事实上是有的，它就是 \ltz{semithick}。
 
+% Another useful thing one can do with lines is to dash or dot them. For
+% this, the two styles |dashed| and |dotted| can be used, yielding
+% \tikz[baseline] \draw[dashed] (0,.5ex) -- ++(2em,0pt); and
+% \tikz[baseline] \draw[dotted] (0,.5ex) 
+% -- ++(2em,0pt);. Both options also exist in a loose and a dense
+% version, called |loosely dashed|, |densely dashed|, |loosely dotted|,
+% and |densely dotted|. If he really, really  needs to, Karl can also
+% define much more complex dashing patterns with the |dash pattern|
+% option, but his son insists that dashing is to be used with utmost
+% care and mostly distracts. Karl's son claims that complicated dashing
+% patterns are evil. Karl's students do not care about dashing patterns.
+另一个有用的线样式是虚线和点线，可以用 \ltz{dashed} 生成 \tikz[baseline] \draw[dashed] (0,.5ex) -- ++(2em,0pt);，用 \ltz{dotted} 生成 \tikz[baseline] \draw[dotted] (0,.5ex) -- ++(2em,0pt);。
+这两类线都有稀疏和紧密的版本，分别叫 \ltz{loosely dashed}，\ltz{densely dashed}，\ltz{loosely dotted} 和 \ltz{densely dotted}。
+如果 Karl 真需要的话，他还可以用 \ltz{dash pattern} 设置更复杂的虚线图案。
+不过他儿子说，虚线需要尽可能小心使用，并且最容易让人分心，复杂的虚线图案非常糟糕，毕竟 Karl 的学生并不关心虚线的图案。
 
+\eohs
 
-\subsection{Arc Path Construction}
+% \subsection{Arc Path Construction}
+\subsection{弧线路径创建}
 
-Our next obstacle is to draw the arc for the angle. For this, the
-|arc| path construction operation is useful, which draws part of a
-circle or ellipse. This |arc| operation is followed by options in
-brackets that specify the arc. An example would be \texttt{arc[start
-  angle=10, end angle=80, radius=10pt]}, which means exactly what it
-says. Karl obviously
-needs an arc from $0^\circ$ to $30^\circ$. The radius should be
-something relatively small, perhaps around one third of the circle's
-radius. When one uses the arc path construction operation, the
-specified arc will be added with its starting point at the current
-position. So, we first have to ``get there.''
+\bohs
+
+% Our next obstacle is to draw the arc for the angle. For this, the
+% |arc| path construction operation is useful, which draws part of a
+% circle or ellipse. This |arc| operation is followed by options in
+% brackets that specify the arc. An example would be \texttt{arc[start
+%   angle=10, end angle=80, radius=10pt]}, which means exactly what it
+% says. Karl obviously
+% needs an arc from $0^\circ$ to $30^\circ$. The radius should be
+% something relatively small, perhaps around one third of the circle's
+% radius. When one uses the arc path construction operation, the
+% specified arc will be added with its starting point at the current
+% position. So, we first have to ``get there.''
+我们的下一个问题是绘制角的弧线，这就要用到 \ltz{arc} 路径创建操作，可以画出圆或椭圆的一部分。
+\ltz{arc} 后面方括号中的选项，指定了弧线的样子，一个例子是 \ltz{arc[start angle=10, end angle=80, radius=10pt]}，其义如其名。
+Karl 明显需要一个从 $0^\circ$ 到 $30^\circ$ 的弧线，半径要小一点，大概是圆的三分之一。
+在使用弧线路径创建操作时，所画弧线的起始点是当前位置。因此，我们首先要“到达目标位置”。
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -720,11 +766,18 @@ position. So, we first have to ``get there.''
 \end{tikzpicture}
 \end{codeexample}
 
-Karl thinks this is really a bit small and he cannot continue unless
-he learns how to do scaling. For this, he can add the |[scale=3]|
-option. He could add this option to each |\draw| command, but that
-would be awkward. Instead, he adds it to the whole environment, which
-causes this option to apply to everything within.
+\bohs
+
+% Karl thinks this is really a bit small and he cannot continue unless
+% he learns how to do scaling. For this, he can add the |[scale=3]|
+% option. He could add this option to each |\draw| command, but that
+% would be awkward. Instead, he adds it to the whole environment, which
+% causes this option to apply to everything within.
+Karl 觉得图太小了，如果不学会如何放大，他就不能继续。
+为此他可以加上 \ltz{[scale=3]} 的选项，可以把这个选项挨个加到所有 \ltz{\\draw} 命令上，但是这太蠢了。
+所以他把它加到了整个环境上，这样就能将缩放效果应用到里面的所有元素了。
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -736,8 +789,13 @@ causes this option to apply to everything within.
 \end{tikzpicture}
 \end{codeexample}
 
-As for circles, you can specify ``two'' radii in order to get an
-elliptical arc.
+\bohs
+
+% As for circles, you can specify ``two'' radii in order to get an
+% elliptical arc.
+你可以给圆加上“两个”半径，就能得到椭圆弧线。
+
+\eohs
 
 \begin{codeexample}[]
   \tikz \draw (0,0) 
@@ -746,14 +804,22 @@ elliptical arc.
 \end{codeexample}
 
 
-\subsection{Clipping a Path}
+% \subsection{Clipping a Path}
+\subsection{剪裁路径}
 
-In order to save space in this manual, it would be nice to clip Karl's
-graphics a bit so that we can focus on the ``interesting''
-parts. Clipping is pretty easy in \tikzname. You can use the |\clip|
-command to clip all subsequent drawing. It works like |\draw|, only it
-does not draw anything, but uses the given path to clip everything
-subsequently.
+\bohs
+
+% In order to save space in this manual, it would be nice to clip Karl's
+% graphics a bit so that we can focus on the ``interesting''
+% parts. Clipping is pretty easy in \tikzname. You can use the |\clip|
+% command to clip all subsequent drawing. It works like |\draw|, only it
+% does not draw anything, but uses the given path to clip everything
+% subsequently.
+为了给本手册省点地方，最好能剪裁一下 Karl 的图片，这样我们就能只关注“感兴趣的”部分了。
+在 \tikzname\ 中剪裁很容易，你可以用 \ltz{\\clip} 命令，剪裁之后画的所有图形。
+它和 \ltz{\\draw} 很像，只不过它不画任何东西，而是按给定的路径，剪裁之后画的所有东西。
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -766,13 +832,21 @@ subsequently.
 \end{tikzpicture}
 \end{codeexample}
 
-You can also do both at the same time: Draw \emph{and} clip a
-path. For this, use the |\draw| command and add the |clip|
-option. (This is not the whole picture: You can also use the |\clip|
-command and add the |draw| option. Well, that is also not the whole
-picture: In reality, |\draw| is just a shorthand for |\path[draw]|
-and |\clip| is a shorthand for |\path[clip]| and you could also say
-|\path[draw,clip]|.) Here is an example:
+\bohs
+
+% You can also do both at the same time: Draw \emph{and} clip a
+% path. For this, use the |\draw| command and add the |clip|
+% option. (This is not the whole picture: You can also use the |\clip|
+% command and add the |draw| option. Well, that is also not the whole
+% picture: In reality, |\draw| is just a shorthand for |\path[draw]|
+% and |\clip| is a shorthand for |\path[clip]| and you could also say
+% |\path[draw,clip]|.) Here is an example:
+你也可以同时绘制和剪裁路径，我们只需要给 \ltz{\\draw} 命令加上 \ltz{clip} 选项。%
+（这并不是全部，你也可以用 \ltz{\\clip} 命令加上 \ltz{draw} 选项。不过这也还没完。
+实际上， \ltz{\\draw} 只是 \ltz{\\path[draw]} 的简写， \ltz{\\clip} 是 \ltz{\\path[clip]} 的简写。因此你也可以用 \ltz{\\path[draw,clip]}。）
+例子如下：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -786,31 +860,51 @@ and |\clip| is a shorthand for |\path[clip]| and you could also say
 \end{codeexample}
 
 
-\subsection{Parabola and Sine Path Construction}
+% \subsection{Parabola and Sine Path Construction}
+\subsection{抛物线和正弦路径创建}
 
-Although Karl does not need them for his picture, he is pleased to
-learn that there are |parabola| and |sin| and |cos| path operations for
-adding parabolas and sine and cosine curves to the current path. For the
-|parabola| operation, the current point will lie on the parabola as
-well as the point given after the parabola operation. Consider
-the following example:
+\bohs
+
+% Although Karl does not need them for his picture, he is pleased to
+% learn that there are |parabola| and |sin| and |cos| path operations for
+% adding parabolas and sine and cosine curves to the current path. For the
+% |parabola| operation, the current point will lie on the parabola as
+% well as the point given after the parabola operation. Consider
+% the following example:
+尽管在这个图片里用不到，Karl 还是很高兴地了解到，路径操作还有 \ltz{parabola}、\ltz{sin} 和 \ltz{cos}，也就是抛物线、正弦和余弦。
+\ltz{parabola} 路径由前后两个点决定，见下例：
+
+\eohs
 
 \begin{codeexample}[]
 \tikz \draw (0,0) rectangle (1,1)  (0,0) parabola (1,1);
 \end{codeexample}
 
-It is also possible to place the bend somewhere else:
+\bohs
+
+% It is also possible to place the bend somewhere else:
+也可以在某处加上弯曲（\ltz{bend}）：
+
+\eohs
 
 \begin{codeexample}[]
 \tikz \draw[x=1pt,y=1pt] (0,0) parabola bend (4,16) (6,12);
 \end{codeexample}
 
-The operations |sin| and |cos| add a sine or cosine curve in the interval
-$[0,\pi/2]$ such that the previous current point is at the start of
-the curve and the curve ends at the given end point. Here are two
-examples:
+\bohs
+
+% The operations |sin| and |cos| add a sine or cosine curve in the interval
+% $[0,\pi/2]$ such that the previous current point is at the start of
+% the curve and the curve ends at the given end point. Here are two
+% examples:
+\ltz{sin} 或 \ltz{cos} 操作在两点间加上一条正弦或余弦曲线，区间为 $[0,\frac{\pi}{2}]$。
+见如下两例：
+
+\eohs
+
+% A sine \tikz \draw[x=1ex,y=1ex] (0,0) sin (1.57,1); curve.
 \begin{codeexample}[]
-A sine \tikz \draw[x=1ex,y=1ex] (0,0) sin (1.57,1); curve.
+一条正弦 \tikz \draw[x=1ex,y=1ex] (0,0) sin (1.57,1); 曲线。
 \end{codeexample}
 
 \begin{codeexample}[]
@@ -819,12 +913,18 @@ A sine \tikz \draw[x=1ex,y=1ex] (0,0) sin (1.57,1); curve.
 \end{codeexample}
 
 
+% \subsection{Filling and Drawing}
+\subsection{填充和描边}
 
-\subsection{Filling and Drawing}
+\bohs
 
-Returning to the picture, Karl now wants the angle to be ``filled''
-with a very light green. For this he uses |\fill| instead of
-|\draw|. Here is what Karl does:
+% Returning to the picture, Karl now wants the angle to be ``filled''
+% with a very light green. For this he uses |\fill| instead of
+% |\draw|. Here is what Karl does:
+回到之前的图片，Karl 现在想用浅绿色“填充”角。因此他使用 \ltz{\\fill} 而不是 \ltz{\\draw}。
+如下：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -838,23 +938,40 @@ with a very light green. For this he uses |\fill| instead of
 \end{tikzpicture}
 \end{codeexample}
 
-The color |green!20!white| means 20\% green and 80\% white mixed
-together. Such color expression are possible since \tikzname\ uses Uwe
-Kern's |xcolor| package, see the documentation of that package for
-details on color expressions.
+\bohs
 
-What would have happened, if Karl had not ``closed'' the path using
-|--(0,0)| at the end? In this case, the path is closed automatically,
-so this could have been omitted. Indeed, it would even have been
-better to write the following, instead:
+% The color |green!20!white| means 20\% green and 80\% white mixed
+% together. Such color expression are possible since \tikzname\ uses Uwe
+% Kern's |xcolor| package, see the documentation of that package for
+% details on color expressions.
+颜色 \ltz{green!20!white} 意思是 20\% 的绿色混合 80\% 的白色。
+\tikzname\ 中可以用这样的颜色表达式，因为已经导入了 Uwe Kern 的 \ltz{xcolor} 宏包，可以参考该宏包的文档，了解更多颜色表达式的细节。
+
+% What would have happened, if Karl had not ``closed'' the path using
+% |--(0,0)| at the end? In this case, the path is closed automatically,
+% so this could have been omitted. Indeed, it would even have been
+% better to write the following, instead:
+如果 Karl 没有在结尾用 \ltz{--(0,0)} “闭合”路径，会怎么样？
+此时路径会自动“闭合”，因此这句话可以略掉。
+不过，如果像下面这样写，效果会更好：
+
+\eohs
+
 \begin{codeexample}[code only]
   \fill[green!20!white] (0,0) -- (3mm,0mm)
     arc [start angle=0, end angle=30, radius=3mm] -- cycle;
 \end{codeexample}
-The |--cycle| causes the current path to be closed (actually the
-current part of the current path) by smoothly joining the first and
-last point. To appreciate the difference, consider the following
-example:
+
+\bohs
+
+% The |--cycle| causes the current path to be closed (actually the
+% current part of the current path) by smoothly joining the first and
+% last point. To appreciate the difference, consider the following
+% example:
+\ltz{--cycle} 将当前路径闭合（实际上是当前路径的当前部分），也就是平滑地连接首尾两点。
+可以通过下面的例子体会一下差别：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[line width=5pt]
@@ -864,11 +981,18 @@ example:
 \end{tikzpicture}
 \end{codeexample}
 
-You can also fill and draw a path at the same time using the
-|\filldraw| command. This will first draw the path, then fill it. This
-may not seem too useful, but you can specify different colors to be
-used for filling and for stroking. These are specified as optional
-arguments like this:
+\bohs
+
+% You can also fill and draw a path at the same time using the
+% |\filldraw| command. This will first draw the path, then fill it. This
+% may not seem too useful, but you can specify different colors to be
+% used for filling and for stroking. These are specified as optional
+% arguments like this:
+你也可以用 \ltz{\\filldraw} 命令同时对路径描边和填充。它会先描边，再填充。
+这个看上去好像没什么用，不过这可以让你在描边和填充时用不同的颜色。
+这些可以通过参数指定：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -884,19 +1008,33 @@ arguments like this:
 
 
 
-\subsection{Shading}
+% \subsection{Shading}
+\subsection{渐变}
 
-Karl briefly considers the possibility of making the angle ``more
-fancy'' by \emph{shading} it. Instead of filling the area with a uniform
-color, a smooth transition between different colors is used. For this,
-|\shade| and |\shadedraw|, for shading and drawing at the same time,
-can be used:
+\bohs
+
+% Karl briefly considers the possibility of making the angle ``more
+% fancy'' by \emph{shading} it. Instead of filling the area with a uniform
+% color, a smooth transition between different colors is used. For this,
+% |\shade| and |\shadedraw|, for shading and drawing at the same time,
+% can be used:
+Karl 简单想了一下，有没有可能通过\emph{渐变}让这个角“更精致”。
+填充时不是用单一的颜色，而是用平滑过渡的不同颜色。
+\ltz{\\shade} 或 \ltz{\\shadedraw} 可以同时实现渐变和描边：
+
+\eohs
 
 \begin{codeexample}[]
   \tikz \shade (0,0) rectangle (2,1)  (3,0.5) circle (.5cm);
 \end{codeexample}
-The default shading is a smooth transition from gray to white. To
-specify different colors, you can use options:
+
+\bohs
+
+% The default shading is a smooth transition from gray to white. To
+% specify different colors, you can use options:
+默认的渐变是从灰色平滑过渡到白色，要指定不同的颜色，你可以加上选项：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[rounded corners,ultra thick]
@@ -907,7 +1045,12 @@ specify different colors, you can use options:
 \end{tikzpicture}
 \end{codeexample}
 
-For Karl, the following might be appropriate:
+\bohs
+
+% For Karl, the following might be appropriate:
+对 Karl 来说，下面的设置也许更合适：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -922,34 +1065,55 @@ For Karl, the following might be appropriate:
 \end{tikzpicture}
 \end{codeexample}
 
-However, he wisely decides that shadings usually only distract without
-adding anything to the picture.
+\bohs
 
+% However, he wisely decides that shadings usually only distract without
+% adding anything to the picture.
+不过，他明智地认为，渐变通常只会使人分心，而不会对图片有任何加成。
 
-\subsection{Specifying Coordinates}
+\eohs
 
-Karl now wants to add the sine and cosine lines. He knows already that
-he can use the |color=| option to set the lines' colors. So, what is
-the best way to specify the coordinates?
+% \subsection{Specifying Coordinates}
+\subsection{指定坐标}
 
-There are different ways of specifying coordinates. The easiest way is
-to say something like |(10pt,2cm)|. This means 10pt in $x$-direction
-and 2cm in $y$-directions. Alternatively, you can also leave out the
-units as in |(1,2)|, which means ``one times the current $x$-vector
-plus twice the current $y$-vector.'' These vectors default to 1cm in
-the $x$-direction and 1cm in the $y$-direction, respectively.
+\bohs
 
-In order to specify points in polar coordinates, use the notation
-|(30:1cm)|, which means 1cm in direction 30 degree. This is obviously
-quite useful to ``get to the point $(\cos 30^\circ,\sin 30^\circ)$ on
-the circle.''
+% Karl now wants to add the sine and cosine lines. He knows already that
+% he can use the |color=| option to set the lines' colors. So, what is
+% the best way to specify the coordinates?
+Karl 现在想画上代表正弦值和余弦值的线段。
+他已经知道可以用 \ltz{color=} 选项来设置线的轮廓颜色。
+那么，用什么方法指定坐标最好呢？
 
-You can add a single |+| sign in front of a coordinate or two of
-them as in |+(0cm,1cm)| or |++(2cm,0cm)|. Such coordinates are interpreted
-differently: The first form means ``1cm upwards from the previous
-specified position'' and the second means ``2cm to the right of the
-previous specified position, making this the new specified position.''
-For example, we can draw the sine line as follows:
+% There are different ways of specifying coordinates. The easiest way is
+% to say something like |(10pt,2cm)|. This means 10pt in $x$-direction
+% and 2cm in $y$-directions. Alternatively, you can also leave out the
+% units as in |(1,2)|, which means ``one times the current $x$-vector
+% plus twice the current $y$-vector.'' These vectors default to 1cm in
+% the $x$-direction and 1cm in the $y$-direction, respectively.
+可以用不同的方法指定坐标。
+最简单的就是 \ltz{(10pt,2cm)} 这种，意思是 $x$ 轴方向 10pt，$y$ 轴方向 2cm。
+或者你也可以略掉单位，写成 \ltz{(1,2)}，意思是“1 倍 $x$ 轴单位向量加上 2 倍 $y$ 轴单位向量”。
+单位向量长度默认是 1 cm，$x$ 轴和 $y$ 轴都是如此。
+
+% In order to specify points in polar coordinates, use the notation
+% |(30:1cm)|, which means 1cm in direction 30 degree. This is obviously
+% quite useful to ``get to the point $(\cos 30^\circ,\sin 30^\circ)$ on
+% the circle.''
+要用极坐标的方式指定点，可以用记号 \ltz{(30:1cm)}，意思是沿 30 度角方向延伸 1 cm。
+很明显，这个方法比“圆上一点 $(\cos 30^\circ,\sin 30^\circ)$”有用多了。
+
+% You can add a single |+| sign in front of a coordinate or two of
+% them as in |+(0cm,1cm)| or |++(2cm,0cm)|. Such coordinates are interpreted
+% differently: The first form means ``1cm upwards from the previous
+% specified position'' and the second means ``2cm to the right of the
+% previous specified position, making this the new specified position.''
+% For example, we can draw the sine line as follows:
+你可以在坐标前加上一个或者两个 \ltz{+} 号，比如 \ltz{+(0cm,1cm)} 或者 \ltz{++(2cm,0cm)}。
+这时坐标的含义就不一样了，前者表示“在之前指定位置的上方 1 cm”，后者表示“在之前指定位置的右侧 2 cm，并将该点作为新的指定位置”。
+比如我们可以像下面这样，绘制代表正弦值的线段：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]

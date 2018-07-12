@@ -1467,32 +1467,53 @@ Karl 还发现，传给 \ltz{\\draw} 这类命令的选项，只对当前命令�
 % them on the path.'' We will have a more detailed look at this in a
 % moment. Nevertheless, all options given during a path construction
 % apply only to this path.
+在读上面的时候，Karl 注意到“大多数”图形选项作用于整条路径。
+不过，事实上所有变换相关的选项\emph{并不}对整条路径起作用，他们只对在自己之后出现的元素有效。
+我们稍后会更加详细地考察这一点。
+尽管如此，所有的选项都只在该条路径内有效。
 
 \eohs
 
-\subsection{Transformations}
+% \subsection{Transformations}
+\subsection{变换}
 
-When you specify a  coordinate like |(1cm,1cm)|, where is that
-coordinate placed on the page? To determine the position, \tikzname,
-\TeX, and \textsc{pdf} or PostScript all apply certain transformations
-to the given coordinate in order to determine the final position on
-the page.
+\bohs
 
-\tikzname\ provides numerous options that allow you to transform
-coordinates in \tikzname's private coordinate system. For example, the
-|xshift| option allows you to shift all subsequent points by a certain
-amount:
+% When you specify a  coordinate like |(1cm,1cm)|, where is that
+% coordinate placed on the page? To determine the position, \tikzname,
+% \TeX, and \textsc{pdf} or PostScript all apply certain transformations
+% to the given coordinate in order to determine the final position on
+% the page.
+当你指定一个坐标时，比如 \ltz{(1cm,1cm)}，这个坐标在页面的哪个位置呢？
+为了确定坐标在页面中的最终位置，\tikzname、\TeX\ 以及 \textsc{pdf} 或者 Postscript 都对给出的坐标施加了变换。
+
+% \tikzname\ provides numerous options that allow you to transform
+% coordinates in \tikzname's private coordinate system. For example, the
+% |xshift| option allows you to shift all subsequent points by a certain
+% amount:
+\tikzname\ 中有大量选项，供你在 \tikzname\ 的独立坐标系中变换坐标。
+比如，\ltz{xshift} 选项将之后所有的点移动一定距离：
+
+\eohs
 
 \begin{codeexample}[]
 \tikz \draw (0,0) -- (0,0.5) [xshift=2pt] (0,0) -- (0,0.5);
 \end{codeexample}
 
-It is important to note that you can change transformation ``in the
-middle of a path,'' a feature that is not supported by \pdf\
-or PostScript. The reason is that \tikzname\ keeps track of its own
-transformation matrix.
+\bohs
 
-Here is a more complicated example:
+% It is important to note that you can change transformation ``in the
+% middle of a path,'' a feature that is not supported by \pdf\
+% or PostScript. The reason is that \tikzname\ keeps track of its own
+% transformation matrix.
+值得注意的一点是，你可以在“路径中间”加入变换，这个特性在 \pdf\ 和 PostScript 里是没有的。
+这是因为 \tikzname\ 一直记录着自己的变换矩阵。
+
+% Here is a more complicated example:
+这里有个更复杂的例子：
+
+\eohs
+
 \begin{codeexample}[]
 \begin{tikzpicture}[even odd rule,rounded corners=2pt,x=10pt,y=10pt]
   \filldraw[fill=yellow!80!black] (0,0)   rectangle (1,1)
@@ -1501,47 +1522,77 @@ Here is a more complicated example:
 \end{tikzpicture}
 \end{codeexample}
 
-The most useful transformations are |xshift| and |yshift| for
-shifting, |shift| for shifting to a given point as in |shift={(1,0)}|
-or |shift={+(0,0)}| (the braces are necessary so that \TeX\ does not
-mistake the comma for separating options), |rotate| for rotating by a
-certain angle (there is also a |rotate around| for rotating around a
-given point), |scale| for scaling by a certain factor, |xscale| and
-|yscale| for scaling only in the $x$- or $y$-direction (|xscale=-1| is
-a flip), and |xslant| and |yslant| for slanting. If these
-transformation and those that I have not mentioned are not
-sufficient,  the |cm| option allows you to apply an arbitrary
-transformation matrix. Karl's students, by the way, do not know what a
-transformation matrix is.
+\bohs
 
+% The most useful transformations are |xshift| and |yshift| for
+% shifting, |shift| for shifting to a given point as in |shift={(1,0)}|
+% or |shift={+(0,0)}| (the braces are necessary so that \TeX\ does not
+% mistake the comma for separating options), |rotate| for rotating by a
+% certain angle (there is also a |rotate around| for rotating around a
+% given point), |scale| for scaling by a certain factor, |xscale| and
+% |yscale| for scaling only in the $x$- or $y$-direction (|xscale=-1| is
+% a flip), and |xslant| and |yslant| for slanting. If these
+% transformation and those that I have not mentioned are not
+% sufficient,  the |cm| option allows you to apply an arbitrary
+% transformation matrix. Karl's students, by the way, do not know what a
+% transformation matrix is.
+最有用的变换有：
+移动选项 \ltz{xshift} 和 \ltz{yshift}，而 \ltz{shift} 则移动到一个给定的点，比如 \ltz{shift=\{(1,0)\}} 或者 \ltz{shift=\{+(0,)\}}（花括号是必须要加的，这样 \TeX\ 就不会把逗号当成选项之间的分隔符）；
+旋转选项 \ltz{rotate} 用于旋转一定角度（\ltz{rotate around} 则围绕一个定点旋转）；
+缩放选项 \ltz{scale} 用于缩放一定比例，\ltz{xscale} 和 \ltz{yscale} 分别对 $x$ 方向和 $y$ 方向缩放（\ltz{xscale=-1} 则表示水平翻转）；
+倾斜选项 \ltz{xslant} 和 \ltz{yslant}。
+如果这些我提到或者没提到的变换不够用的话，你还可以用 \ltz{cm} 选项指定一个任意的变换矩阵。
+顺便说下，Karl 的学生并不知道什么是变换矩阵。
 
+\eohs
 
-\subsection{Repeating Things: For-Loops}
+% \subsection{Repeating Things: For-Loops}
+\subsection{重复：For 循环}
 
-Karl's next aim is to add little ticks on the axes at positions $-1$,
-$-1/2$, $1/2$, and $1$. For this, it would be nice to use some kind of
-``loop,'' especially since he wishes to do the same thing at each of
-these positions. There are different packages for doing this. \LaTeX\
-has its own internal command for this, |pstricks| comes along with the
-powerful |\multido| command. All of these can be used together with
-\tikzname, so if you are familiar with them, feel free to
-use them. \tikzname\ introduces yet another command, called |\foreach|,
-which I introduced since I could never remember the syntax of the other
-packages. |\foreach| is defined in the package |pgffor| and can be used
-independently \tikzname, but \tikzname\ includes it automatically.
+\bohs
 
-In its basic form, the |\foreach| command is easy to use:
+% Karl's next aim is to add little ticks on the axes at positions $-1$,
+% $-1/2$, $1/2$, and $1$. For this, it would be nice to use some kind of
+% ``loop,'' especially since he wishes to do the same thing at each of
+% these positions. There are different packages for doing this. \LaTeX\
+% has its own internal command for this, |pstricks| comes along with the
+% powerful |\multido| command. All of these can be used together with
+% \tikzname, so if you are familiar with them, feel free to
+% use them. \tikzname\ introduces yet another command, called |\foreach|,
+% which I introduced since I could never remember the syntax of the other
+% packages. |\foreach| is defined in the package |pgffor| and can be used
+% independently \tikzname, but \tikzname\ includes it automatically.
+Karl 的下一个目标是在 $-1$、$-1/2$、$1/2$ 和 $1$ 的位置上标出刻度。
+因此最好能用“循环”，尤其是他想在每个位置做相同的事情。
+有几个不同的宏包可以实现这一点。\LaTeX\ 有相关的内部命令，\ltz{pstricks} 有强大的 \ltz{\\multido} 命令。
+这些都可以结合 \tikzname\ 使用，所以如果你对他们很熟悉，放心用。
+\tikzname\ 里有另一个命令，叫 \ltz{\\foreach}，我加入这个命令是因为我一直记不住其他宏包的语法。
+\ltz{\\foreach} 定义在 \ltz{pgffor} 宏包中，可以独立于 \tikzname\ 使用，不过用 \tikzname\ 会自动将它包含进来。
+
+% In its basic form, the |\foreach| command is easy to use:
+\ltz{\\foreach} 命令的基本形式很简单：
+
+\eohs
+
 \begin{codeexample}[]
 \foreach \x in {1,2,3} {$x =\x$, }
 \end{codeexample}
 
-The general syntax is |\foreach| \meta{variable}| in {|\meta{list of
-    values}|} |\meta{commands}. Inside the \meta{commands}, the
-\meta{variable} will be assigned to the different values. If the
-\meta{commands} do not start with a brace, everything up to the
-next semicolon is used as \meta{commands}.
+\bohs
 
-For Karl and the ticks on the axes, he could use the following code:
+% The general syntax is |\foreach| \meta{variable}| in {|\meta{list of
+%     values}|} |\meta{commands}. Inside the \meta{commands}, the
+% \meta{variable} will be assigned to the different values. If the
+% \meta{commands} do not start with a brace, everything up to the
+% next semicolon is used as \meta{commands}.
+语法的一般格式为~{\color{blue} \ltz{\\foreach} \metazh{变量} \ltz{in \{}\metazh{变量列表}\ltz{\}} \metazh{命令}}。
+在~{\color{blue} \metazh{命令}} 中，{\color{blue} \metazh{变量}} 会被赋予不同的值。
+如果~{\color{blue} \metazh{命令}} 没有以花括号开始，那么在下一个分号之前，所有的语句都认定为~{\color{blue} \metazh{命令}}。
+
+% For Karl and the ticks on the axes, he could use the following code:
+Karl 可以用下面的代码在坐标轴上标刻度：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -1560,35 +1611,59 @@ For Karl and the ticks on the axes, he could use the following code:
 \end{tikzpicture}
 \end{codeexample}
 
-As a matter of fact, there are many different ways of creating the
-ticks. For example, Karl could have put the |\draw ...;| inside curly
-braces. He could also have used, say,
+\bohs
+
+% As a matter of fact, there are many different ways of creating the
+% ticks. For example, Karl could have put the |\draw ...;| inside curly
+% braces. He could also have used, say,
+实际上有很多不同的方法创建刻度。
+比如 Karl 可以把 \ltz{\\draw ...;} 放在花括号里面，又或者像下面这样：
+
+\eohs
+
 \begin{codeexample}[code only]
 \foreach \x in {-1,-0.5,1}
   \draw[xshift=\x cm] (0pt,-1pt) -- (0pt,1pt);
 \end{codeexample}
 
-Karl is curious what would happen in a more complicated situation
-where there are, say, 20 ticks. It seems bothersome to explicitly
-mention all these numbers in the set for |\foreach|. Indeed, it is
-possible to use |...| inside the |\foreach| statement to iterate over
-a large number of values (which must, however, be dimensionless
-real numbers) as in the following example:
+\bohs
+
+% Karl is curious what would happen in a more complicated situation
+% where there are, say, 20 ticks. It seems bothersome to explicitly
+% mention all these numbers in the set for |\foreach|. Indeed, it is
+% possible to use |...| inside the |\foreach| statement to iterate over
+% a large number of values (which must, however, be dimensionless
+% real numbers) as in the following example:
+Karl 很好奇，如果碰到更复杂的情况，比如要画 20 个刻度，会怎么样。
+要在 \ltz{\\foreach} 里挨个写上所有数字，真的很麻烦。
+事实上，可以在 \ltz{\\foreach} 语句里用 \ltz{...} 来遍历大量数值（不过必须是没有量纲的实数），例子如下：
+
+\eohs
 
 \begin{codeexample}[]
 \tikz \foreach \x in {1,...,10}
         \draw (\x,0) circle (0.4cm);
 \end{codeexample}
 
-If you provide \emph{two} numbers before the |...|, the |\foreach|
-statement will use their difference for the stepping:
+\bohs
+
+% If you provide \emph{two} numbers before the |...|, the |\foreach|
+% statement will use their difference for the stepping:
+如果在 \ltz{...} 之前有两个数，那么 \ltz{\\foreach} 语句则会将这两个数之差作为步长：
+
+\eohs
 
 \begin{codeexample}[]
 \tikz \foreach \x in {-1,-0.5,...,1}
        \draw (\x cm,-1pt) -- (\x cm,1pt);
 \end{codeexample}
 
-We can also nest loops to create interesting effects:
+\bohs
+
+% We can also nest loops to create interesting effects:
+我们也可以嵌套循环，创造出有趣的效果：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -1601,30 +1676,43 @@ We can also nest loops to create interesting effects:
 \end{tikzpicture}
 \end{codeexample}
 
-The |\foreach| statement can do even trickier stuff, but the above
-gives the idea.
+\bohs
 
+% The |\foreach| statement can do even trickier stuff, but the above
+% gives the idea.
+\ltz{\\foreach} 语句还能完成更巧妙的任务，不过上面的例子已经足够传达精神了。
 
+\eohs
 
+% \subsection{Adding Text}
+\subsection{添加文本}
 
-\subsection{Adding Text}
+\bohs
 
-Karl is, by now, quite satisfied with the picture. However, the most
-important parts, namely the labels, are still missing!
+% Karl is, by now, quite satisfied with the picture. However, the most
+% important parts, namely the labels, are still missing!
+Karl 现在已经对图片很满意了，不过最重要的部分，也就是标签，还没有加！
 
-\tikzname\ offers an easy-to-use and powerful system for adding text and,
-more generally, complex shapes to a picture at specific positions. The
-basic idea is the following: When \tikzname\ is constructing a path and
-encounters the keyword |node| in the middle of a path, it
-reads a \emph{node specification}. The keyword |node| is typically
-followed by some options and then some text between curly braces. This
-text is put inside a normal \TeX\ box (if the node specification
-directly follows a coordinate, which is usually the case, \tikzname\ is
-able to perform some magic so that it is even possible to use verbatim
-text inside the boxes) and then placed at the current position, that
-is, at the last specified position (possibly shifted a bit, according
-to the given options). However, all nodes are drawn only after the
-path has been completely drawn/filled/shaded/clipped/whatever.
+% \tikzname\ offers an easy-to-use and powerful system for adding text and,
+% more generally, complex shapes to a picture at specific positions. The
+% basic idea is the following: When \tikzname\ is constructing a path and
+% encounters the keyword |node| in the middle of a path, it
+% reads a \emph{node specification}. The keyword |node| is typically
+% followed by some options and then some text between curly braces. This
+% text is put inside a normal \TeX\ box (if the node specification
+% directly follows a coordinate, which is usually the case, \tikzname\ is
+% able to perform some magic so that it is even possible to use verbatim
+% text inside the boxes) and then placed at the current position, that
+% is, at the last specified position (possibly shifted a bit, according
+% to the given options). However, all nodes are drawn only after the
+% path has been completely drawn/filled/shaded/clipped/whatever.
+\tikzname\ 提供了一个好用且强大的系统，用于在图片上的特定位置添加文本以及——更一般地——复杂的形状。
+其基本思想是：如果 \tikzname\ 正在创建一条路径，并且在路径中遇到关键词 \ltz{node}，它会将之后的内容作为\emph{节点说明}。
+关键词 \ltz{node} 后面通常跟着一些选项，然后是文本（写在花括号里）。
+这些文本放在一个普通的 \TeX\ 盒子中（如果节点说明后面直接跟着一个坐标——这很常见——那么 \tikzname\ 就能变些魔术，这样甚至可以在盒子中按照原样呈现文本（verbatim text）），并置于当前位置，也就是之前指定的位置（也可能有些许移动，取决于给定的选项）。
+不过，只有在整条路径完成了\emph{描边/填充/渐变/剪裁/其他}之后，才会绘制所有节点。
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -1635,16 +1723,25 @@ path has been completely drawn/filled/shaded/clipped/whatever.
 \end{tikzpicture}
 \end{codeexample}
 
-Obviously, Karl would not only like to place nodes \emph{on} the last
-specified position, but also to the left or the
-right of these positions. For this, every node object that you
-put in your picture is equipped with several \emph{anchors}. For
-example, the |north| anchor is in the middle at the upper end of the shape,
-the |south| anchor is at the bottom and the |north east| anchor is in
-the upper right corner. When you give the option |anchor=north|, the
-text will be placed such that this northern anchor will lie on the
-current position and the text is, thus, below the current
-position. Karl uses this to draw the ticks as follows:
+\bohs
+
+% Obviously, Karl would not only like to place nodes \emph{on} the last
+% specified position, but also to the left or the
+% right of these positions. For this, every node object that you
+% put in your picture is equipped with several \emph{anchors}. For
+% example, the |north| anchor is in the middle at the upper end of the shape,
+% the |south| anchor is at the bottom and the |north east| anchor is in
+% the upper right corner. When you give the option |anchor=north|, the
+% text will be placed such that this northern anchor will lie on the
+% current position and the text is, thus, below the current
+% position. Karl uses this to draw the ticks as follows:
+很明显，Karl 未必一定是将节点放在指定位置上，也有可能要放到左边或者右边。
+所以，每个节点对象都有几个\emph{锚点}。
+比如说，\ltz{north} 锚点在形状的正上方，\ltz{south} 锚点在正下方，\ltz{north east} 锚点在右上角。
+当你加上选项 \ltz{anchor=north} 时，锚点会放在当前位置，文本则位于当前位置的下方。
+Karl 就用它来标刻度，如下：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -1662,37 +1759,55 @@ position. Karl uses this to draw the ticks as follows:
 \end{tikzpicture}
 \end{codeexample}
 
-This is quite nice, already. Using these anchors, Karl can now add
-most of the other text elements. However, Karl thinks that, though
-``correct,'' it is quite counter-intuitive that in order to place something
-\emph{below} a given point, he has to use the \emph{north} anchor. For
-this reason, there is an option called |below|, which does the
-same as |anchor=north|. Similarly, |above right| does the same as
-|anchor=south west|. In addition, |below| takes an optional
-dimension argument. If given, the shape will additionally be shifted
-downwards by the given amount. So, |below=1pt| can be used to put
-a text label below some point and, additionally shift it  1pt
-downwards.
+\bohs
 
-Karl is not quite satisfied with the ticks. He would like to have
-$1/2$ or $\frac{1}{2}$ shown instead of $0.5$, partly to show off the
-nice capabilities of \TeX\ and \tikzname, partly because for positions
-like $1/3$ or $\pi$ it is certainly very much preferable to have the
-``mathematical'' tick there instead of just the ``numeric'' tick.
-His students, on the other hand, prefer $0.5$ over $1/2$
-since they are not too fond of fractions in general.
+% This is quite nice, already. Using these anchors, Karl can now add
+% most of the other text elements. However, Karl thinks that, though
+% ``correct,'' it is quite counter-intuitive that in order to place something
+% \emph{below} a given point, he has to use the \emph{north} anchor. For
+% this reason, there is an option called |below|, which does the
+% same as |anchor=north|. Similarly, |above right| does the same as
+% |anchor=south west|. In addition, |below| takes an optional
+% dimension argument. If given, the shape will additionally be shifted
+% downwards by the given amount. So, |below=1pt| can be used to put
+% a text label below some point and, additionally shift it  1pt
+% downwards.
+这已经很不错了，利用锚点，Karl 现在可以加上大多数其他的文本元素了。
+然而 Karl 在想，尽管“正确”，但是很反直觉，因为要把元素放在某个点的\emph{下面}，需要用锚点 \ltz{north}（而北是在元素正上方的）。
+因此，有一个选项叫 \ltz{below}，效果等同于 \ltz{anchor=north}。类似地，\ltz{above right} 等同于 \ltz{anchor=south west}。
+此外，\ltz{below} 还有一个可选参数，用于指定形状向下偏移的距离。
+因此，\ltz{below=1pt} 可以把一个文本标签放在某点下面，并且向下偏移 1pt。
 
-Karl now faces a problem: For the |\foreach| statement, the position
-|\x| should still be given as |0.5| since \tikzname\ will not know where
-|\frac{1}{2}| is supposed to be. On the other hand, the typeset text
-should really be  |\frac{1}{2}|. To solve this problem, |\foreach|
-offers a special syntax: Instead of having one variable |\x|, Karl can
-specify two (or even more) variables separated by a slash as in
-|\x / \xtext|. Then, the elements in the set over which |\foreach|
-iterates must also be of the form \meta{first}|/|\meta{second}. In
-each iteration, |\x| will be set to \meta{first} and |\xtext| will be
-set to \meta{second}. If no \meta{second} is given, the \meta{first}
-will be used again. So, here is the new code for the ticks:
+% Karl is not quite satisfied with the ticks. He would like to have
+% $1/2$ or $\frac{1}{2}$ shown instead of $0.5$, partly to show off the
+% nice capabilities of \TeX\ and \tikzname, partly because for positions
+% like $1/3$ or $\pi$ it is certainly very much preferable to have the
+% ``mathematical'' tick there instead of just the ``numeric'' tick.
+% His students, on the other hand, prefer $0.5$ over $1/2$
+% since they are not too fond of fractions in general.
+Karl 对刻度还是有点不满意，他想显示 $1/2$ 或者 $\frac{1}{2}$ 而不是 $0.5$。
+一部分原因是，他想展示一下 \TeX\ 和 \tikzname\ 的出色能力，另一部分原因是，对于$1/3$ 或者 $\pi$ 这样的位置，刻度用“数学”形式比“数值”形式要好得多。
+不过他的学生倒是更喜欢 $0.5$ 而不是 $1/2$，因为他们一般不是很喜欢分数。
+
+% Karl now faces a problem: For the |\foreach| statement, the position
+% |\x| should still be given as |0.5| since \tikzname\ will not know where
+% |\frac{1}{2}| is supposed to be. On the other hand, the typeset text
+% should really be  |\frac{1}{2}|. To solve this problem, |\foreach|
+% offers a special syntax: Instead of having one variable |\x|, Karl can
+% specify two (or even more) variables separated by a slash as in
+% |\x / \xtext|. Then, the elements in the set over which |\foreach|
+% iterates must also be of the form \meta{first}|/|\meta{second}. In
+% each iteration, |\x| will be set to \meta{first} and |\xtext| will be
+% set to \meta{second}. If no \meta{second} is given, the \meta{first}
+% will be used again. So, here is the new code for the ticks:
+Karl 现在碰到了一个问题，在 \ltz{\\foreach} 语句中，位置 \ltz{\\x} 还是需要用 \ltz{0.5}，因为 \tikzname\ 不知道 \ltz{\\frac\{1\}\{2\}} 是什么意思，而打印出来的文本应该是 \ltz{\\frac\{1\}\{2\}}。
+为了解决这个问题，\ltz{\\foreach} 提供了一个特殊的语法：不单是 \ltz{\\x} 这样的单个变量，还可以指定两个（甚至更多个）变量，之间用斜杠分隔，比如 \ltz{\\x / \\xtext}。
+在 \ltz{\\foreach} 要遍历的集合里，元素也必须是~{\color{blue} \metazh{第一个值}\ltz{/}\metazh{第二个值}} 这种形式。
+在每次迭代中，\ltz{\\x} 会被赋为~{\color{blue} \metazh{第一个值}}，\ltz{\\xtext} 会被赋为~{\color{blue} \metazh{第二个值}}。
+如果没有给定~{\color{blue} \metazh{第二个值}}，那么其值等于~{\color{blue} \metazh{第一个值}}。
+因此，下面是新的画刻度的代码：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -1710,25 +1825,33 @@ will be used again. So, here is the new code for the ticks:
 \end{tikzpicture}
 \end{codeexample}
 
-Karl is quite pleased with the result, but his son points out that
-this is still not perfectly satisfactory: The grid and the circle
-interfere with the numbers and decrease their legibility. Karl is not
-very concerned by this (his students do not even notice), but his son
-insists that there is an easy solution: Karl can add the
-|[fill=white]| option to fill out the background of the text shape
-with a white color.
+\bohs
 
-The next thing Karl wants to do is to add the labels like $\sin
-\alpha$. For this, he would like to place a label ``in the middle of
-the line.'' To do so, instead of specifying the label
-|node {$\sin\alpha$}|  directly after one of the endpoints of the line
-(which would place
-the label at that endpoint), Karl can give the label directly after
-the |--|, before the coordinate. By default, this places the label in
-the middle of the line, but the |pos=| options can be used to modify
-this. Also, options like |near start| and |near end| can be used to
-modify this position:
+% Karl is quite pleased with the result, but his son points out that
+% this is still not perfectly satisfactory: The grid and the circle
+% interfere with the numbers and decrease their legibility. Karl is not
+% very concerned by this (his students do not even notice), but his son
+% insists that there is an easy solution: Karl can add the
+% |[fill=white]| option to fill out the background of the text shape
+% with a white color.
+Karl 对结果相当满意，但是他的儿子指出，这幅图并不完美：网格和圆影响了数字的显示。
+Karl 对这个不是很关心（他的学生甚至都没注意到），但是他的儿子坚持说有一个简单的解决方法：
+可以用 \ltz{[fill=white]} 选项给文本加个白色背景。
 
+% The next thing Karl wants to do is to add the labels like $\sin
+% \alpha$. For this, he would like to place a label ``in the middle of
+% the line.'' To do so, instead of specifying the label
+% |node {$\sin\alpha$}|  directly after one of the endpoints of the line
+% (which would place
+% the label at that endpoint), Karl can give the label directly after
+% the |--|, before the coordinate. By default, this places the label in
+% the middle of the line, but the |pos=| options can be used to modify
+% this. Also, options like |near start| and |near end| can be used to
+% modify this position:
+Karl 下一步打算加上 $\sin \alpha$ 这样的标签，他想把标签放在“线段正中间”。
+Karl 不用在线段的端点指定标签 \ltz{node \{$\\sin\\alpha$\}}（这会将标签放在端点处），他可以直接把标签放在 \ltz{--} 之后、坐标之前。默认情况下，这会将标签放在线段的正中间。不过 \ltz{pos=} 选项可以修改标签的位置，\ltz{near start} 和 \ltz{near end} 也是类似的作用。
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -1760,9 +1883,15 @@ modify this position:
 \end{tikzpicture}
 \end{codeexample}
 
-You can also position labels on curves and, by adding the |sloped|
-option, have them rotated such that they match the line's slope. Here
-is an example:
+\bohs
+
+% You can also position labels on curves and, by adding the |sloped|
+% option, have them rotated such that they match the line's slope. Here
+% is an example:
+你也可以把标签放在曲线上，并且加上 \ltz{sloped} 选项，这会旋转标签，保持和该点切线的斜率一致。
+如下：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -1773,11 +1902,19 @@ is an example:
 \end{tikzpicture}
 \end{codeexample}
 
-It remains to draw the explanatory text at the right of the
-picture. The main difficulty here lies in limiting the width of the
-text ``label,'' which is quite long, so that line breaking is
-used. Fortunately, Karl can use the option |text width=6cm| to get the
-desired effect. So, here is the full code:
+\bohs
+
+% It remains to draw the explanatory text at the right of the
+% picture. The main difficulty here lies in limiting the width of the
+% text ``label,'' which is quite long, so that line breaking is
+% used. Fortunately, Karl can use the option |text width=6cm| to get the
+% desired effect. So, here is the full code:
+现在就剩图片右边的说明文字没加了。
+这里的主要问题是限制文本“标签”的宽度，因为文字很多，所以需要换行。
+好在 Karl 可以用 \ltz{text width=6cm} 得到想要的结果。
+下面是完整的代码：
+
+\eohs
 
 \begin{codeexample}[code only]
 \begin{tikzpicture}
@@ -1831,46 +1968,60 @@ desired effect. So, here is the full code:
   \draw[xshift=1.85cm]
     node[right,text width=6cm,information text]
     {
-      The {\color{anglecolor} angle $\alpha$} is $30^\circ$ in the
-      example ($\pi/6$ in radians). The {\color{sincolor}sine of
-        $\alpha$}, which is the height of the red line, is
+      在本例中，{\color{anglecolor} 角 $\alpha$} 为 $30^\circ$ （等于 $\pi / 6$ 弧度），
+      {\color{sincolor} $\alpha$ 的正弦}，也就是红色线段的高度，为
       \[
       {\color{sincolor} \sin \alpha} = 1/2.
       \]
-      By the Theorem of Pythagoras ...
+      根据勾股定理……
     };
 \end{tikzpicture}
 \end{codeexample}
 
 
-
 \subsection{Pics: The Angle Revisited}
 
-Karl expects that the code of certain parts of the picture he created
-might be so useful that he might wish to reuse them in the
-future. A natural thing to do is to create \TeX\ macros that store
-the code he wishes to reuse. However, \tikzname\ offers another way
-that is integrated directly into its parser: pics!
+\bohs
 
-A ``pic'' is ``not quite a full picture,'' hence the short name. The
-idea is that a pic is simply some code that you can add to a picture
-at different places using the |pic| command whose syntax is almost
-identical to the |node| command. The main difference is that instead
-of specifying some text in curly braces that should be shown, you
-specify the name of a predefined picture that should be shown. 
+% Karl expects that the code of certain parts of the picture he created
+% might be so useful that he might wish to reuse them in the
+% future. A natural thing to do is to create \TeX\ macros that store
+% the code he wishes to reuse. However, \tikzname\ offers another way
+% that is integrated directly into its parser: pics!
+Karl 在想，图片中的部分代码可能很有用，将来也许还会用到。
+一个很自然的做法，就是把他想重用的代码写成 \TeX\ 宏。
+不过 \tikzname\ 提供了另外一种做法，并且直接集成到了分析器里，那就是：片图（pics）！
 
-Defining new pics is easy enough, see Section~\ref{section-pics}, but
-right now we just want to use one such predefined pic: the |angle|
-pic. As the name suggests, it is a small drawing of an angle
-consisting of a little wedge and an arc together with some text (Karl
-needs to load the |angle| library and the |quotes| for the following
-examples). What makes this pic useful is the fact that the size of the
-wedge will be computed automatically.
+% A ``pic'' is ``not quite a full picture,'' hence the short name. The
+% idea is that a pic is simply some code that you can add to a picture
+% at different places using the |pic| command whose syntax is almost
+% identical to the |node| command. The main difference is that instead
+% of specifying some text in curly braces that should be shown, you
+% specify the name of a predefined picture that should be shown. 
+一个片图（pic）并不是一张完整的图片（picture），因此得到了这个改编的名称。
+其中的思想是，一个片图就是一段简单的代码，你可以用 \ltz{pic} 命令把它加到图片中的不同位置，语法和 \ltz{node} 几乎一样。
+主要的不同在于，在花括号中不是写上要显示的文本，而是写上想要显示的预先定义的图片的名字。
 
-The |angle| pic draws an angle between the two lines $BA$ and $BC$,
-where $A$, $B$, and $C$ are three coordinates. In our case, $B$ is the
-origin, $A$ is somewhere on the $x$-axis and $C$ is somewhere on a
-line at $30^\circ$. 
+% Defining new pics is easy enough, see Section~\ref{section-pics}, but
+% right now we just want to use one such predefined pic: the |angle|
+% pic. As the name suggests, it is a small drawing of an angle
+% consisting of a little wedge and an arc together with some text (Karl
+% needs to load the |angle| library and the |quotes| for the following
+% examples). What makes this pic useful is the fact that the size of the
+% wedge will be computed automatically.
+定义新的片图很简单，参考第 \ref{section-pics} 节，不过我们现在只是想用这样一个预先定义好的片图：\ltz{angle} 片图。
+正如其名所示，它是一个小小的角，包含一个小楔形和一条弧线，以及一些文本（在下面的例子中，Karl 需要导入 \ltz{angles} 和 \ltz{quotes} 库）。
+这个片图的有用之处在于，它会自动计算楔形的尺寸。
+
+% The |angle| pic draws an angle between the two lines $BA$ and $BC$,
+% where $A$, $B$, and $C$ are three coordinates. In our case, $B$ is the
+% origin, $A$ is somewhere on the $x$-axis and $C$ is somewhere on a
+% line at $30^\circ$. 
+\ltz{angle} 片图在线 $BA$ 和 $BC$ 之间画一个角，其中 $A$、$B$、$C$ 是三个点的坐标。
+在我们的例子中，$B$ 点是原点，$A$ 点在 $x$ 轴上，$C$ 点在 $30^\circ$ 角对应的线上。
+
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[scale=3]
@@ -1884,15 +2035,21 @@ line at $30^\circ$.
 \end{tikzpicture}  
 \end{codeexample}
 
-Let us see, what is happening here. First we have specified three
-\emph{coordinates} using the |\coordinate| command. It allows us to
-name a specific coordinate in the picture. Then comes something that
-starts as a normal |\draw|, but then comes the |pic| command. This
-command gets lots of options and, in curly braces, comes the most
-important point: We specify that we want to add an |angle| pic and
-this angle should be between the points we named |A|, |B|, and |C| (we
-could use other names). Note that the text that we want to be shown in
-the pic is specified in quotes inside the options of the |pic|, not
-inside the curly braces.
+\bohs
 
-To learn more about pics, please see Section~\ref{section-pics}.
+% Let us see, what is happening here. First we have specified three
+% \emph{coordinates} using the |\coordinate| command. It allows us to
+% name a specific coordinate in the picture. Then comes something that
+% starts as a normal |\draw|, but then comes the |pic| command. This
+% command gets lots of options and, in curly braces, comes the most
+% important point: We specify that we want to add an |angle| pic and
+% this angle should be between the points we named |A|, |B|, and |C| (we
+% could use other names). Note that the text that we want to be shown in
+% the pic is specified in quotes inside the options of the |pic|, not
+% inside the curly braces.
+
+
+% To learn more about pics, please see Section~\ref{section-pics}.
+要了解更多关于片图的内容，请参考第 \ref{section-pics} 节。
+
+\eohs

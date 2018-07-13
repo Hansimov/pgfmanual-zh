@@ -1979,7 +1979,8 @@ Karl 不用在线段的端点指定标签 \ltz{node \{$\\sin\\alpha$\}}（这会
 \end{codeexample}
 
 
-\subsection{Pics: The Angle Revisited}
+% \subsection{Pics: The Angle Revisited}
+\subsection{片图：再访角形}
 
 \bohs
 
@@ -2020,7 +2021,6 @@ Karl 在想，图片中的部分代码可能很有用，将来也许还会用到
 \ltz{angle} 片图在线 $BA$ 和 $BC$ 之间画一个角，其中 $A$、$B$、$C$ 是三个点的坐标。
 在我们的例子中，$B$ 点是原点，$A$ 点在 $x$ 轴上，$C$ 点在 $30^\circ$ 角对应的线上。
 
-
 \eohs
 
 \begin{codeexample}[]
@@ -2047,7 +2047,11 @@ Karl 在想，图片中的部分代码可能很有用，将来也许还会用到
 % could use other names). Note that the text that we want to be shown in
 % the pic is specified in quotes inside the options of the |pic|, not
 % inside the curly braces.
-
+让我们看看这里发生了什么。
+首先我们用 \ltz{\\coordinate} 命令指定了三个\emph{坐标}，它可以为图片中的特定坐标命名。
+然后是普通的 \ltz{\\draw} 接一个 \ltz{pic} 命令，这个命令有很多选项，再后面接了一对花括号，其中包含了最重要的部分：
+我们给出了说明，要加入一个 \ltz{angle} 片图，并且这个角在点 \ltz{A}、\ltz{B} 和 \ltz{C} （我们也可以用其他名字）之间。
+注意，我们想在片图中呈现的文本，是作为 \ltz{pic} 选项给出的，并用双引号指定，而不是放在花括号里。
 
 % To learn more about pics, please see Section~\ref{section-pics}.
 要了解更多关于片图的内容，请参考第 \ref{section-pics} 节。

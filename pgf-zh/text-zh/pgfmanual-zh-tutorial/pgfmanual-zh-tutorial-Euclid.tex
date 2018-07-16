@@ -14,6 +14,7 @@
 
 % In this third tutorial we have a look at how \tikzname\ can be used to
 % draw geometric constructions.
+在这第三篇教程中，我们看看如何用 \tikzname\ 实现几何作图。
 
 % Euclid is currently quite busy writing his new book series, whose
 % working title is ``Elements'' (Euclid is not quite sure whether this
@@ -25,17 +26,38 @@
 % electronics will only be discovered thousands of years later, but the
 % publisher informs him that the use of papyrus is no longer cutting edge
 % technology and Euclid will just have to keep up with modern tools.
+Euclid 最近在忙着写一套新书，书名暂定为“几何原本”（Euclid 不是很确定这个书名是否能把主旨传达给后人，但是他打算在交付给出版商之前修改一下书名）。
+到目前为止，他用莎草纸写字画图，但是他的出版商突然要求他必须提交电子版。
+Euclid 跟出版商争辩道，电子产品要在几千年后才会发明出来，然而出版商告诉他，莎草纸不再是尖端技术了，他必须得跟上现代工具的步伐。
 
 % Slightly disgruntled, Euclid starts converting his papyrus
-% entitled ``Book I, Proposition I'' to an amber version.  
+% entitled ``Book I, Proposition I'' to an amber version.
+Euclid 略带不满，准备把他在莎草纸写的东西转到琥珀上，该部分题为“第 I 卷，命题 1”。
 
 \eohs
 
-\subsection{Book I, Proposition I}
+% \subsection{Book I, Proposition I}
+\subsection{第 I 卷，命题 1}
 
-The drawing on his papyrus looks like this:\footnote{The text is taken
-from the wonderful interactive version of Euclid's Elements by David
-E. Joyce, to be found on his website at Clark University.}
+\bohs
+
+% The drawing on his papyrus looks like this:\footnote{The text is taken
+% from the wonderful interactive version of Euclid's Elements by David
+% E. Joyce, to be found on his website at Clark University.}
+他在莎草纸上的图是这样的：\footnote{该段文本摘自 David E. Joyce 漂亮的交互式欧几里得几何原本，可以在他 Clark 大学的网站上找到。}
+\footnote{{\color{blue} 该段文本原文链接：https://mathcs.clarku.edu/\textasciitilde{}djoyce/java/elements/bookI/propI1.html}}
+\footnote{{\color{blue} 该段译文参考：欧几里得\ 著，兰纪正、朱恩宽\ 译. 欧几里得·几何原本. 陕西科学技术出版社, 2003. ISBN 9787536903579.}}
+
+\eohs
+
+% Page 40 of Elements-zh
+% 作者:  欧几里得 
+% 出版社: 陕西科学技术出版社
+% 译者: 兰纪正 / 朱恩宽 
+% 出版年: 2003-6
+% 页数: 673
+% 定价: 38.00元
+% ISBN: 9787536903579
 
 \bigskip
 \noindent
@@ -75,76 +97,107 @@ E. Joyce, to be found on his website at Clark University.}
   \node [below right,text width=10cm,align=justify] at (4,3)
   {
     \small
-    \textbf{Proposition I}\par
-    \emph{To construct an \textcolor{triangle}{equilateral triangle}
-      on a given \textcolor{input}{finite straight line}.}
+    % \textbf{Proposition I}\par
+    \textbf{命题 1}\par
+    % \emph{To construct an \textcolor{triangle}{equilateral triangle}
+      % on a given \textcolor{input}{finite straight line}.}
+    \emph{在一个已知\textcolor{input}{有限直线}上做一个\textcolor{triangle}{等边三角形}.}
     \par
     \vskip1em
-    Let \A\B\ be the given \textcolor{input}{finite straight line}. It
-    is required to construct an \textcolor{triangle}{equilateral
-      triangle} on the \textcolor{input}{straight line}~\A\B. 
+    % Let \A\B\ be the given \textcolor{input}{finite straight line}. It
+    % is required to construct an \textcolor{triangle}{equilateral
+    %   triangle} on the \textcolor{input}{straight line}~\A\B. 
+    设 \A\B\ 是已知\textcolor{input}{有限直线}.那么要求在\textcolor{input}{线段} \A\B\ 上作一个\textcolor{triangle}{等边三角形}.
 
-    Describe the circle \B\C\D\ with center~\A\ and radius \A\B. Again
-    describe the circle \A\C\E\ with center~\B\ and radius \B\A. Join the
-    \textcolor{output}{straight lines} \C\A\ and \C\B\ from the
-    point~\C\ at which the circles cut one another to the points~\A\ and~\B.
+    % Describe the circle \B\C\D\ with center~\A\ and radius \A\B. Again
+    % describe the circle \A\C\E\ with center~\B\ and radius \B\A. Join the
+    % \textcolor{output}{straight lines} \C\A\ and \C\B\ from the
+    % point~\C\ at which the circles cut one another to the points~\A\ and~\B.
+    以 \A\ 为心，且以 \A\B\ 为距离画圆 \B\C\D ；再以 \B\ 为心，且以\B\A\ 为距离画圆 \A\C\E ；由两圆的交点 \C\ 到\A 、\B\ 连\textcolor{output}{线} \C\A 、\C\B .
 
-    Now, since the point~\A\ is the center of the circle \C\D\B,
-    therefore \A\C\ equals \A\B. Again, since the point \B\ is the
-    center of the circle \C\A\E, therefore \B\C\ equals \B\A. But
-    \A\C\ was proved equal to \A\B, therefore each of the straight
-    lines \A\C\ and \B\C\ equals \A\B. And 
-    things which equal the same thing also equal one another,
-    therefore \A\C\ also equals \B\C. Therefore the three straight
-    lines \A\C, \A\B, and \B\C\ equal one another. 
-    Therefore the \textcolor{triangle}{triangle} \A\B\C\ is
-    equilateral, and it has been  constructed on the given finite
-    \textcolor{input}{straight line}~\A\B.  
+    % Now, since the point~\A\ is the center of the circle \C\D\B,
+    % therefore \A\C\ equals \A\B. Again, since the point \B\ is the
+    % center of the circle \C\A\E, therefore \B\C\ equals \B\A. But
+    % \A\C\ was proved equal to \A\B, therefore each of the straight
+    % lines \A\C\ and \B\C\ equals \A\B. And 
+    % things which equal the same thing also equal one another,
+    % therefore \A\C\ also equals \B\C. Therefore the three straight
+    % lines \A\C, \A\B, and \B\C\ equal one another. 
+    % Therefore the \textcolor{triangle}{triangle} \A\B\C\ is
+    % equilateral, and it has been  constructed on the given finite
+    % \textcolor{input}{straight line}~\A\B.
+    因为，点 \A\ 是圆 \C\D\B\ 的圆心，\A\C\ 等于 \A\B .
+    又点 \B\ 是圆 \C\A\E\ 的圆心，\B\C\ 等于 \B\A .
+    但是，已经证明了 \C\A\ 等于 \A\B；所以线段 \C\A\ 、\C\B\ 都等于 \A\B .
+    而且等于同量的量彼此相等. 三条线段 \C\A 、\A\B 、\B\C\ 彼此相等.
+    所以\textcolor{triangle}{三角形} \A\B\C\ 是等边的，即在已知有限\textcolor{input}{直线} \A\B\ 上作出了这个三角形.
   };
 \end{tikzpicture}
 \bigskip
 
-Let us have a look at how Euclid can turn this into \tikzname\ code.
+\bohs
 
-\subsubsection{Setting up the Environment}
+% Let us have a look at how Euclid can turn this into \tikzname\ code.
+让我们看看，Euclid 怎么把这张图变成 \tikzname\ 代码。
 
-As in the previous tutorials, Euclid needs to load \tikzname, together
-with some libraries. These libraries are |calc|, |intersections|,
-|through|, and |backgrounds|. Depending on which format he uses,
-Euclid would use one of the following in the preamble:
+\eohs
+
+% \subsubsection{Setting up the Environment}
+\subsubsection{设置环境}
+
+\bohs
+
+% As in the previous tutorials, Euclid needs to load \tikzname, together
+% with some libraries. These libraries are |calc|, |intersections|,
+% |through|, and |backgrounds|. Depending on which format he uses,
+% Euclid would use one of the following in the preamble:
+如之前教程所述，Euclid 需要载入 \tikzname\ 以及一些库，这些库包括 \ltz{calc}、\ltz{intersections}、\ltz{through} 和 \ltz{backgrounds}。
+根据格式不同，Euclid 要在序言区加上下列语句之一：
+
+\eohs
 
 \begin{codeexample}[code only]
-% For LaTeX:
+% 对于 LaTeX：
 \usepackage{tikz}
 \usetikzlibrary{calc,intersections,through,backgrounds}
 \end{codeexample}
 
 \begin{codeexample}[code only]
-% For plain TeX:
+% 对于 plain TeX：
 \input tikz.tex
 \usetikzlibrary{calc,intersections,through,backgrounds}
 \end{codeexample}
 
 \begin{codeexample}[code only]
-% For ConTeXt:
+% 对于 ConTeXt：
 \usemodule[tikz]
 \usetikzlibrary[calc,intersections,through,backgrounds]
 \end{codeexample}
 
 
-\subsubsection{The Line \emph{AB}}
+% \subsubsection{The Line \emph{AB}}
+\subsubsection{线 \emph{AB}}
 
-The first part of the picture that Euclid wishes to draw is the line
-$AB$. That is easy enough, something like |\draw (0,0) -- (2,1);|
-might do. However, Euclid does not wish to reference the two points
-$A$ and $B$ as $(0,0)$ and $(2,1)$ subsequently. Rather, he wishes to
-just write |A| and |B|. Indeed, the whole point of his book is that
-the points $A$ and $B$ can be arbitrary and all other points (like
-$C$) are constructed in terms of their positions. It would not do
-if Euclid were to write down the coordinates of $C$ explicitly.
+\bohs
 
-So, Euclid starts with defining two coordinates using the
-|\coordinate| command:
+% The first part of the picture that Euclid wishes to draw is the line
+% $AB$. That is easy enough, something like |\draw (0,0) -- (2,1);|
+% might do. However, Euclid does not wish to reference the two points
+% $A$ and $B$ as $(0,0)$ and $(2,1)$ subsequently. Rather, he wishes to
+% just write |A| and |B|. Indeed, the whole point of his book is that
+% the points $A$ and $B$ can be arbitrary and all other points (like
+% $C$) are constructed in terms of their positions. It would not do
+% if Euclid were to write down the coordinates of $C$ explicitly.
+图中 Euclid 想最先画的部分是线 $AB$。很简单，\ltz{\\draw (0,0) -- (2,1);} 就能搞定。
+但是，Euclid 不想在 $A$ 和 $B$ 后面加上 $(0,0)$ 和 $(2,1)$，他想只写上 \ltz{A} 和 \ltz{B}。
+事实上，他的书的主旨是，点 $A$ 和 $B$ 可以是任意的，其他的点（比如 $C$）可以根据它们的位置构造出来，Euclid 不需要直接写出 $C$ 的坐标。
+
+% So, Euclid starts with defining two coordinates using the
+% |\coordinate| command:
+所以 Euclid 用 \ltz{\\coordinate} 命令定义两个坐标：
+
+\eohs
+
 \begin{codeexample}[]
 \begin{tikzpicture}
   \coordinate (A) at (0,0);
@@ -154,9 +207,17 @@ So, Euclid starts with defining two coordinates using the
 \end{tikzpicture}
 \end{codeexample}
 
-That was easy enough. What is missing at this point are the labels for
-the coordinates. Euclid does not want them \emph{on} the points, but
-next to them. He decides to use the |label| option:
+\bohs
+
+% That was easy enough. What is missing at this point are the labels for
+% the coordinates. Euclid does not want them \emph{on} the points, but
+% next to them. He decides to use the |label| option:
+非常简单。
+这里少了坐标的标签，Euclid 不想标在点\emph{上面}，而是在点旁边。
+他决定用 \ltz{label} 选项：
+
+\eohs
+
 \begin{codeexample}[]
 \begin{tikzpicture}
   \coordinate [label=left:\textcolor{blue}{$A$}]  (A) at (0,0);
@@ -166,73 +227,114 @@ next to them. He decides to use the |label| option:
 \end{tikzpicture}
 \end{codeexample}
 
-At this point, Euclid decides that it would be even nicer if the
-points $A$ and $B$ were in some sense ``random.'' Then, neither Euclid
-nor the reader can make the mistake of taking ``anything for granted''
-concerning these position of these points. Euclid is pleased to learn
-that there is a |rand| function in \tikzname\ that does exactly what
-he needs: It produces a number between $-1$ and $1$. Since \tikzname\
-can do a bit of math, Euclid can change the coordinates of the points
-as follows:
+\bohs
+
+% At this point, Euclid decides that it would be even nicer if the
+% points $A$ and $B$ were in some sense ``random.'' Then, neither Euclid
+% nor the reader can make the mistake of taking ``anything for granted''
+% concerning these position of these points. Euclid is pleased to learn
+% that there is a |rand| function in \tikzname\ that does exactly what
+% he needs: It produces a number between $-1$ and $1$. Since \tikzname\
+% can do a bit of math, Euclid can change the coordinates of the points
+% as follows:
+Euclid 这时在想，要是点 $A$ 和 $B$ 可以“随机”一点就更好了。
+关于这些点的位置，Euclid 和读者都不能犯下“想当然”的错误。
+Euclid 很高兴地了解到，\tikzname\ 里有一个 \ltz{rand} 函数可以满足要求：它能生成一个 $-1$ 到 $1$ 之间的数。
+既然 \tikzname\ 能做些数学运算，Euclid 就可以把点坐标写成下面这样：
+
+\eohs
+
 \begin{codeexample}[code only]
 \coordinate [...] (A) at (0+0.1*rand,0+0.1*rand);
 \coordinate [...] (B) at (1.25+0.1*rand,0.25+0.1*rand);
 \end{codeexample}
 
-This works fine. However, Euclid is not quite satisfied since he would
-prefer that the ``main coordinates'' $(0,0)$ and $(1.25,0.25)$ are
-``kept separate'' from the perturbation
-$0.1(\mathit{rand},\mathit{rand})$. This means, he would like to
-specify that coordinate $A$ as ``The point that is at $(0,0)$ plus one
-tenth of the vector  $(\mathit{rand},\mathit{rand})$.''
+\bohs
 
-It turns out that the |calc| library allows him to do exactly this
-kind of computation. When this library is loaded, you can use special
-coordinates that start with |($| and end with |$)| rather than just
-|(| and~|)|. Inside these special coordinates you can give a linear
-combination of coordinates. (Note that the dollar signs are only
-intended to signal that a ``computation'' is going on; no mathematical
-typesetting is done.)
+% This works fine. However, Euclid is not quite satisfied since he would
+% prefer that the ``main coordinates'' $(0,0)$ and $(1.25,0.25)$ are
+% ``kept separate'' from the perturbation
+% $0.1(\mathit{rand},\mathit{rand})$. This means, he would like to
+% specify that coordinate $A$ as ``The point that is at $(0,0)$ plus one
+% tenth of the vector  $(\mathit{rand},\mathit{rand})$.''
+这个效果不错，但是 Euclid 并不是很满意，因为他想让“主坐标” $(0,0)$ 和 $(1.25,0.25)$ 同扰动 $0.1(\mathit{rand},\mathit{rand})$ “分离开来”。
+也就是说，他希望将坐标 $A$ 指定成这样，“点 $(0,0)$ 加上向量 $(\mathit{rand},\mathit{rand})$ 的十分之一”。
 
-The new code for the coordinates is the following:
+% It turns out that the |calc| library allows him to do exactly this
+% kind of computation. When this library is loaded, you can use special
+% coordinates that start with |($| and end with |$)| rather than just
+% |(| and~|)|. Inside these special coordinates you can give a linear
+% combination of coordinates. (Note that the dollar signs are only
+% intended to signal that a ``computation'' is going on; no mathematical
+% typesetting is done.)
+实际上，\ltz{calc} 库来能让他做这类运算。载入该库后，你可以用特殊的坐标，始于 \ltz{($} 止于 \ltz{$)}，而不只是 \ltz{(} 和 \ltz{)}。
+你可以对这些特殊的坐标进行线性组合。（注意到 \ltz{$} 符号只是表示开始“运算”，而不是输入数学公式。）
+
+% The new code for the coordinates is the following:
+关于坐标的新代码如下：
+
+\eohs
 
 \begin{codeexample}[code only]
 \coordinate [...] (A) at ($ (0,0) + .1*(rand,rand) $);
 \coordinate [...] (B) at ($ (1.25,0.25) + .1*(rand,rand) $);
 \end{codeexample}
 
-Note that if a coordinate in such a computation has a factor (like
-|.1|), you must place a |*| directly before the opening parenthesis of
-the coordinate. You can nest such computations.
+\bohs
 
+% Note that if a coordinate in such a computation has a factor (like
+% |.1|), you must place a |*| directly before the opening parenthesis of
+% the coordinate. You can nest such computations.
+注意，如果在这类计算中，一个坐标包含小数（比如 \ltz{.1}），那么你必须在坐标的左圆括号之前加上 \ltz{*}。
+这些运算可以嵌套。
 
+\eohs
 
-\subsubsection{The Circle Around \emph{A}}
+% \subsubsection{The Circle Around \emph{A}}
+\subsubsection{围绕点 \emph{A} 的圆}
 
-The first tricky construction is the circle around~$A$. We will see
-later how to do this in a very simple manner, but first let us do it
-the ``hard'' way.
+\bohs
 
-The idea is the following: We draw a circle around the point $A$ whose
-radius is given by the length of the line $AB$. The difficulty lies in
-computing the length of this line.
+% The first tricky construction is the circle around~$A$. We will see
+% later how to do this in a very simple manner, but first let us do it
+% the ``hard'' way.
+第一个棘手的构造是围绕点 $A$ 的圆。
+我们之后会介绍一个非常简单的方法，但是首先让我们用“困难的”方式实现它。
 
-Two ideas ``nearly'' solve this problem: First, we can write
-|($ (A) - (B) $)| for the vector that is the difference between $A$
-and~$B$. All we need is the length of this vector. Second, given two
-numbers $x$ and $y$, one can write |veclen(|$x$|,|$y$|)| inside a
-mathematical expression. This gives the value $\sqrt{x^2+y^2}$, which
-is exactly the desired length.
+% The idea is the following: We draw a circle around the point $A$ whose
+% radius is given by the length of the line $AB$. The difficulty lies in
+% computing the length of this line.
+思路如下：我们画一个围绕点 $A$ 的圆，其半径由线段 $AB$ 的长度决定。
+困难在于计算这条线段的长度。
 
-The only remaining problem is to access the $x$- and $y$-coordinate of
-the vector~$AB$. For this, we need a new concept: the \emph{let
-  operation}. A let operation can be given anywhere on a path where a
-normal path operation like a line-to or a move-to is expected. The
-effect of a let operation is to evaluate some coordinates and to
-assign the results to special macros. These macros make it easy to
-access the $x$- and $y$-coordinates of the coordinates.
+% Two ideas ``nearly'' solve this problem: First, we can write
+% |($ (A) - (B) $)| for the vector that is the difference between $A$
+% and~$B$. All we need is the length of this vector. Second, given two
+% numbers $x$ and $y$, one can write |veclen(|$x$|,|$y$|)| inside a
+% mathematical expression. This gives the value $\sqrt{x^2+y^2}$, which
+% is exactly the desired length.
+可以通过两个点子解决这个问题：
+第一个，我们可以用 \ltz{($ (A) - (B) $)} 表示 $A$ 和 $B$ 相差的向量。
+我们需要的是这个向量的长度。
+第二个，给定两个数 $x$ 和 $y$，我们可以在数学表达式中写 \ltz{veclen(}{\color{blue} $x$\ltz{,}$y$}\ltz{)}，这会返回数值 $\sqrt{x^2+y^2}$，也就是想要的长度。
 
-Euclid would write the following:
+% The only remaining problem is to access the $x$- and $y$-coordinate of
+% the vector~$AB$. For this, we need a new concept: the \emph{let
+%   operation}. A let operation can be given anywhere on a path where a
+% normal path operation like a line-to or a move-to is expected. The
+% effect of a let operation is to evaluate some coordinates and to
+% assign the results to special macros. These macros make it easy to
+% access the $x$- and $y$-coordinates of the coordinates.
+剩下的唯一问题就是如何获得向量 $AB$ 的 $x$ 轴和 $y$ 轴坐标。
+为此我们需要引入一个新概念：\ltz{let} \emph{操作}。
+\ltz{let} 操作可以在路径中这样一些地方插入，比如直线指向的位置或者移动的目标位置。
+\ltz{let} 操作的效果是计算一些坐标并将其结果赋给特定的宏，这些宏方便了对坐标的 $x$ 和 $y$ 值的访问。
+
+% Euclid would write the following:
+Euclid 可以这样写：
+
+\eohs
+
 \begin{codeexample}[]
 \begin{tikzpicture}
   \coordinate [label=left:$A$]  (A) at (0,0);
@@ -246,16 +348,28 @@ Euclid would write the following:
 \end{tikzpicture}
 \end{codeexample}
 
-Each assignment in a let operation starts with |\p|, usually followed
-by a \meta{digit}. Then comes an equal sign and a coordinate. The
-coordinate is evaluated and the result is stored internally. From
-then on you can use the following expressions: 
+\bohs
+
+% Each assignment in a let operation starts with |\p|, usually followed
+% by a \meta{digit}. Then comes an equal sign and a coordinate. The
+% coordinate is evaluated and the result is stored internally. From
+% then on you can use the following expressions: 
+\ltz{let} 操作的每一次赋值都从 \ltz{\\p} 开始，通常跟着一个~{\color{blue}\metazh{数字}}，接着是一个等号和一个坐标。
+计算好坐标后，结果保存在内部，之后你就可以用下面的表达式：
+
+\eohs
+
 \begin{enumerate}
-\item |\x|\meta{digit} yields the $x$-coordinate of the resulting point.
-\item |\y|\meta{digit} yields the $y$-coordinate of the resulting
-  point.
-\item |\p|\meta{digit} yields the same as |\x|\meta{digit}|,\y|\meta{digit}.
+% \item |\x|\meta{digit} yields the $x$-coordinate of the resulting point.
+\item \ltz{\\x}{\color{blue}\metazh{数字}} 得到对应点的 $x$ 坐标。
+% \item |\y|\meta{digit} yields the $y$-coordinate of the resulting point.
+\item \ltz{\\y}{\color{blue}\metazh{数字}} 得到对应点的 $y$ 坐标。
+% \item |\p|\meta{digit} yields the same as |\x|\meta{digit}|,\y|\meta{digit}.
+\item \ltz{\\p}{\color{blue}\metazh{数字}} 得到 \ltz{\\x}{\color{blue}\metazh{数字}}\ltz{,\\y}{\color{blue}\metazh{数字}}。
 \end{enumerate}
+
+\bohs
+
 You can have multiple assignments in a let operation, just separate
 them with commas. In later assignments you can already use the results
 of earlier assignments.
@@ -271,6 +385,9 @@ only once. For this, we can also use a let operation: Instead of
 writing |\p1 = ...|, we write |\n2 = ...|. Here, ``n'' stands for
 ``number'' (while ``p'' stands for ``point''). The assignment of a
 number should be followed by a number in curly braces.
+
+\eohs
+
 \begin{codeexample}[]
 \begin{tikzpicture}
   \coordinate [label=left:$A$]  (A) at (0,0);

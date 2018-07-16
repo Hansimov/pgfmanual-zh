@@ -205,7 +205,7 @@ Karl 突然有点沮丧，似乎离画完还有不少距离。
 % basic \pgfname\ system. The basic layer, which is also described in this
 % manual, is somewhat more, well, basic and thus harder to use. The
 % frontend makes things easier by providing a simpler syntax.
-让我们更仔细地看一下代码。首先导入 \ltz{tikz} 库，也就是基础 \pgfname\ 系统所谓的“前端”。
+让我们更仔细地看一下代码。首先载入 \ltz{tikz} 库，也就是基础 \pgfname\ 系统所谓的“前端”。
 本手册还会提到基本层，更基础也更难用。
 这个前端语法更简单，让画图变得更容易了。
 
@@ -269,7 +269,7 @@ We are working on
 % inputs |tikz.tex| or |pgf.tex|.
 Gerda 既能用 |pdftex| 也能用 |tex| 加 |dvips| 来排版这个文件。
 \tikzname\ 会自动识别她用了哪个驱动。
-如果她想用 |dvipdfm| 结合 |tex|，她既可以选择修改 |pfg.cfg| 文件，也可以选择在导入 |tikz.tex| 或是 |pgf.tex| 之前加上 \ltz{\\def\\pgfsysdriver\{pgfsys-dvipdfm.def\}}。
+如果她想用 |dvipdfm| 结合 |tex|，她既可以选择修改 |pfg.cfg| 文件，也可以选择在输入 |tikz.tex| 或是 |pgf.tex| 之前加上 \ltz{\\def\\pgfsysdriver\{pgfsys-dvipdfm.def\}}。
 
 \eohs
 
@@ -945,7 +945,7 @@ Karl 觉得图太小了，如果不学会如何放大，他就不能继续。
 % Kern's |xcolor| package, see the documentation of that package for
 % details on color expressions.
 颜色 \ltz{green!20!white} 意思是 20\% 的绿色混合 80\% 的白色。
-\tikzname\ 中可以用这样的颜色表达式，因为已经导入了 Uwe Kern 的 \ltz{xcolor} 宏包，可以参考该宏包的文档，了解更多颜色表达式的细节。
+\tikzname\ 中可以用这样的颜色表达式，因为已经载入了 Uwe Kern 的 \ltz{xcolor} 宏包，可以参考该宏包的文档，了解更多颜色表达式的细节。
 
 % What would have happened, if Karl had not ``closed'' the path using
 % |--(0,0)| at the end? In this case, the path is closed automatically,
@@ -2011,7 +2011,7 @@ Karl 在想，图片中的部分代码可能很有用，将来也许还会用到
 % examples). What makes this pic useful is the fact that the size of the
 % wedge will be computed automatically.
 定义新的片图很简单，参考第 \ref{section-pics} 节，不过我们现在只是想用这样一个预先定义好的片图：\ltz{angle} 片图。
-正如其名所示，它是一个小小的角，包含一个小楔形和一条弧线，以及一些文本（在下面的例子中，Karl 需要导入 \ltz{angles} 和 \ltz{quotes} 库）。
+正如其名所示，它是一个小小的角，包含一个小楔形和一条弧线，以及一些文本（在下面的例子中，Karl 需要载入 \ltz{angles} 和 \ltz{quotes} 库）。
 这个片图的有用之处在于，它会自动计算楔形的尺寸。
 
 % The |angle| pic draws an angle between the two lines $BA$ and $BC$,

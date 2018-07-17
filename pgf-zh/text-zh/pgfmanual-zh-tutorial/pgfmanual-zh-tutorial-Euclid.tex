@@ -37,7 +37,7 @@ Euclid 略带不满，准备把他在莎草纸写的东西转到琥珀上，该�
 \eohs
 
 % \subsection{Book I, Proposition I}
-\subsection{第 I 卷，命题 1}
+\subsection{卷 I，命题 1}
 
 \bohs
 
@@ -46,7 +46,7 @@ Euclid 略带不满，准备把他在莎草纸写的东西转到琥珀上，该�
 % E. Joyce, to be found on his website at Clark University.}
 他在莎草纸上的图是这样的：\footnote{该段文本摘自 David E. Joyce 漂亮的交互式欧几里得几何原本，可以在他 Clark 大学的网站上找到。}
 \footnote{{\color{blue} 该段文本原文链接：https://mathcs.clarku.edu/\textasciitilde{}djoyce/java/elements/bookI/propI1.html}}
-\footnote{{\color{blue} 该段译文参考：欧几里得\ 著，兰纪正、朱恩宽\ 译. 欧几里得·几何原本. 陕西科学技术出版社, 2003. ISBN 9787536903579.}}
+\footnote{{\color{blue} 该段译文部分参考了：欧几里得\ 著，兰纪正、朱恩宽\ 译. 欧几里得·几何原本. 陕西科学技术出版社, 2003. ISBN 9787536903579.}}
 
 \eohs
 
@@ -101,19 +101,20 @@ Euclid 略带不满，准备把他在莎草纸写的东西转到琥珀上，该�
     \textbf{命题 1}\par
     % \emph{To construct an \textcolor{triangle}{equilateral triangle}
       % on a given \textcolor{input}{finite straight line}.}
-    \emph{在一个已知\textcolor{input}{有限直线}上做一个\textcolor{triangle}{等边三角形}.}
+    \emph{在一条已知\textcolor{input}{有限直线}上作一个\textcolor{triangle}{等边三角形}.}
     \par
     \vskip1em
     % Let \A\B\ be the given \textcolor{input}{finite straight line}. It
     % is required to construct an \textcolor{triangle}{equilateral
     %   triangle} on the \textcolor{input}{straight line}~\A\B. 
-    设 \A\B\ 是已知\textcolor{input}{有限直线}.那么要求在\textcolor{input}{线段} \A\B\ 上作一个\textcolor{triangle}{等边三角形}.
+    设 \A\B\ 是已知\textcolor{input}{有限直线}.
+    要求在\textcolor{input}{直线} \A\B\ 上作一个\textcolor{triangle}{等边三角形}.
 
     % Describe the circle \B\C\D\ with center~\A\ and radius \A\B. Again
     % describe the circle \A\C\E\ with center~\B\ and radius \B\A. Join the
     % \textcolor{output}{straight lines} \C\A\ and \C\B\ from the
     % point~\C\ at which the circles cut one another to the points~\A\ and~\B.
-    以 \A\ 为心，且以 \A\B\ 为距离画圆 \B\C\D ；再以 \B\ 为心，且以\B\A\ 为距离画圆 \A\C\E ；由两圆的交点 \C\ 到\A 、\B\ 连\textcolor{output}{线} \C\A 、\C\B .
+    以 \A\ 为中心，\A\B\ 为半径作圆 \B\C\D ；再以 \B\ 为中心，\B\A\ 为半径作圆 \A\C\E ；由两圆交点 \C\ 分别连\textcolor{output}{直线}到 \A 、\B ，得 \C\A 、\C\B .
 
     % Now, since the point~\A\ is the center of the circle \C\D\B,
     % therefore \A\C\ equals \A\B. Again, since the point \B\ is the
@@ -126,11 +127,11 @@ Euclid 略带不满，准备把他在莎草纸写的东西转到琥珀上，该�
     % Therefore the \textcolor{triangle}{triangle} \A\B\C\ is
     % equilateral, and it has been  constructed on the given finite
     % \textcolor{input}{straight line}~\A\B.
-    因为，点 \A\ 是圆 \C\D\B\ 的圆心，\A\C\ 等于 \A\B .
-    又点 \B\ 是圆 \C\A\E\ 的圆心，\B\C\ 等于 \B\A .
-    但是，已经证明了 \C\A\ 等于 \A\B；所以线段 \C\A\ 、\C\B\ 都等于 \A\B .
-    而且等于同量的量彼此相等. 三条线段 \C\A 、\A\B 、\B\C\ 彼此相等.
-    所以\textcolor{triangle}{三角形} \A\B\C\ 是等边的，即在已知有限\textcolor{input}{直线} \A\B\ 上作出了这个三角形.
+    因为点 \A\ 为圆 \C\D\B\ 的圆心，所以 \A\C\ 等于 \A\B .
+    又因为 \B\ 为圆 \C\A\E\ 的圆心，所以 \B\C\ 等于 \B\A .
+    然而已经证明了 \A\C\ 等于 \A\B；所以线段 \A\C\ 、\B\C\ 都等于 \A\B .
+    而且等于同量的量彼此相等，因此三条线段 \A\C 、\A\B 和 \B\C\ 彼此相等.
+    所以\textcolor{triangle}{三角形} \A\B\C\ 是等边的，并且已经在给定的有限\textcolor{input}{直线} \A\B\ 上作出了该三角形.
   };
 \end{tikzpicture}
 \bigskip
@@ -365,26 +366,35 @@ Euclid 可以这样写：
 % \item |\y|\meta{digit} yields the $y$-coordinate of the resulting point.
 \item \ltz{\\y}{\color{blue}\metazh{数字}} 得到对应点的 $y$ 坐标。
 % \item |\p|\meta{digit} yields the same as |\x|\meta{digit}|,\y|\meta{digit}.
-\item \ltz{\\p}{\color{blue}\metazh{数字}} 得到 \ltz{\\x}{\color{blue}\metazh{数字}}\ltz{,\\y}{\color{blue}\metazh{数字}}。
+\item \ltz{\\p}{\color{blue}\metazh{数字}} 等同于 \ltz{\\x}{\color{blue}\metazh{数字}}\ltz{,\\y}{\color{blue}\metazh{数字}}。
 \end{enumerate}
 
 \bohs
 
-You can have multiple assignments in a let operation, just separate
-them with commas. In later assignments you can already use the results
-of earlier assignments.
+% You can have multiple assignments in a let operation, just separate
+% them with commas. In later assignments you can already use the results
+% of earlier assignments.
+你可以在 \ltz{let} 操作中赋很多值，只要用逗号隔开。
+后面的赋值可以使用前面的赋值结果。
 
-Note that |\p1| is not a coordinate in the usual sense. Rather, it
-just expands to a string like |10pt,20pt|. So, you cannot write, for
-instance, |(\p1.center)| since this would just expand to
-|(10pt,20pt.center)|, which makes no sense.
+% Note that |\p1| is not a coordinate in the usual sense. Rather, it
+% just expands to a string like |10pt,20pt|. So, you cannot write, for
+% instance, |(\p1.center)| since this would just expand to
+% |(10pt,20pt.center)|, which makes no sense.
+注意，\ltz{\\p1} 并不是通常意义上的坐标，它只是扩展成 \ltz{10pt,20pt} 这样的字符串。
+因此，你不能写 \ltz{(\\p1.center)} 这样的语句，因为这个只会扩展成 \ltz{(10pt,20pt.center)}，这条语句没有意义。
 
-Next, we want to draw both circles at the same time. Each time the
-radius is |veclen(\x1,\y1)|. It seems natural to compute this radius
-only once. For this, we can also use a let operation: Instead of
-writing |\p1 = ...|, we write |\n2 = ...|. Here, ``n'' stands for
-``number'' (while ``p'' stands for ``point''). The assignment of a
-number should be followed by a number in curly braces.
+% Next, we want to draw both circles at the same time. Each time the
+% radius is |veclen(\x1,\y1)|. It seems natural to compute this radius
+% only once. For this, we can also use a let operation: Instead of
+% writing |\p1 = ...|, we write |\n2 = ...|. Here, ``n'' stands for
+% ``number'' (while ``p'' stands for ``point''). The assignment of a
+% number should be followed by a number in curly braces.
+下一步，我们想同时将两个圆画出来。
+两个圆半径都是 \ltz{veclen(\\x1,\\y1)}，因此自然只需要计算一次。
+这里我们还可以用一个 \ltz{let} 操作：不是写 \ltz{\\p1 = ...}，而是写 \ltz{\\n2 = ...}。
+这里的 \ltz{n} 表示 “数”（\textbf{n}umber），同理，\ltz{p} 表示“点”（\textbf{p}oint）。
+给数赋值需要在外面加上花括号。
 
 \eohs
 
@@ -401,13 +411,25 @@ number should be followed by a number in curly braces.
           (B) circle (\n2);
 \end{tikzpicture}
 \end{codeexample}
-In the above example, you may wonder, what |\n1| would yield? The
-answer is that it would be undefined -- the |\p|, |\x|, and |\y|
-macros refer to the same logical point, while the |\n| macro has ``its
-own namespace.'' We could even have replaced |\n2| in the example by
-|\n1| and it would still work. Indeed, the digits following these
-macros are just normal \TeX\ parameters. We could also use a longer
-name, but then we have to use curly braces:
+
+\bohs
+
+% In the above example, you may wonder, what |\n1| would yield? The
+% answer is that it would be undefined -- the |\p|, |\x|, and |\y|
+% macros refer to the same logical point, while the |\n| macro has ``its
+% own namespace.'' We could even have replaced |\n2| in the example by
+% |\n1| and it would still work. Indeed, the digits following these
+% macros are just normal \TeX\ parameters. We could also use a longer
+% name, but then we have to use curly braces:
+看了上例，你可能会想，如果写 \ltz{\\n1} 会得到什么？
+答案是会显示它没有定义。
+宏 \ltz{\\p}、\ltz{\\x} 和 \ltz{\\y} 引用逻辑上的同一个点，而宏 \ltz{\\n} 则有“自己的命名空间”。
+我们甚至可以将例中的 \ltz{\\n2} 替换成 \ltz{\\n1}，效果一样。
+事实上，跟在这些宏后面的数字只是普通的 \TeX\ 参数。
+我们还可以用更长的名字，不过需要加上花括号：
+
+\eohs
+
 \begin{codeexample}[]
 \begin{tikzpicture}
   \coordinate [label=left:$A$]  (A) at (0,0);
@@ -422,18 +444,28 @@ name, but then we have to use curly braces:
 \end{tikzpicture}
 \end{codeexample}
 
-At the beginning of this section it was promised that there is an
-easier way to create the desired circle. The trick is to use the
-|through| library. As the name suggests, it contains code for creating
-shapes that go through a given point.
+\bohs
 
-The option that we are looking for is |circle through|. This option is
-given to a \emph{node} and has the following effects: First, it causes
-the node's inner and outer separations to be set to zero. Then it sets
-the shape of the node to |circle|. Finally, it sets the radius of the
-node such that it goes through the parameter given to
-|circle through|. This radius is computed in essentially the same way
-as above.
+% At the beginning of this section it was promised that there is an
+% easier way to create the desired circle. The trick is to use the
+% |through| library. As the name suggests, it contains code for creating
+% shapes that go through a given point.
+在本节开始我们答应过，有个更简单的方法画出想要的圆。
+这个技巧就是用 \ltz{through} 库。
+顾名思义，它的作用就是通过一个给定的点创建形状。
+
+% The option that we are looking for is |circle through|. This option is
+% given to a \emph{node} and has the following effects: First, it causes
+% the node's inner and outer separations to be set to zero. Then it sets
+% the shape of the node to |circle|. Finally, it sets the radius of the
+% node such that it goes through the parameter given to
+% |circle through|. This radius is computed in essentially the same way
+% as above.
+我们要找的选项是 \ltz{circle through}。
+这个选项传给一个\emph{节点}，产生如下效果：
+首先，它将节点的内外间距置零；然后，将节点的形状设为圆 \ltz{circle}；最后，它根据传给 \ltz{circle through} 的参数决定圆的半径，本质上，计算该半径的方法和上面一样。
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -446,22 +478,33 @@ as above.
 \end{codeexample}
 
 
-\subsubsection{The Intersection of the Circles}
+% \subsubsection{The Intersection of the Circles}
+\subsubsection{圆的交点}
 
-Euclid can now draw the line and the circles. The final problem is to
-compute the intersection of the two circles. This computation is a bit
-involved if you want to do it ``by hand.'' Fortunately, the
-intersection library allows us to compute the intersection of
-arbitrary paths.
+\bohs
 
-The idea is simple: First, you ``name'' two paths using the
-|name path| option. Then, at some later point, you can use the option
-|name intersections|, which creates coordinates called
-|intersection-1|, |intersection-2|, and so on at all intersections of
-the paths. Euclid assigns the names |D| and |E| to the paths of the
-two circles (which happen to be the same names as the nodes
-themselves, but nodes and their paths live in different
-``namespaces''). 
+% Euclid can now draw the line and the circles. The final problem is to
+% compute the intersection of the two circles. This computation is a bit
+% involved if you want to do it ``by hand.'' Fortunately, the
+% intersection library allows us to compute the intersection of
+% arbitrary paths.
+Euclid 现在可以画线和圆了。
+最后一个问题就是计算两圆的交点，这就涉及到你是否想“手算”它。
+好在 \ltz{intersections} 库可以让我们计算任意路径的交点。
+
+% The idea is simple: First, you ``name'' two paths using the
+% |name path| option. Then, at some later point, you can use the option
+% |name intersections|, which creates coordinates called
+% |intersection-1|, |intersection-2|, and so on at all intersections of
+% the paths. Euclid assigns the names |D| and |E| to the paths of the
+% two circles (which happen to be the same names as the nodes
+% themselves, but nodes and their paths live in different
+% ``namespaces''). 
+思路很简单：首先用 \ltz{name path} 选项“命名”两条路径；接着，你可以在之后用 \ltz{name intersections} 选项，这会在路径之间的所有交点处创建坐标，名为 \ltz{intersection-1}、\ltz{intersection-2} 等等。
+Euclid 将两圆交点命名为 \ltz{D} 和 \ltz{E}（恰好和节点重名，不过节点和路径拥有不同的“命名空间”）。
+
+\eohs
+
 \begin{codeexample}[]
 \begin{tikzpicture}
   \coordinate [label=left:$A$]  (A) at (0,0);
@@ -471,7 +514,7 @@ themselves, but nodes and their paths live in different
   \node (D) [name path=D,draw,circle through=(B),label=left:$D$]  at (A) {};
   \node (E) [name path=E,draw,circle through=(A),label=right:$E$] at (B) {};
 
-  % Name the coordinates, but do not draw anything:
+  % 给坐标命名，但是什么都不画：
   \path [name intersections={of=D and E}];
   
   \coordinate [label=above:$C$] (C) at (intersection-1);
@@ -481,11 +524,18 @@ themselves, but nodes and their paths live in different
 \end{tikzpicture}
 \end{codeexample}
 
-It turns out that this can be further shortened: The
-|name intersections| takes an optional argument |by|, which lets you
-specify names for the coordinates and options for them. This creates
-more compact code. Although Euclid does not need it for the current
-picture, it is just a small step to computing the bisection of the line $AB$:
+\bohs
+
+% It turns out that this can be further shortened: The
+% |name intersections| takes an optional argument |by|, which lets you
+% specify names for the coordinates and options for them. This creates
+% more compact code. Although Euclid does not need it for the current
+% picture, it is just a small step to computing the bisection of the line $AB$:
+这可以进一步简写：
+\ltz{name intersections} 有一个可选参数 \ltz{by}，你可以用它指定坐标的名称和选项，这让代码更紧凑。
+不过 Euclid 在画这张图时还用不到，这只是在画线段 $AB$ 平分线时。
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -508,6 +558,7 @@ picture, it is just a small step to computing the bisection of the line $AB$:
 
 
 \subsubsection{The Complete Code}
+\subsubsection{完整的代码}
 
 Back to Euclid's code. He introduces a few macros to make life
 simpler, like a |\A| macro for typesetting a blue $A$. He also uses the

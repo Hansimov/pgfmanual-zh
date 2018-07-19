@@ -533,7 +533,7 @@ Euclid 将两圆交点命名为 \ltz{D} 和 \ltz{E}（恰好和节点重名，�
 % picture, it is just a small step to computing the bisection of the line $AB$:
 这可以进一步简写：
 \ltz{name intersections} 有一个可选参数 \ltz{by}，你可以用它指定坐标的名称和选项，这让代码更紧凑。
-不过 Euclid 在画这张图时还用不到，这只是在画线段 $AB$ 平分线时。
+虽然 Euclid 画现在这张图还用不到，但是画线段 $AB$ 的平分线时，用这个参数只需要一小步。
 
 \eohs
 
@@ -555,15 +555,18 @@ Euclid 将两圆交点命名为 \ltz{D} 和 \ltz{E}（恰好和节点重名，�
 \end{tikzpicture}
 \end{codeexample}
 
+% \subsubsection{The Complete Code}
+\subsubsection{完整代码}
 
+\bohs
 
-\subsubsection{The Complete Code}
-\subsubsection{完整的代码}
+% Back to Euclid's code. He introduces a few macros to make life
+% simpler, like a |\A| macro for typesetting a blue $A$. He also uses the
+% |background| layer for drawing the triangle behind everything at the
+% end. 
+回到 Euclid 的代码，人生苦短，他写了几个宏。比如用 \ltz{\\A} 表示一个蓝色的 $A$，他还用了 \ltz{background} 层，在结尾处画了一个三角形，并置于最底层。
 
-Back to Euclid's code. He introduces a few macros to make life
-simpler, like a |\A| macro for typesetting a blue $A$. He also uses the
-|background| layer for drawing the triangle behind everything at the
-end. 
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}[thick,help lines/.style={thin,draw=black!50}]
@@ -594,19 +597,25 @@ end.
   \end{pgfonlayer}
   
   \node [below right, text width=10cm,align=justify] at (4,3) {
-    \small\textbf{Proposition I}\par
-    \emph{To construct an \textcolor{triangle}{equilateral triangle}
-      on a given \textcolor{input}{finite straight line}.}
+    \small
+    \textbf{命题 1}\par
+    \emph{在一条已知\textcolor{input}{有限直线}上作一个\textcolor{triangle}{等边三角形}.}
     \par\vskip1em
-    Let \A\B\ be the given \textcolor{input}{finite straight line}.  \dots
+    设 \A\B\ 是已知\textcolor{input}{有限直线}. \dots
   };
 \end{tikzpicture}
 \end{codeexample}
 
+\clearpage
+% \subsection{Book I, Proposition II}
+\subsection{卷 I，命题 2}
 
-\subsection{Book I, Proposition II}
+\bohs
 
-The second proposition in the Elements is the following:
+% The second proposition in the Elements is the following:
+《几何原本》中的第二个命题如下：
+
+\eohs
 
 \bigskip\noindent
 \begin{tikzpicture}[thick,help lines/.style={thin,draw=black!50}]
@@ -647,61 +656,87 @@ The second proposition in the Elements is the following:
     \fill [black,opacity=.5] (\point) circle (2pt);
   
   \node [below right, text width=9cm,align=justify] at (4,4) {
-    \small\textbf{Proposition II}\par
-    \emph{To place a \textcolor{output}{straight line} equal to a
-      given \textcolor{input}{straight line} with 
-      one end at a \textcolor{orange}{given point}.} 
+    \small
+    % \textbf{Proposition II}\par
+    \textbf{命题 2} \par
+    % \emph{To place a \textcolor{output}{straight line} equal to a
+    %   given \textcolor{input}{straight line} with 
+    %   one end at a \textcolor{orange}{given point}.} 
+    \emph{以一个\textcolor{orange}{已知点}作为端点，作一条\textcolor{output}{线段}与已知\textcolor{input}{线段}相等.}
     \par\vskip1em
-    Let \A\ be the given point, and \B\C\ the given
-    \textcolor{input}{straight line}. 
-    It is required to place a \textcolor{output}{straight line} equal
-    to the given \textcolor{input}{straight line} \B\C\ with one end
-    at the point~\A.  
+    % Let \A\ be the given point, and \B\C\ the given
+    % \textcolor{input}{straight line}. 
+    % It is required to place a \textcolor{output}{straight line} equal
+    % to the given \textcolor{input}{straight line} \B\C\ with one end
+    % at the point~\A.  
+    设 \A\ 为已知点，\B\C\ 为已知\textcolor{input}{线段}.
+    要求以 \A\ 为端点，作一条\textcolor{output}{线段}与已知\textcolor{input}{线段} \B\C\ 相等.
 
-    Join the straight line \A\B\ from the point \A\ to the point \B, and
-    construct the equilateral triangle \D\A\B\ on it.
+    % Join the straight line \A\B\ from the point \A\ to the point \B, and
+    % construct the equilateral triangle \D\A\B\ on it.
+    连接点 \A\ 和 \B\ 得线段 \A\B ，并在其上作一等边三角形 \D\A\B .
     
-    Produce the straight lines \A\E\ and \B\F\ in a straight line with
-    \D\A\ and \D\B. Describe the circle \C\G\H\ with center \B\ and
-    radius \B\C, and  again, describe the circle \G\K\L\ with center
-    \D\ and radius \D\G. 	
+    % Produce the straight lines \A\E\ and \B\F\ in a straight line with
+    % \D\A\ and \D\B. Describe the circle \C\G\H\ with center \B\ and
+    % radius \B\C, and  again, describe the circle \G\K\L\ with center
+    % \D\ and radius \D\G. 	
+    延长 \D\A\ 和 \D\B\ 为直线 \A\E\ 和 \B\F 。以 \B\ 为中心，\B\C\ 为半径，作圆 \C\G\H ，再以 \D\ 为中心，\D\G\ 为半径，作圆 \G\K\L .
 
-    Since the point \B\ is the center of the circle \C\G\H, therefore
-    \B\C\ equals \B\G. Again, since the point \D\ is the center of the
-    circle \G\K\L, therefore \D\L\ equals \D\G. And in these \D\A\
-    equals \D\B, therefore the remainder \A\L\ equals the remainder
-    \B\G. But \B\C\ was also proved  equal to \B\G, therefore each of
-    the straight lines \A\L\ and \B\C\ equals \B\G. And things which
-    equal the same thing also equal one another, therefore \A\L\ also
-    equals \B\C. 
-    
-    Therefore the \textcolor{output}{straight line} \A\L\ equal to the
-    given \textcolor{input}{straight line} \B\C\  has been placed with
-    one end at the \textcolor{orange}{given point}~\A.  
+    % Since the point \B\ is the center of the circle \C\G\H, therefore
+    % \B\C\ equals \B\G. Again, since the point \D\ is the center of the
+    % circle \G\K\L, therefore \D\L\ equals \D\G. And in these \D\A\
+    % equals \D\B, therefore the remainder \A\L\ equals the remainder
+    % \B\G. But \B\C\ was also proved  equal to \B\G, therefore each of
+    % the straight lines \A\L\ and \B\C\ equals \B\G. And things which
+    % equal the same thing also equal one another, therefore \A\L\ also
+    % equals \B\C. 
+    因为点 \B\ 是圆 \C\G\H\ 的圆心，所以 \B\C\ 等于 \B\G .
+    同样，因为点 \D\ 是圆 \G\K\L\ 的圆心，所以 \D\L\ 等于 \D\G .
+    又因为 \D\A\ 等于 \D\B ，因此线段之差 \A\L\ 等于线段之差 \B\G .
+    然而已经证明了 \B\C\ 等于 \B\G ，所以 \A\L\ 和 \B\C\ 均等于 \B\G .
+    而且等于同量的量彼此相等，所以 \A\L\ 也等于 \B\C .
+
+    % Therefore the \textcolor{output}{straight line} \A\L\ equal to the
+    % given \textcolor{input}{straight line} \B\C\  has been placed with
+    % one end at the \textcolor{orange}{given point}~\A.  
+    所以，由已知点 \A\ 作出了\textcolor{output}{线段} \A\L\ ，与已知\textcolor{input}{线段} \B\C\ 相等.
   };
 \end{tikzpicture}
 
 
-
-
+% \subsubsection{Using Partway Calculations for the Construction of \emph{D}}
 \subsubsection{Using Partway Calculations for the Construction of \emph{D}}
 
-Euclid's construction starts with ``referencing'' Proposition~I for
-the construction of the point~$D$. Now, while we could simply repeat the
-construction, it seems a bit bothersome that one has to draw all these
-circles and do all these complicated constructions.
+\bohs
 
-For this reason, \tikzname\ supports some simplifications. First,
-there is a simple syntax for computing a point that is ``partway'' on
-a line from $p$ to~$q$: You place these two points in a coordinate
-calculation -- remember, they start with |($| and end with |$)| -- and
-then combine them using |!|\meta{part}|!|. A \meta{part} of |0| refers
-to the \emph{first} coordinate, a \meta{part} of |1| refers to the
-second coordinate, and a value in between refers to a point on the
-line from $p$ to~$q$. Thus, the syntax is similar to the |xcolor|
-syntax for mixing colors.
+% Euclid's construction starts with ``referencing'' Proposition~I for
+% the construction of the point~$D$. Now, while we could simply repeat the
+% construction, it seems a bit bothersome that one has to draw all these
+% circles and do all these complicated constructions.
+Euclid 在构造点 $D$ 时，“参考”了命题 1 中的过程。
+现在，我们也可以简单重复这些构造过程，但是似乎有点麻烦，因为我们得画出所有这些圆，完成所有复杂的构造。
 
-Here is the computation of the point in the middle of the line $AB$:
+% For this reason, \tikzname\ supports some simplifications. First,
+% there is a simple syntax for computing a point that is ``partway'' on
+% a line from $p$ to~$q$: You place these two points in a coordinate
+% calculation -- remember, they start with |($| and end with |$)| -- and
+% then combine them using |!|\meta{part}|!|. A \meta{part} of |0| refers
+% to the \emph{first} coordinate, a \meta{part} of |1| refers to the
+% second coordinate, and a value in between refers to a point on the
+% line from $p$ to~$q$. Thus, the syntax is similar to the |xcolor|
+% syntax for mixing colors.
+因此，\tikzname\ 提供了简便方法。
+首先，有一个简单的语法，可以计算从 $p$ 到 $q$ 连线上的一点：
+将这两个点放到坐标计算环境中——别忘了首尾的 \ltz{($} 和 \ltz{$)}——
+然后用 \ltz{!}\metablue{分比}\ltz{!} 将它们组合起来。
+\metablue{分比} 为 \ltz{0} 表示 \emph{前面的}坐标，\metablue{分比} 为 \ltz{1} 表示\emph{后面的}坐标，\ltz{0} 到 \ltz{1} 之间的值表示两点连线上的一点。
+所以，这个语法类似于 \ltz{xcolor} 中混合颜色的语法。
+
+% Here is the computation of the point in the middle of the line $AB$:
+这里展示了如何计算线段 $AB$ 的中点：
+
+\eohs
+
 \begin{codeexample}[]
 \begin{tikzpicture}
   \coordinate [label=left:$A$]  (A) at (0,0);
@@ -710,6 +745,8 @@ Here is the computation of the point in the middle of the line $AB$:
   \node [fill=red,inner sep=1pt,label=below:$X$] (X) at ($ (A)!.5!(B) $) {};
 \end{tikzpicture}
 \end{codeexample}
+
+\bohs
 
 The computation of the point $D$ in Euclid's second proposition is a
 bit more complicated. It can be expressed as follows: Consider the
@@ -722,6 +759,8 @@ that the second coordinate in a partway computation can be prefixed by
 an angle. Then the partway point is computed normally (as if no angle
 were given), but the resulting point is rotated by this angle around
 the first point.  
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}

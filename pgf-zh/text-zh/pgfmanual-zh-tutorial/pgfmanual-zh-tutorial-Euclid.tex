@@ -748,17 +748,21 @@ Euclid 在构造点 $D$ 时，“参考”了命题 1 中的过程。
 
 \bohs
 
-The computation of the point $D$ in Euclid's second proposition is a
-bit more complicated. It can be expressed as follows: Consider the
-line from $X$ to $B$. Suppose we 
-rotate this line around $X$ for 90$^\circ$ and then stretch it by a
-factor of $\sin(60^\circ) \cdot 2$. This yields the desired point~$D$. We
-can do the stretching using the partway modifier above, for the
-rotation we need a new modifier: the rotation modifier. The idea is
-that the second coordinate in a partway computation can be prefixed by
-an angle. Then the partway point is computed normally (as if no angle
-were given), but the resulting point is rotated by this angle around
-the first point.  
+% The computation of the point $D$ in Euclid's second proposition is a
+% bit more complicated. It can be expressed as follows: Consider the
+% line from $X$ to $B$. Suppose we 
+% rotate this line around $X$ for 90$^\circ$ and then stretch it by a
+% factor of $\sin(60^\circ) \cdot 2$. This yields the desired point~$D$. We
+% can do the stretching using the partway modifier above, for the
+% rotation we need a new modifier: the rotation modifier. The idea is
+% that the second coordinate in a partway computation can be prefixed by
+% an angle. Then the partway point is computed normally (as if no angle
+% were given), but the resulting point is rotated by this angle around
+% the first point. 
+在 Euclid 的命题 2 中，点 D 的计算更加复杂。
+可以表述如下：考虑 $X$ 到 $B$ 的直线，假设我们将该直线以 $X$ 为中心，旋转 90$^\circ$，然后拉伸 $\sin(60^\circ \cdot 2$ 倍，得到点 $D$。
+我们可以用上面的分比调节器实现拉伸，然后用另外一个调节器实现旋转。
+思路是，在分比计算中，可以在第二个坐标前加上一个角度，接着会正常计算分比得到的点（就像没加角度参数一样），然后再将该点以第一个坐标为心旋转给定的角度。
 
 \eohs
 
@@ -774,9 +778,14 @@ the first point.
 \end{tikzpicture}
 \end{codeexample}
 
-Finally, it is not necessary to explicitly name the point $X$. Rather,
-again like in the |xcolor| package, it is possible to chain partway
-modifiers:
+\bohs
+
+% Finally, it is not necessary to explicitly name the point $X$. Rather,
+% again like in the |xcolor| package, it is possible to chain partway
+% modifiers:
+最后，其实不必显式地将点命名为 $X$，而是可以像 \ltz{xcolor} 宏包那样，使用链式语法。
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -790,13 +799,20 @@ modifiers:
 \end{codeexample}
 
 
-\subsubsection{Intersecting a Line and a Circle}
+% \subsubsection{Intersecting a Line and a Circle}
+\subsubsection{直线和圆相交}
 
-The next step in the construction is to draw a circle around $B$
-through $C$, which is easy enough to do using the |circle through|
-option. Extending the lines $DA$ and $DB$ can be done using partway
-calculations, but this time with a part value outside the range
-$[0,1]$: 
+\bohs
+
+% The next step in the construction is to draw a circle around $B$
+% through $C$, which is easy enough to do using the |circle through|
+% option. Extending the lines $DA$ and $DB$ can be done using partway
+% calculations, but this time with a part value outside the range
+% $[0,1]$: 
+下一步构造是以 $B$ 为圆心，过 $C$ 画一个圆，用 \ltz{circle through} 很容易实现。
+延长 $DA$ 和 $DB$ 则可以用分比计算，只不过这次的分比在范围 $[0,1]$ 外：
+
+\eohs
 
 \begin{codeexample}[]
 \begin{tikzpicture}
@@ -812,19 +828,30 @@ $[0,1]$:
 \end{tikzpicture}
 \end{codeexample}
 
-We now face the problem of finding the point $G$, which is the
-intersection of the line $BF$ and the circle $H$. One way is to use
-yet another variant of the partway computation: Normally, a partway
-computation has the form \meta{p}|!|\meta{factor}|!|\meta{q},
-resulting in the point $(1-\meta{factor})\meta{p} +
-\meta{factor}\meta{q}$. Alternatively, instead of \meta{factor} you
-can also use a \meta{dimension} between the points. In this case, you
-get the point that is \meta{dimension} away from \meta{p} on the
-straight line to \meta{q}.
+\bohs
 
-We know that the point $G$ is on the way from $B$ to $F$. The distance
-is given by the radius of the circle~$H$. Here is the code for
-computing $H$:
+% We now face the problem of finding the point $G$, which is the
+% intersection of the line $BF$ and the circle $H$. One way is to use
+% yet another variant of the partway computation: Normally, a partway
+% computation has the form \meta{p}|!|\meta{factor}|!|\meta{q},
+% resulting in the point $(1-\meta{factor})\meta{p} +
+% \meta{factor}\meta{q}$. Alternatively, instead of \meta{factor} you
+% can also use a \meta{dimension} between the points. In this case, you
+% get the point that is \meta{dimension} away from \meta{p} on the
+% straight line to \meta{q}.
+我们现在的问题是如何得到点 $G$，也就是线 $BF$ 和圆 $H$ 的交点。
+一个方法是对分比计算进行变形：
+正常的分比计算形式是 \metablue{p}\ltz{!}\metablue{分比}\ltz{!}\metablue{q}，得到点~{\color{blue} (1 - \metazh{分比}) \meta{p} + \metazh{分比} \meta{q}}。
+在两点间除了 \metablue{分比}，你还可以用 \metablue{尺寸}，
+
+% We know that the point $G$ is on the way from $B$ to $F$. The distance
+% is given by the radius of the circle~$H$. Here is the code for
+% computing $H$:
+我们知道点 $G$ 在 $B$ 到 $F$ 的直线上，$G$ 到 $B$ 的距离等于圆 $H$ 的半径。
+计算 $H$ 的代码如下：
+
+\eohs
+
 {\tikzexternaldisable
 \begin{codeexample}[pre={
 \begin{tikzpicture}
@@ -843,9 +870,15 @@ computing $H$:
   \fill[red,opacity=.5] (G) circle (2pt);
 \end{codeexample}
 
-However, there is a simpler way: We can simply name the path of the
-circle and of the line in question and then use |name intersections|
-to compute the intersections.
+\bohs
+
+% However, there is a simpler way: We can simply name the path of the
+% circle and of the line in question and then use |name intersections|
+% to compute the intersections.
+不过有个更简单的方法：
+我们只要给题中圆和线的路径命名，然后用 \ltz{name intersection} 来计算交点。
+
+\eohs
 
 \begin{codeexample}[pre={
 \begin{tikzpicture}
@@ -865,7 +898,8 @@ to compute the intersections.
 \end{codeexample}
 }%
 
-\subsubsection{The Complete Code}
+% \subsubsection{The Complete Code}
+\subsubsection{完整代码}
 
 \begin{codeexample}[]
 \begin{tikzpicture}[thick,help lines/.style={thin,draw=black!50}]

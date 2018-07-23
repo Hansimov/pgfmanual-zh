@@ -8,121 +8,173 @@
 % See the file doc/generic/pgf/licenses/LICENSE for more details.
 
 
-\section{Guidelines on Graphics}
+% \section{Guidelines on Graphics}
+\section{绘图指导}
 
-The present section is not about \pgfname\ or \tikzname, but about
-general guidelines and principles concerning the creation of
-graphics for scientific presentations, papers, and books.
+\bohs
 
-The guidelines in this section come from different sources. Many of
-them are just what I would like to claim is ``common sense,'' some
-reflect my personal experience (though, hopefully, not my personal
-preferences), some come from books (the bibliography is still missing,
-sorry) on graphic design and typography.
-The most influential source  are the brilliant books
-by Edward Tufte. While I do not agree with everything written in these
-books, many of Tufte's arguments are so convincing that I decided to
-repeat them in the following guidelines.
+% The present section is not about \pgfname\ or \tikzname, but about
+% general guidelines and principles concerning the creation of
+% graphics for scientific presentations, papers, and books.
+这一节不是讲 \pgfname\ 和 \tikzname\ 的，而是讲在科学报告、论文和书籍中绘制图形时，通用的指导和原则。
 
-The first thing you should ask yourself when someone presents a bunch of
-guidelines is: Should I really follow these guidelines? This is an
-important question, because there are good reasons not to follow
-general guidelines.  The person who set up the guidelines may have had other
-objectives than you do. For example, a guideline might say ``use the
-color red for emphasis.'' While this guideline makes perfect sense
-for, say, a presentation using a projector, red ``color'' has the
-\emph{opposite} effect of ``emphasis'' when printed using a
-black-and-white printer. Guidelines were almost always set up to
-address a specific situation. If you are not in this situation,
-following a guideline can do more harm than good.
+% The guidelines in this section come from different sources. Many of
+% them are just what I would like to claim is ``common sense,'' some
+% reflect my personal experience (though, hopefully, not my personal
+% preferences), some come from books (the bibliography is still missing,
+% sorry) on graphic design and typography.
+% The most influential source  are the brilliant books
+% by Edward Tufte. While I do not agree with everything written in these
+% books, many of Tufte's arguments are so convincing that I decided to
+% repeat them in the following guidelines.
+本节的指导原则源自不同的地方，我想声明的内容，大多都只是“常识”，一些基于我的个人经历（当然，我希望并不只是我个人的偏好），一些来自图形设计和排版的书籍（还没写参考文献，见谅）。
 
-The second thing you should be aware of is the basic rule of
-typography is: ``Every rule can be broken, as long as you are
-\emph{aware}  that you are breaking a rule.'' This rule also applies
-to graphics. Phrased differently, the basic rule states: ``The only
-mistakes in typography are things done in ignorance.''  When you are
-aware of a rule and when you decide that breaking the rule has a
-desirable effect, break the rule.
+% The first thing you should ask yourself when someone presents a bunch of
+% guidelines is: Should I really follow these guidelines? This is an
+% important question, because there are good reasons not to follow
+% general guidelines.  The person who set up the guidelines may have had other
+% objectives than you do. For example, a guideline might say ``use the
+% color red for emphasis.'' While this guideline makes perfect sense
+% for, say, a presentation using a projector, red ``color'' has the
+% \emph{opposite} effect of ``emphasis'' when printed using a
+% black-and-white printer. Guidelines were almost always set up to
+% address a specific situation. If you are not in this situation,
+% following a guideline can do more harm than good.
+当有人给你列出一堆指导原则时，你首先得问自己：我真的应该遵循这些指导原则吗？
+这是个重要的问题，因为有很多好理由不去遵循这些通用的指导原则。
+给出这些指导原则的人，目标可能和你的并不一致。
+比如说，某条指导可能写“用红色来强调”，这可能非常适合用投影仪做的报告，但是对于黑白打印的内容来说，红色可能就起了\emph{相反的}效果。
+指导原则几乎总是用于处理特定的情况，在错误的情况下遵守它只会弊大于利。
+
+% The second thing you should be aware of is the basic rule of
+% typography is: ``Every rule can be broken, as long as you are
+% \emph{aware}  that you are breaking a rule.'' This rule also applies
+% to graphics. Phrased differently, the basic rule states: ``The only
+% mistakes in typography are things done in ignorance.''  When you are
+% aware of a rule and when you decide that breaking the rule has a
+% desirable effect, break the rule.
+关于排版的基本规则，你要知道的第二件事是：“每一条规则都可以打破，只要你确实“意识到”你在打破某条规则。”
+这条规则也适用于绘图。
+上面那句话换个说法，就是：“排版时唯一的错误，就是对发生的事一无所知。”
+如果你想打破一条规则并且清楚后果，那么打破它。
+
+\eohs
 
 
-\subsection{Planning the Time Needed for the Creation of Graphics}
+% \subsection{Planning the Time Needed for the Creation of Graphics}
+\subsection{规划绘图需要的时间}
 
-When you create a paper with numerous graphics, the time needed to
-create these graphics becomes an important factor. How much time
-should you calculate for the creation of graphics?
+\bohs
 
-As a general rule, assume that a graphic will need as much time to
-create as would a text of the same length. For example, when I
-write a paper, I need about one hour per page for
-the first draft. Later, I need between two and four hours per page
-for revisions. Thus, I expect to need about half an hour for the
-creation of \emph{a first draft} of a half page graphic. Later on, I
-expect another one to two hours before the final graphic is finished.
+% When you create a paper with numerous graphics, the time needed to
+% create these graphics becomes an important factor. How much time
+% should you calculate for the creation of graphics?
+如果你要写一篇图很多的文章，那么一个重要的因素是，画这些图要花多久。
+你怎样计算绘图所需的时间呢？
 
-In many publications, even in good journals, the authors and editors
-have obviously  invested a lot of time on the text, but seem to
-have spend about five minutes to create all of the
-graphics. Graphics often seem to have been added as an
-``afterthought'' or look like a screen shot of whatever the authors's
-statistical software shows them. As will be argued later on, the
-graphics that programs like \textsc{gnuplot} produce by default are of
-poor quality.
+% As a general rule, assume that a graphic will need as much time to
+% create as would a text of the same length. For example, when I
+% write a paper, I need about one hour per page for
+% the first draft. Later, I need between two and four hours per page
+% for revisions. Thus, I expect to need about half an hour for the
+% creation of \emph{a first draft} of a half page graphic. Later on, I
+% expect another one to two hours before the final graphic is finished.
+我们假设，画一张图花费的时间，等于写同样篇幅的文字。
+比如我写文章，初稿可能一页一小时，到后面修改时，每页可能需要两到四小时。
+那么，要画半页左右的图，\emph{初稿}我预计需要半个小时，后面还需要一到两小时，完成最终的图。
 
-Creating informative graphics that help the reader and that fit
-together with the main text is a difficult, lengthy process.
+% In many publications, even in good journals, the authors and editors
+% have obviously invested a lot of time on the text, but seem to
+% have spend about five minutes to create all of the
+% graphics. Graphics often seem to have been added as an
+% ``afterthought'' or look like a screen shot of whatever the authors's
+% statistical software shows them. As will be argued later on, the
+% graphics that programs like \textsc{gnuplot} produce by default are of
+% poor quality.
+在许多出版物甚至是优秀的期刊中，作者和编辑明显在文字上花了很多工夫，但是似乎只花了五分钟就画好了所有图。
+通常这些图好像就是“后加上的”，或者只是统计软件的截图。
+正如后面会讨论的，像 \textsc{gnuplot} 这种软件默认画出来的图，质量并不高。
+
+% Creating informative graphics that help the reader and that fit
+% together with the main text is a difficult, lengthy process.
+结合文字绘制信息图，从而帮助读者理解，是一个困难而漫长的过程。
+
+\eohs
+
 \begin{itemize}
 \item
-  Treat graphics as first-class citizens of your papers. They deserve
-  as much time and energy as the text does.
-  Indeed, the creation of graphics might deserve \emph{even more} time
-  than the writing of the main text since more attention will  be paid
-  to the graphics and they will be looked at first.
+  % Treat graphics as first-class citizens of your papers. They deserve
+  % as much time and energy as the text does.
+  % Indeed, the creation of graphics might deserve \emph{even more} time
+  % than the writing of the main text since more attention will be paid
+  % to the graphics and they will be looked at first.
+  把图形作为你文章的一等公民。图形值得花费同文字相等的时间和精力。
+  事实上，相比文字，绘图可能值得投入\emph{更多的}时间，因为人们第一眼看到的就是图形，也更关注图形。
 \item
-  Plan as much time for the creation and revision of a graphic as you
-  would plan for text of the same size.
+  % Plan as much time for the creation and revision of a graphic as you
+  % would plan for text of the same size.
+  给图形的绘制和修改规划尽可能多的时间，就像对待同等篇幅的文字一样。
 \item
-  Difficult graphics with a high information density may require even
-  more time.
+  % Difficult graphics with a high information density may require even
+  % more time.
+  信息量大的困难的图形，可能需要更多的时间。
 \item
-  Very simple graphics will require less time, but most likely you do
-  not want to have ``very simple graphics'' in your paper, anyway;
-  just as you would not like to have a ``very simple text'' of the
-  same size.
+  % Very simple graphics will require less time, but most likely you do
+  % not want to have ``very simple graphics'' in your paper, anyway;
+  % just as you would not like to have a ``very simple text'' of the
+  % same size.
+  简单的图形需要更少的时间，但是无论如何，很可能你并不想在文章里放“非常简单的图”，就像你不想在文章中写同等篇幅“非常简单的文字”一样。
 \end{itemize}
 
 
-\subsection{Workflow for Creating a Graphic}
+% \subsection{Workflow for Creating a Graphic}
+\subsection{绘图的工作流程}
 
-When you write a (scientific) paper, you will most likely follow the
-following pattern: You have some results/ideas that you would
-like to report about. The creation of the paper will typically start
-with compiling a rough outline. Then, the different sections are
-filled with text to create a first draft. This draft is then revised
-repeatedly until, often after substantial revision, a final paper
-results. In a good journal paper there is typically not be a single
-sentence that has survived unmodified from the first draft.
+\bohs
 
-Creating a graphics follows the same pattern:
+% When you write a (scientific) paper, you will most likely follow the
+% following pattern: You have some results/ideas that you would
+% like to report about. The creation of the paper will typically start
+% with compiling a rough outline. Then, the different sections are
+% filled with text to create a first draft. This draft is then revised
+% repeatedly until, often after substantial revision, a final paper
+% results. In a good journal paper there is typically not be a single
+% sentence that has survived unmodified from the first draft.
+你写一篇（科学）文章，通常会遵循下面的模式：
+你有一些结果或者想法要阐述。写文章时一般会先列一个粗糙的大纲，然后分别写各个章节，得到初稿。在成稿写好前，一般要不停地大量地修改。
+一篇好的期刊文章，初稿里几乎没有一句到最后还没改过的。
+
+% Creating a graphics follows the same pattern:
+绘图也遵循相同的模式：
+
+\eohs
+
 \begin{itemize}
 \item
-  Decide on what the graphic should communicate. Make this a conscious
-  decision, that is, determine ``What is the graphic supposed to tell
-  the reader?''
+  % Decide on what the graphic should communicate. Make this a conscious
+  % decision, that is, determine ``What is the graphic supposed to tell
+  % the reader?''
+  决定图形想要表达什么。一定要有意识地思考，“图形应该告诉读者什么？”
 \item
-  Create an ``outline,'' that is, the rough overall ``shape'' of the
-  graphic, containing the most crucial elements. Often, it is
-  useful to do this using pencil and paper.
+  % Create an ``outline,'' that is, the rough overall ``shape'' of the
+  % graphic, containing the most crucial elements. Often, it is
+  % useful to do this using pencil and paper.
+  列一个“大纲”，也就是图形整体的大致“轮廓”，包含最重要的元素。
+  在这一步，笔纸一般很有帮助。
 \item
-  Fill out the finer details of the graphic to create a first
-  draft.
+  % Fill out the finer details of the graphic to create a first
+  % draft.
+  补充和完善图形的细节，得到初稿。
 \item
-  Revise the graphic repeatedly along with the rest of the paper.
+  % Revise the graphic repeatedly along with the rest of the paper.
+  根据文章内容，不断修改图形。
 \end{itemize}
 
 
-
-
+% \subsection{Linking Graphics With the Main Text}
 \subsection{Linking Graphics With the Main Text}
+
+\bohs
 
 Graphics can be placed at different places in a text. Either, they can
 be inlined, meaning they are somewhere ``in the middle of the text''
@@ -143,6 +195,9 @@ Quite differently, a stand-alone figure will often be viewed at a time
 when the main text that this graphic belongs to either has not yet
 been read or has been read some time ago. For this reason, you should
 follow the following guidelines when creating stand-alone figures:
+
+\eohs
+
 \begin{itemize}
 \item
   Stand-alone figures should have a caption than should make them

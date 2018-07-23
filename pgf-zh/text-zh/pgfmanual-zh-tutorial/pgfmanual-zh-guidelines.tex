@@ -27,7 +27,7 @@
 % by Edward Tufte. While I do not agree with everything written in these
 % books, many of Tufte's arguments are so convincing that I decided to
 % repeat them in the following guidelines.
-本节的指导原则源自不同的地方，我想声明的内容，大多都只是“常识”，一些基于我的个人经历（当然，我希望并不只是我个人的偏好），一些来自图形设计和排版的书籍（还没写参考文献，见谅）。
+本节的指导源自不同的地方，我想声明的内容，大多都只是“常识”，一些基于我的个人经历（当然，我希望并不只是我个人的偏好），一些来自图形设计和排版的书籍（还没写参考文献，见谅）。
 
 % The first thing you should ask yourself when someone presents a bunch of
 % guidelines is: Should I really follow these guidelines? This is an
@@ -40,11 +40,11 @@
 % black-and-white printer. Guidelines were almost always set up to
 % address a specific situation. If you are not in this situation,
 % following a guideline can do more harm than good.
-当有人给你列出一堆指导原则时，你首先得问自己：我真的应该遵循这些指导原则吗？
-这是个重要的问题，因为有很多好理由不去遵循这些通用的指导原则。
-给出这些指导原则的人，目标可能和你的并不一致。
+当有人给你列出一堆指导时，你首先得问自己：我真的应该遵循这些指导吗？
+这是个重要的问题，因为有很多好理由不去遵循这些通用的指导。
+给出这些指导的人，目标可能和你的并不一致。
 比如说，某条指导可能写“用红色来强调”，这可能非常适合用投影仪做的报告，但是对于黑白打印的内容来说，红色可能就起了\emph{相反的}效果。
-指导原则几乎总是用于处理特定的情况，在错误的情况下遵守它只会弊大于利。
+指导几乎总是用于处理特定的情况，在错误的情况下遵守它只会弊大于利。
 
 % The second thing you should be aware of is the basic rule of
 % typography is: ``Every rule can be broken, as long as you are
@@ -62,7 +62,7 @@
 
 
 % \subsection{Planning the Time Needed for the Creation of Graphics}
-\subsection{规划绘图需要的时间}
+\subsection{规划绘图用时}
 
 \bohs
 
@@ -172,140 +172,201 @@
 
 
 % \subsection{Linking Graphics With the Main Text}
-\subsection{Linking Graphics With the Main Text}
+\subsection{关联图文内容}
 
 \bohs
 
-Graphics can be placed at different places in a text. Either, they can
-be inlined, meaning they are somewhere ``in the middle of the text''
-or they can be placed in stand-alone ``figures.'' Since printers (the
-people) like to have their pages ``filled,'' (both for aesthetic and
-economic reasons) stand-alone figures may traditionally be placed on
-pages in the document far away from the main text that refers to
-them. \LaTeX\ and \TeX\ tend to encourage this ``drifting away'' of
-graphics for technical reasons.
+% Graphics can be placed at different places in a text. Either, they can
+% be inlined, meaning they are somewhere ``in the middle of the text''
+% or they can be placed in stand-alone ``figures.'' Since printers (the
+% people) like to have their pages ``filled,'' (both for aesthetic and
+% economic reasons) stand-alone figures may traditionally be placed on
+% pages in the document far away from the main text that refers to
+% them. \LaTeX\ and \TeX\ tend to encourage this ``drifting away'' of
+% graphics for technical reasons.
+图形可以置于文本中的不同位置。既可以插在行内，也就是“文字中间”，也可以放在单独的“图片”中。
+由于印刷者（也就是人们）喜欢将页面“填满”（同时出于美学和经济的考虑），因此独立的图片通常会放到离相关文字很远的地方。
+基于技术原因，\LaTeX\ 和 \TeX\ 倾向于鼓励图形的这种“游离”形式。
 
-When a graphic is inlined, it will more or less automatically be
-linked with the main text in the sense that the labels of the graphic
-will be implicitly explained by the surrounding text. Also, the main
-text will typically make it clear what the graphic is about and what
-is shown.
+% When a graphic is inlined, it will more or less automatically be
+% linked with the main text in the sense that the labels of the graphic
+% will be implicitly explained by the surrounding text. Also, the main
+% text will typically make it clear what the graphic is about and what
+% is shown.
+插在行内的图形，或多或少和正文有些关联，因为周围的文字间接地解释了图形的标签，
+并且通常正文也会阐明这个图形和什么相关，展示了什么。
 
-Quite differently, a stand-alone figure will often be viewed at a time
-when the main text that this graphic belongs to either has not yet
-been read or has been read some time ago. For this reason, you should
-follow the following guidelines when creating stand-alone figures:
+% Quite differently, a stand-alone figure will often be viewed at a time
+% when the main text that this graphic belongs to either has not yet
+% been read or has been read some time ago. For this reason, you should
+% follow the following guidelines when creating stand-alone figures:
+独立的图片则大不相同，读者在看到它们的时候，也许还没读到与之相关的文字，或者已经读过很久了。
+因此，如果你要绘制独立的图片，应该遵循如下指导：
 
 \eohs
 
 \begin{itemize}
 \item
-  Stand-alone figures should have a caption than should make them
-  ``understandable by themselves.''
+  % Stand-alone figures should have a caption than should make them
+  % ``understandable by themselves.''
+  独立的图片应当有一个标题，并且“顾名即可思义”。
 
-  For example, suppose a graphic shows an example of the different
-  stages of a quicksort algorithm. Then the figure's caption should,
-  at the very least, inform the reader that ``The figure shows the
-  different stages of the quicksort algorithm introduced on page
-  xyz.'' and not just ``Quicksort algorithm.''
+  % For example, suppose a graphic shows an example of the different
+  % stages of a quicksort algorithm. Then the figure's caption should,
+  % at the very least, inform the reader that ``The figure shows the
+  % different stages of the quicksort algorithm introduced on page
+  % xyz.'' and not just ``Quicksort algorithm.''
+  比方说，假设一张图展示了快排算法的不同阶段，那么图片的标题至少应当告诉读者，“该图展示了快排算法的不同阶段，如 xyz 页所述”，而不仅仅是“快排算法”。
 \item
-  A good caption adds as much context information as possible. For
-  example, you could say: ``The figure shows the different stages of
-  the quicksort algorithm introduced on page xyz. In the first line,
-  the pivot element 5 is chosen. This causes\dots'' While this
-  information can also be given in the main text, putting it in the
-  caption will ensure that the context is kept. Do not feel afraid of
-  a 5-line caption. (Your editor may hate you for this. Consider
-  hating them back.)
+  % A good caption adds as much context information as possible. For
+  % example, you could say: ``The figure shows the different stages of
+  % the quicksort algorithm introduced on page xyz. In the first line,
+  % the pivot element 5 is chosen. This causes\dots'' While this
+  % information can also be given in the main text, putting it in the
+  % caption will ensure that the context is kept. Do not feel afraid of
+  % a 5-line caption. (Your editor may hate you for this. Consider
+  % hating them back.)
+  好的标题会加上尽可能多的上下文信息。
+  比如你会写：“该图展示了快排算法的不同阶段，如 xyz 页所述。在第一行中，选择基准元素 5，这会造成 \dots”
+  这些信息当然也可以在正文中写出，但是放在标题里保证了上下文。
+  不要害怕写一个长达五行的标题。（你的编辑可能会因此讨厌你，你可以把讨厌反弹回去。）
 \item
-  Reference the graphic in your main text as in ``For an example of
-  quicksort `in action,' see Figure~2.1 on page xyz.''
+  % Reference the graphic in your main text as in ``For an example of
+  % quicksort `in action,' see Figure~2.1 on page xyz.''
+  在正文中，你可以这样引用图片：“有一个快排的‘实际’例子，见第 xyz 页的图 2.1。”
 \item
-  Most books on style and typography recommend that you do not use
-  abbreviations as in ``Fig.~2.1'' but write ``Figure 2.1.''
+  % Most books on style and typography recommend that you do not use
+  % abbreviations as in ``Fig.~2.1'' but write ``Figure 2.1.''
+  很多讲样式和排版的书，会建议你不要缩写成“Fig.~2.1”，而是应该写“Figure 2.1”。
 
-  The main argument against abbreviations is that ``a period is too
-  valuable to waste it on an abbreviation.'' The idea is that a period
-  will make the reader assume that the sentence ends after ``Fig'' and
-  it takes a ``conscious backtracking'' to realize that the sentence
-  did not end after all.
+  % The main argument against abbreviations is that ``a period is too
+  % valuable to waste it on an abbreviation.'' The idea is that a period
+  % will make the reader assume that the sentence ends after ``Fig'' and
+  % it takes a ``conscious backtracking'' to realize that the sentence
+  % did not end after all.
+  反对缩写的主要论据是，“不应在缩写这种地方浪费句点的价值”。
+  意思是，句点会让读者以为句子结束于“Fig”，并且需要“有意识的回溯”，才能发现句子根本没有结束。
 
-  The argument in favor of abbreviations is that they save space.
+  % The argument in favor of abbreviations is that they save space.
+  支持缩写的论据是，节省空间。
 
-  Personally, I am not really convinced by either argument. On the one
-  hand, I have not yet seen any hard evidence that abbreviations slow
-  readers down. On the other hand,  abbreviating all ``Figure'' by
-  ``Fig.''\ is most unlikely to save even a single line in  most
-  documents. I avoid abbreviations.
+  % Personally, I am not really convinced by either argument. On the one
+  % hand, I have not yet seen any hard evidence that abbreviations slow
+  % readers down. On the other hand,  abbreviating all ``Figure'' by
+  % ``Fig.''\ is most unlikely to save even a single line in  most
+  % documents. I avoid abbreviations.
+  我个人并不信服任何一种论据。
+  一方面，我还没见过有力的证据，表明缩写会降低阅读速度；另一方面，在大多数文章中，如果将所有“Figure”缩写成“Fig.”，省下的空间几乎连一行都不到。
+  我会避免使用缩写。
 \end{itemize}
 
 
+% \subsection{Consistency Between Graphics and Text}
+\subsection{统一图文风格}
 
-\subsection{Consistency Between Graphics and Text}
+\bohs
 
-Perhaps the most common ``mistake'' people do when creating graphics
-(remember that a ``mistake'' in design is always just ``ignorance'')
-is to have a mismatch between the way their graphics look and the way
-their text looks.
+% Perhaps the most common ``mistake'' people do when creating graphics
+% (remember that a ``mistake'' in design is always just ``ignorance'')
+% is to have a mismatch between the way their graphics look and the way
+% their text looks.
+人们在绘图时犯得最多的一个“错误”（记住，设计中的“错误”通常只是“无知”），也许就是图形和文字的式样不搭。
 
-It is quite common that authors use several different programs for
-creating the graphics of a paper. An author might produce some plots
-using \textsc{gnuplot}, a diagram using \textsc{xfig}, and include an
-|.eps| graphic a coauthor contributed using some unknown program. All
-these graphics will, most likely, use different line widths, different
-fonts, and have different sizes. In addition, authors often use
-options like |[height=5cm]| when including graphics to scale them to
-some ``nice size.''
+% It is quite common that authors use several different programs for
+% creating the graphics of a paper. An author might produce some plots
+% using \textsc{gnuplot}, a diagram using \textsc{xfig}, and include an
+% |.eps| graphic a coauthor contributed using some unknown program. All
+% these graphics will, most likely, use different line widths, different
+% fonts, and have different sizes. In addition, authors often use
+% options like |[height=5cm]| when including graphics to scale them to
+% some ``nice size.''
+一个很常见的情况是，文章的配图来自几个不同的程序。
+作者可能用 \textsc{gnuplot} 作图，\textsc{xfig} 画图表，以及插入一张 |.eps| 格式的图片（它是合作者画的，不知道用的什么程序）。
+这些图很可能用了不同的线宽、字体和尺寸。
+此外，作者在插入图片的时候，还经常用 \ltz{[height=5cm]} 这样的选项将图片缩放到“漂亮的尺寸”。
 
-If the same approach were taken to writing the main text, every
-section would be written in a different font at a different size. In
-some sections all theorems would be underlined, in another they would
-be printed all in uppercase letters, and in another in red. In
-addition, the margins would be different on each page.
-Readers and editors would not tolerate a text if it were written in
-this fashion, but with graphics they often have to.
+% If the same approach were taken to writing the main text, every
+% section would be written in a different font at a different size. In
+% some sections all theorems would be underlined, in another they would
+% be printed all in uppercase letters, and in another in red. In
+% addition, the margins would be different on each page.
+% Readers and editors would not tolerate a text if it were written in
+% this fashion, but with graphics they often have to.
+如果写文字也用这种方法的话，那么就相当于：
+不同的章节用不同的字体和字号。
+书写定理时，在某些章节中都加了下划线，在另一个章节则全用大写字母，再在另外一个章节用红色字体。
+此外，不同页面的边距还不一样。
+读者和编辑一定不能忍受这样的文字，但是对于图形他们常常不得不忍受。
 
-To create consistency between graphics and text, stick to the
-following guidelines:
+% To create consistency between graphics and text, stick to the
+% following guidelines:
+为了保持图文风格一致，请忠于如下指导：
+
+\eohs
+
 \begin{itemize}
 \item
-  Do not scale graphics.
+  % Do not scale graphics.
+  不要缩放图形。
 
-  This means that when generating graphics using an external program,
-  create them ``at the right size.''
+  % This means that when generating graphics using an external program,
+  % create them ``at the right size.''
+  意思是说，如果用别的程序画图，那么要输出“正确的尺寸”。
 \item
-  Use the same font(s) both in graphics and the body text.
+  % Use the same font(s) both in graphics and the body text.
+  在图文中使用相同的字体。
 \item
-  Use the same line width in text and graphics.
+  % Use the same line width in text and graphics.
+  在图文中使用相同的线宽。
 
-  The  ``line width'' for normal text is the width of the stem of
-  letters like T{}. For \TeX, this is usually
-  $0.4\,\mathrm{pt}$. However, some journals will not accept graphics
-  with a normal line width below $0.5\,\mathrm{pt}$.
+  % The  ``line width'' for normal text is the width of the stem of
+  % letters like T{}. For \TeX, this is usually
+  % $0.4\,\mathrm{pt}$. However, some journals will not accept graphics
+  % with a normal line width below $0.5\,\mathrm{pt}$.
+  普通文本的“线宽”是指，T 这样的字母中竖直笔画的宽度。
+  在 \TeX\ 中，这个值通常是 $0.4\,\mathrm{pt}$。
+  不过有些期刊不接受线宽低于 $0.5\,\mathrm{pt}$ 的图形。
 \item
-  When using colors, use a consistent color coding in the text and in
-  graphics. For example, if red is supposed to alert the reader to
-  something in the main text, use red also in graphics for important
-  parts of the graphic. If blue is used for structural elements like
-  headlines and section titles, use blue also for structural elements
-  of your graphic.
+  % When using colors, use a consistent color coding in the text and in
+  % graphics. For example, if red is supposed to alert the reader to
+  % something in the main text, use red also in graphics for important
+  % parts of the graphic. If blue is used for structural elements like
+  % headlines and section titles, use blue also for structural elements
+  % of your graphic.
+  图文中使用统一的颜色。
+  比方说，如果正文用红色表示警告，那么在图形中的重要部分也应该用红色；
+  如果正文用蓝色表示结构元素，比如大标题和章节标题，那么在图形中也应该用蓝色表示结构元素。
 
-  However, graphics may also use a logical intrinsic color
-  coding. For example, no matter what colors you normally use, readers
-  will generally assume, say, that the color green as ``positive, go,
-  ok'' and red as ``alert, warning, action.''
+  % However, graphics may also use a logical intrinsic color
+  % coding. For example, no matter what colors you normally use, readers
+  % will generally assume, say, that the color green as ``positive, go,
+  % ok'' and red as ``alert, warning, action.''
+  不过，图形也可以用符合内在逻辑的（logical intrinsic）颜色。
+  比如无论你正常用什么颜色，读者一般总是会认为，绿色表示“正面的、前进、好”（positive, go, ok），而红色表示“警醒、警告、行动”（alert, warning, action）。
 \end{itemize}
 
-Creating consistency when using different graphic programs is almost
-impossible. For this reason, you should consider sticking to a single
-graphics program.
+\bohs
 
+% Creating consistency when using different graphic programs is almost
+% impossible. For this reason, you should consider sticking to a single
+% graphics program.
+用不同的图形程序绘图，几乎不可能保持风格一致。
+因此，你应该考虑忠于一种图形程序。
 
-\subsection{Labels in Graphics}
+\eohs
 
-Almost all graphics will contain labels, that is, pieces of text that
-explain parts of the graphics. When placing labels, stick to the
-following guidelines:
+% \subsection{Labels in Graphics}
+\subsection{图的标签}
+
+\bohs
+
+% Almost all graphics will contain labels, that is, pieces of text that
+% explain parts of the graphics. When placing labels, stick to the
+% following guidelines:
+几乎所有图形中都有标签，也就是文字片段，用于解释图形中的部分内容。
+加标签时，遵照如下指导：
+
+\eohs
 
 \begin{itemize}
 \item

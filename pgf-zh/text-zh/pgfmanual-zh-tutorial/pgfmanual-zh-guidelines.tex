@@ -370,80 +370,116 @@
 
 \begin{itemize}
 \item
-  Follow the rule of consistency when placing labels. You should do
-  so in two ways: First, be consistent with the main text, that is,
-  use the same font as the main text also for labels. Second, be
-  consistent between labels, that is, if you format some labels in
-  some particular way, format all labels in this way.
+  % Follow the rule of consistency when placing labels. You should do
+  % so in two ways: First, be consistent with the main text, that is,
+  % use the same font as the main text also for labels. Second, be
+  % consistent between labels, that is, if you format some labels in
+  % some particular way, format all labels in this way.
+  放置标签时请保持一致。
+  需要做到两点：
+  一，标签与正文一致，也就是说，标签应当使用与正文相同的字体。
+  二，标签之间一致，也就是说，如果某个标签采用了特定的格式，那么其他标签也应使用同一格式。
 \item
-  In addition to using the same fonts in text and graphics, you should
-  also use the same notation. For example, if you write $1/2$ in your
-  main text, also use ``$1/2$'' as labels in graphics, not
-  ``0.5''. A $\pi$ is a ``$\pi$'' and not ``$3.141$''. Finally,
-  $\mathrm e^{-\mathrm i \pi}$ is ``$\mathrm e^{-\mathrm i \pi}$'',
-  not ``$-1$'', let alone ``-1''.
+  % In addition to using the same fonts in text and graphics, you should
+  % also use the same notation. For example, if you write $1/2$ in your
+  % main text, also use ``$1/2$'' as labels in graphics, not
+  % ``0.5''. A $\pi$ is a ``$\pi$'' and not ``$3.141$''. Finally,
+  % $\mathrm e^{-\mathrm i \pi}$ is ``$\mathrm e^{-\mathrm i \pi}$'',
+  % not ``$-1$'', let alone ``-1''.
+  图文除了字体一致外，还要符号一致。
+  比如，如果你在正文中用了 $1/2$，那么图的标签中也应当用“$1/2$”，而不是“0.5”。
+  $\pi$ 就是“$\pi$”，而不是“$3.141$”。
+  最后，$\mathrm e^{-\mathrm i \pi}$ 就是 “$\mathrm e^{-\mathrm i \pi}$”，而不是“$-1$”，更不是“-1”。
 \item
-  Labels should be legible. They should not only have a reasonably
-  large size, they also should not be obscured by lines or other
-  text. This also applies to labels of lines and text \emph{behind} the
-  labels.
+  % Labels should be legible. They should not only have a reasonably
+  % large size, they also should not be obscured by lines or other
+  % text. This also applies to labels of lines and text \emph{behind} the
+  % labels.
+  标签要清楚易读。不仅要有合适的大小，还不应被直线或者文字遮挡。这也适用于直线的标签和标签\emph{后面}的文字。
 \item
-  Labels should be ``in  place.'' Whenever there is enough space,
-  labels should be placed next to the thing they label. Only if
-  necessary, add a (subdued) line from the label to the labeled
-  object. Try to avoid labels that only reference explanations in
-  external legends. Reader have to jump back and forth between the
-  explanation and the object that is described.
+  % Labels should be ``in  place.'' Whenever there is enough space,
+  % labels should be placed next to the thing they label. Only if
+  % necessary, add a (subdued) line from the label to the labeled
+  % object. Try to avoid labels that only reference explanations in
+  % external legends. Reader have to jump back and forth between the
+  % explanation and the object that is described.
+  标签的位置要适当。不管空间是否足够，标签都应当靠近所标的内容。
+  只有在必要时，才在标签和所标内容之间加上（柔和的）连接线。
+  标签不应单纯指向外部的图例说明，否则读者得在图中内容和外部说明之间来回跳读。
 \item
-  Consider subduing ``unimportant'' labels using, for example, a gray
-  color. This will keep the focus on the actual graphic.
+  % Consider subduing ``unimportant'' labels using, for example, a gray
+  % color. This will keep the focus on the actual graphic.
+  考虑将“不重要的”标签柔和化，比如用灰色，这能让读者更关注对应的图形。
 \end{itemize}
 
 
+% \subsection{Plots and Charts}
+\subsection{Plots 和 Charts}
 
-\subsection{Plots and Charts}
+\bohs
 
-One of the most frequent kind of graphics, especially in scientific
-papers, are \emph{plots}. They come in a large variety, including
-simple line plots, parametric plots, three dimensional plots, pie
-charts, and many more.
+% One of the most frequent kind of graphics, especially in scientific
+% papers, are \emph{plots}. They come in a large variety, including
+% simple line plots, parametric plots, three dimensional plots, pie
+% charts, and many more.
+最常见的图形，尤其是在科学文章中，就是
+它囊括的范围很广，包括简单的折线图、参数方程图、三维图、饼图，等等等等。
 
-Unfortunately, plots are notoriously hard to get right. Partly, the
-default settings of programs like \textsc{gnuplot} or Excel are to
-blame for this since these programs make it very convenient to create
-bad plots.
+% Unfortunately, plots are notoriously hard to get right. Partly, the
+% default settings of programs like \textsc{gnuplot} or Excel are to
+% blame for this since these programs make it very convenient to create
+% bad plots.
+不幸的是，众所周知，很难作好图。
+部分原因在于，\textsc{gnuplot} 或者 Excel 这类程序的默认设置，很容易就作出糟糕的图。
 
-The first question you should ask yourself when creating a plot is:
-Are there enough data points to merit a plot? If the answer is ``not
-really,'' use a table.
+% The first question you should ask yourself when creating a plot is:
+% Are there enough data points to merit a plot? If the answer is ``not
+% really,'' use a table.
+你在作图时，首先得问自己：
+数据点的个数值得作图吗？如果答案是“不太值得”，那么用一张表。
 
-A typical situation where a plot is unnecessary is when people present
-a few numbers in a bar diagram. Here is a real-life example: At the
-end of a seminar a lecturer asked the participants for feedback. Of
-the 50 participants, 30 returned the feedback form. According to the
-feedback, three participants considered the seminar ``very good,''
-nine considered it  ``good,'' ten ``ok,'' eight ``bad,'' and no one thought
-that the seminar was ``very bad.''
+% A typical situation where a plot is unnecessary is when people present
+% a few numbers in a bar diagram. Here is a real-life example: At the
+% end of a seminar a lecturer asked the participants for feedback. Of
+% the 50 participants, 30 returned the feedback form. According to the
+% feedback, three participants considered the seminar ``very good,''
+% nine considered it  ``good,'' ten ``ok,'' eight ``bad,'' and no one thought
+% that the seminar was ``very bad.''
+一个典型的没必要作图的例子，就是把几个数画在条形图中。
+这里有个现实的例子：一个研讨会快结束时，演讲者向与会者征询反馈。
+有 50 名与会者，收回了 30 份反馈表。
+根据反馈，3 人觉得研讨会“很好”，9 人觉得“好”，10 人觉得“还行”，8 人觉得“差”，0 人觉得“很差”。
 
-A simple way of summing up this information is the following table:
+% A simple way of summing up this information is the following table:
+要概括这些信息，一个简单的方法就是下面这张表格：
+
+\eohs
 
 \medskip
-\begin{tabular}{lp{3.75cm}r}
-  \emph{Rating given} & \raggedright\emph{Participants (out of 50) who gave this rating} &
-  \emph{Percentage} \\[1.75em]
-  ``very good'' & \hfil\hphantom{0}3\hfil & \hphantom{0}6\% \\
-  ``good'' & \hfil\hphantom{0}9\hfil & 18\% \\
-  ``ok'' & \hfil10\hfil & 20\% \\
-  ``bad'' & \hfil\hphantom{0}8\hfil & 16\% \\
-  ``very bad'' & \hfil\hphantom{0}0\hfil & \hphantom{0}0\% \\[2mm]
-  none & \hfil20\hfil & 40\% \\
+% \begin{tabular}{lp{3.75cm}r}
+\begin{tabular}{lp{10em}r}
+  % \emph{Rating given} & \raggedright\emph{Participants (out of 50) who gave this rating} & \emph{Percentage} \\[1.75em]
+  \emph{等级} & \raggedright\emph{评价人数（共计50）} & \emph{百分比} \\[0.5em]
+  “很好” & \hfil\hphantom{0}3\hfil & \hphantom{0}6\% \\
+  “好” & \hfil\hphantom{0}9\hfil & 18\% \\
+  “还行” & \hfil10\hfil & 20\% \\
+  “差” & \hfil\hphantom{0}8\hfil & 16\% \\
+  “很差” & \hfil\hphantom{0}0\hfil & \hphantom{0}0\% \\[2mm]
+  未提交 & \hfil20\hfil & 40\% \\
 \end{tabular}
 
 \bigskip
-What the lecturer did was to visualize the data using a 3D bar
-diagram. It looked like this (except that in reality the numbers
-where typeset using some extremely low-resolution bitmap font and
-were near-unreadable):
+
+\bohs
+
+% What the lecturer did was to visualize the data using a 3D bar
+% diagram. It looked like this (except that in reality the numbers
+% where typeset using some extremely low-resolution bitmap font and
+% were near-unreadable):
+演讲者用三维条形图将数据可视化出来。
+看起来像这样：（不过在实际中，打印数字用的是分辨率极低的位图字体，几乎看不清楚）
+
+\eohs
 
 \bigskip
 \par
@@ -454,7 +490,7 @@ were near-unreadable):
   \draw (0,0,0) -- (0,100,0)  (0,0,1) -- (0,100,1);
   \draw (0,0,0) -- (6,0,0);
 
-  \foreach \x/\xtext/\height in {1/very good/10,2/good/30,3/ok/33,4/bad/27,5/very bad/0}
+  \foreach \x/\xtext/\height in {1/很好/10,2/好/30,3/还行/33,4/差/27,5/很差/0}
   {
     \draw (\x,0) node[rotate=90,anchor=east] {\xtext};
 
@@ -469,54 +505,81 @@ were near-unreadable):
 \end{tikzpicture}
 \bigskip
 
-Both the table and the ``plot'' have about the same size. If your first
-thought is ``the graphic looks nicer than the table,'' try to answer
-the following questions based on the information in the table or in
-the graphic:
+\bohs
+
+% Both the table and the ``plot'' have about the same size. If your first
+% thought is ``the graphic looks nicer than the table,'' try to answer
+% the following questions based on the information in the table or in
+% the graphic:
+表格和条形图大小差不多，如果你第一反应是“条形图比表格好看多了”，那么请根据表格或者条形图中的信息，试着回答如下问题：
+
+\eohs
+
 \begin{enumerate}
 \item
-  How many participants where there?
+  % How many participants where there?
+  与会者总人数是多少？
 \item
-  How many participants returned the feedback form?
+  % How many participants returned the feedback form?
+  提交反馈表的与会者人数是多少？
 \item
-  What percentage of the participants returned the feedback form?
+  % What percentage of the participants returned the feedback form?
+  提交反馈表的与会者百分比是多少？
 \item
-  How many participants checked ``very good''?
+  % How many participants checked ``very good''?
+  选择“很好”的与会者人数是多少？
 \item
-  What percentage out of all participants checked ``very good''?
+  % What percentage out of all participants checked ``very good''?
+  选择“很好”的与会者占所有与会者的百分比是多少？
 \item
-  Did more than a quarter of the participants check ``bad'' or ``very bad''?
+  % Did more than a quarter of the participants check ``bad'' or ``very bad''?
+  选择“差”或者“很差”的与会者是否超过了四分之一？
 \item
-  What percentage of the participants that returned the form checked ``very good''?
+  % What percentage of the participants that returned the form checked ``very good''?
+  选择“很好”的与会者占提交了反馈表的人的百分比是多少？
+
 \end{enumerate}
 
-Sadly, the graphic does not allow us to answer \emph{a single one of these
-  questions}. The table answers all of them directly, except for the last
-one. In essence, the information density of the graphic is very
-close to zero. The table has a much higher information density; despite
-the fact that it uses quite a lot of white space to present a few numbers.
-Here is the list of things that went wrong with the 3D-bar diagram:
+\bohs
+
+% Sadly, the graphic does not allow us to answer \emph{a single one of these
+%   questions}. The table answers all of them directly, except for the last
+% one. In essence, the information density of the graphic is very
+% close to zero. The table has a much higher information density; despite
+% the fact that it uses quite a lot of white space to present a few numbers.
+% Here is the list of things that went wrong with the 3D-bar diagram:
+悲伤的是，从条形图中我们不能回答\emph{上述任何一个问题}，而表格则能直接告诉我们所有问题的答案，除了最后一个。
+实际上，这张条形图的信息密度几近于零，而表格的信息密度则远高它，尽管只是为了展示几个数，表格就用了很多空白。
+下面是三维条形图中的一系列错误：
+\eohs
+
 \begin{itemize}
 \item
-  The whole graphic is dominated by irritating background lines.
+  % The whole graphic is dominated by irritating background lines.
+  整张图都被恼人的背景线支配了。
 \item
-  It is not clear what the numbers at the left mean; presumably
-  percentages, but it might also be the absolute number of
-  participants.
+  % It is not clear what the numbers at the left mean; presumably
+  % percentages, but it might also be the absolute number of
+  % participants.
+  左侧的数字含义不明，猜测可能是百分比，但也可能是与会者的绝对人数。
 \item
-  The labels at the bottom are rotated, making them hard to read.
+  % The labels at the bottom are rotated, making them hard to read.
+  底部标签旋转了一个角度，很难读。
 
-  (In the real presentation that I saw, the text was rendered at a very
-  low resolution with about 10 by 6 pixels per letter with wrong
-  kerning, making the rotated text almost impossible to read.)
+  % (In the real presentation that I saw, the text was rendered at a very
+  % low resolution with about 10 by 6 pixels per letter with wrong
+  % kerning, making the rotated text almost impossible to read.)
+  （在我看到的实际展示中，文本分辨率很低，每个字母只有 $10 \times 6$ 个像素，并且字距还有问题，这让旋转后的文字几乎完全没法读。）
 \item
-  The third dimension adds complexity to the graphic without adding
-  information.
+  % The third dimension adds complexity to the graphic without adding
+  % information.
+  第三个维度增加了图的复杂度，但没有提供更多的信息。
 \item
-  The three dimensional setup makes it much harder to gauge the height
-  of the bars correctly. Consider the ``bad'' bar. It the number this
-  bar stands for more than 20 or less? While the front of the bar is
-  below the 20 line, the back of the bar (which counts) is above.
+  % The three dimensional setup makes it much harder to gauge the height
+  % of the bars correctly. Consider the ``bad'' bar. It the number this
+  % bar stands for more than 20 or less? While the front of the bar is
+  % below the 20 line, the back of the bar (which counts) is above.
+
 \item
   It is impossible to tell which  numbers are represented by the
   bars. Thus, the bars needlessly hide the information these bars are

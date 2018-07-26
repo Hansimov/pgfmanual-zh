@@ -445,7 +445,7 @@
 % feedback, three participants considered the seminar ``very good,''
 % nine considered it  ``good,'' ten ``ok,'' eight ``bad,'' and no one thought
 % that the seminar was ``very bad.''
-一个典型的没必要作图的例子，就是把几个数画在条形图中。
+一个典型的没必要作图的例子，就是把几个数画在柱状图中。
 这里有个现实的例子：一个研讨会快结束时，演讲者向与会者征询反馈。
 有 50 名与会者，收回了 30 份反馈表。
 根据反馈，3 人觉得研讨会“很好”，9 人觉得“好”，10 人觉得“还行”，8 人觉得“差”，0 人觉得“很差”。
@@ -476,7 +476,7 @@
 % diagram. It looked like this (except that in reality the numbers
 % where typeset using some extremely low-resolution bitmap font and
 % were near-unreadable):
-演讲者用三维条形图将数据可视化出来。
+演讲者用三维柱状图将数据可视化出来。
 看起来像这样：（不过在实际中，打印数字用的是分辨率极低的位图字体，几乎看不清楚）
 
 \eohs
@@ -511,7 +511,7 @@
 % thought is ``the graphic looks nicer than the table,'' try to answer
 % the following questions based on the information in the table or in
 % the graphic:
-表格和条形图大小差不多，如果你第一反应是“条形图比表格好看多了”，那么请根据表格或者条形图中的信息，试着回答如下问题：
+表格和柱状图大小差不多，如果你第一反应是“柱状图比表格好看多了”，那么请根据表格或者柱状图中的信息，试着回答如下问题：
 
 \eohs
 
@@ -548,9 +548,9 @@
 % close to zero. The table has a much higher information density; despite
 % the fact that it uses quite a lot of white space to present a few numbers.
 % Here is the list of things that went wrong with the 3D-bar diagram:
-悲伤的是，从条形图中我们不能回答\emph{上述任何一个问题}，而表格则能直接告诉我们所有问题的答案，除了最后一个。
-实际上，这张条形图的信息密度几近于零，而表格的信息密度则远高它，尽管只是为了展示几个数，表格就用了很多空白。
-下面是三维条形图中的一系列错误：
+悲伤的是，从柱状图中我们不能回答\emph{上述任何一个问题}，而表格则能直接告诉我们所有问题的答案，除了最后一个。
+实际上，这张柱状图的信息密度几近于零，而表格的信息密度则远高它，尽管只是为了展示几个数，表格就用了很多空白。
+下面是三维柱状图中的一系列错误：
 \eohs
 
 \begin{itemize}
@@ -579,25 +579,38 @@
   % of the bars correctly. Consider the ``bad'' bar. It the number this
   % bar stands for more than 20 or less? While the front of the bar is
   % below the 20 line, the back of the bar (which counts) is above.
-
+  第三个维度影响了对柱形高度的判断。
+  看下“差”的那根，它比 20 高还是低？
+  柱形的正面比 20 低，背面（真正重要的）比 20 高。
 \item
-  It is impossible to tell which  numbers are represented by the
-  bars. Thus, the bars needlessly hide the information these bars are
-  all about.
+  % It is impossible to tell which  numbers are represented by the
+  % bars. Thus, the bars needlessly hide the information these bars are
+  % all about.
+  几乎不可能说出这些柱形表示的数字，因此，柱形掩盖了想要传递的信息。
 \item
-  What do the bar heights add up to? Is it 100\% or 60\%?
+  % What do the bar heights add up to? Is it 100\% or 60\%?
+  这些柱形的高度总和是多少？是 100\% 还是 60\%？
 \item
-  Does the bar for ``very bad'' represent 0 or~1?
+  % Does the bar for ``very bad'' represent 0 or~1?
+  “很差”的那根表示的是 0 还是 1？
 \item
-  Why are the bars blue?
+  % Why are the bars blue?
+  为什么柱形用蓝色？
 \end{itemize}
 
-You might argue that in the example the exact numbers are not
-important for the graphic. The important things is the ``message,''
-which is that there are more ``very good'' and ``good'' ratings than
-``bad'' and ``very bad.'' However, to convey this message either use a
-sentence that says so or use a graphic that conveys this message more
-clearly:
+\bohs
+
+% You might argue that in the example the exact numbers are not
+% important for the graphic. The important things is the ``message,''
+% which is that there are more ``very good'' and ``good'' ratings than
+% ``bad'' and ``very bad.'' However, to convey this message either use a
+% sentence that says so or use a graphic that conveys this message more
+% clearly:
+你可能会争辩道，这个例子里，数字是否准确对图形并不重要，
+重要的是“信息”，也就是“很好”和“好”的比例高于“差”和“很差”。
+然而，想传达这个信息只要一句话，或者像下图这样更清晰地展示出来：
+
+\eohs
 
 \medskip
 \par
@@ -607,7 +620,8 @@ clearly:
   \colorlet{neutral}{black!60}
   \colorlet{none}{white}
 
-  \node[align=center,text width=3cm]{Ratings given by 50~participants};
+  % \node[align=center,text width=3cm]{Ratings given by 50~participants};
+  \node[align=center,text width=3cm]{在 50 名与会者中所占比例};
 
   \begin{scope}[line width=4mm,rotate=270]
     \draw[good]          (-123:2cm) arc (-123:-101:2cm);
@@ -623,26 +637,34 @@ clearly:
       \draw[black!15,thick] (\the\mycount:18mm) -- (\the\mycount:22mm);
     }
 
-    \draw (0:2.2cm) node[below] {``ok'': 10 (20\%)};
-    \draw (165:2.2cm) node[above] {none: 20 (40\%)};
-    \draw (-111:2.2cm) node[left] {``very good'': 3 (6\%)};
-    \draw (-68:2.2cm) node[left] {``good'': 9 (18\%)};
-    \draw (65:2.2cm) node[right] {``bad'': 8 (16\%)};
-    \draw (93:2.2cm) node[right] {``very bad'': 0 (0\%)};
+    \draw (0:2.2cm) node[below] {“还行”： 10 (20\%)};
+    \draw (165:2.2cm) node[above] {未提交： 20 (40\%)};
+    \draw (-111:2.2cm) node[left] {“很好”： 3 (6\%)};
+    \draw (-68:2.2cm) node[left] {“好”： 9 (18\%)};
+    \draw (65:2.2cm) node[right] {“差”： 8 (16\%)};
+    \draw (93:2.2cm) node[right] {“很差”： 0 (0\%)};
   \end{scope}
   \draw[gray] (0,0) circle (2.2cm) circle (1.8cm);
 \end{tikzpicture}
 
 \bigskip
-The above graphic has about the same information density as the table
-(about the same size and the same numbers are shown). In addition, one
-can directly ``see'' that there are more good or very good ratings
-than bad ones. One can also ``see'' that the number of people who gave
-no rating at all is not negligible, which is quite common for feedback
-forms.
+
+\bohs
+
+% The above graphic has about the same information density as the table
+% (about the same size and the same numbers are shown). In addition, one
+% can directly ``see'' that there are more good or very good ratings
+% than bad ones. One can also ``see'' that the number of people who gave
+% no rating at all is not negligible, which is quite common for feedback
+% forms.
+上图拥有和表格相同的信息密度（尺寸和展示的数字都相同）。
+此外，人们可以直接“看到”好的评价多于差的评价。
+
 
 Charts are not always a good idea. Let us look at an example
 that I redrew from a pie chart in \emph{Die Zeit}, June 4th, 2005:
+
+\eohs
 
 \bigskip
 \par

@@ -658,11 +658,11 @@
 % no rating at all is not negligible, which is quite common for feedback
 % forms.
 上图拥有和表格相同的信息密度（尺寸和展示的数字都相同）。
-此外，人们可以直接“看到”好的评价多于差的评价。
+此外，人们可以直接“看到”好的评价多于差的评价。还可以看出，没有评价的人数不能忽略，这在使用反馈表时很常见。
 
-
-Charts are not always a good idea. Let us look at an example
-that I redrew from a pie chart in \emph{Die Zeit}, June 4th, 2005:
+% Charts are not always a good idea. Let us look at an example
+% that I redrew from a pie chart in \emph{Die Zeit}, June 4th, 2005:
+用图表并不总是好主意。我们来看个例子，这是我从 2005 年 6 月 4 日的德国 \emph{时代周刊} 中选取并且重绘的一张饼图。
 
 \eohs
 
@@ -678,12 +678,15 @@ that I redrew from a pie chart in \emph{Die Zeit}, June 4th, 2005:
     \fill[black!25] ([xshift=-2mm,yshift=1.1cm]left border) rectangle ([xshift=2mm,yshift=-.3cm]right border);
 
     \node[below right,text width=10cm,inner sep=0pt] at ([yshift=.9cm,xshift=-1mm]left border)
-    { {\color{black!75} \Large Kohle ist am wichtigsten}\\
-      Energiemix bei der deutschen Stromerzeugung 2004};
+    % { {\color{black!75} \Large Kohle ist am wichtigsten}\\
+      % Energiemix bei der deutschen Stromerzeugung 2004};
+    { {\color{black!75} \Large 煤最重要}\\
+      2004 年德国发电能源结构};
 
     \filldraw[draw=gray,fill=white] ([xshift=-1mm]left border) node[below right,black]
-      {\footnotesize Gesamte Netto-Stromerzeugung in Prozent, in
-        Milliarden Kilowattstunden (Mrd.\ kWh)}
+      % {\footnotesize Gesamte Netto-Stromerzeugung in Prozent, in
+      %   Milliarden Kilowattstunden (Mrd.\ kWh)}
+      {\footnotesize 占总体发电量百分比，单位为十亿千瓦时 (Mrd.\ kWh)}
       rectangle ([xshift=1mm]right border);
 
     % The 3D stuff
@@ -731,159 +734,238 @@ that I redrew from a pie chart in \emph{Die Zeit}, June 4th, 2005:
     \small
     \draw (Regenerative.north) |- ([yshift=.25cm]Regenerative.north -| right border) coordinate (Regenerative label);
     \draw (91:.9cm) |- (Regenerative label);
-    \node[above left] at (Regenerative label) {Regenerative\
-      {\footnotesize (53,7 kWh)/davon} Wind \textbf{4,4\%}  \footnotesize (25,0 kWh)};
+    % \node[above left] at (Regenerative label) {Regenerative\
+    %   {\footnotesize (53,7 kWh)/davon} Wind \textbf{4,4\%}  \footnotesize (25,0 kWh)};
+    \node[above left] at (Regenerative label) {可再生能源\
+      % {\footnotesize (53,7 kWh)/davon} Wind \textbf{4,4\%}  \footnotesize (25,0 kWh)};
+      {\footnotesize (53,7 kWh)/davon} 风能 \textbf{4,4\%}  \footnotesize (25,0 kWh)};
 
     \draw (Kernenergie.base east) -- (Kernenergie.base east -| right border) coordinate (Kernenergie label);
-    \node[above left] at (Kernenergie label) {Kernenergie};
+    % \node[above left] at (Kernenergie label) {Kernenergie};
+    \node[above left] at (Kernenergie label) {核能};
     \node[below left] at (Kernenergie label) {\footnotesize (158,4 kWh)};
 
     \draw (Braunkohle.south) |- ([yshift=-.75cm]Braunkohle.south -| right border) coordinate (Braunkohle label);
-    \node[above left] at (Braunkohle label) {Braunkohle\ \ \footnotesize (146,0 kWh)};
+    % \node[above left] at (Braunkohle label) {Braunkohle\ \ \footnotesize (146,0 kWh)};
+    \node[above left] at (Braunkohle label) {褐煤\ \ \footnotesize (146,0 kWh)};
 
     \draw (Steinkohle.south) |- ([yshift=-.75cm]Steinkohle.south -| left border) coordinate (Steinkohle label);
-    \node[above right] at (Steinkohle label) {Steinkohle\ \ \footnotesize (127,1 kWh)};
+    % \node[above right] at (Steinkohle label) {Steinkohle\ \ \footnotesize (127,1 kWh)};
+    \node[above right] at (Steinkohle label) {硬煤\ \ \footnotesize (127,1 kWh)};
 
     \draw (Erdgas.base west) -- (Erdgas.base west -| left border) coordinate (Erdgas label);
-    \node[above right] at (Erdgas label) {Erdgas\ \ \footnotesize (59,2 kWh)};
+    % \node[above right] at (Erdgas label) {Erdgas\ \ \footnotesize (59,2 kWh)};
+    \node[above right] at (Erdgas label) {天然气\ \ \footnotesize (59,2 kWh)};
 
     \draw (Mineral) -- (Mineral -| left border) coordinate (Mineral label);
-    \node[above right] at (Mineral label) {Mineral\"olprodukte\ \
+    % \node[above right] at (Mineral label) {Mineral\"olprodukte\ \
+    %   \footnotesize (9,2 kWh) \  \ \normalsize\textbf{1,6\%}};
+    \node[above right] at (Mineral label) {石油\ \
       \footnotesize (9,2 kWh) \  \ \normalsize\textbf{1,6\%}};
 
     \draw (Sonstige) |- (Regenerative label -| left border) coordinate (Sonstige label);
-    \node[above right] at (Sonstige label) {Sonstige\ \
+    % \node[above right] at (Sonstige label) {Sonstige\ \
+    \node[above right] at (Sonstige label) {其他\ \
       \footnotesize (16,5 kWh) \hskip1.5cm\
       \normalsize\textbf{2,9\%}};
   \end{scope}
 \end{tikzpicture}
 
-This graphic has been redrawn in \tikzname, but the original looks
-almost exactly the same.
+\bohs
 
-At first sight, the graphic looks  ``nice and informative,'' but there
-are a lot of things that went wrong:
+% This graphic has been redrawn in \tikzname, but the original looks
+% almost exactly the same.
+这张图是用 \tikzname\ 重绘的，不过原来的和这个几乎完全一样。
+
+% At first sight, the graphic looks  ``nice and informative,'' but there
+% are a lot of things that went wrong:
+乍看上去，这张图“漂亮且翔实”，但是很多地方都有问题：
+
+\eohs
 
 \begin{itemize}
 \item
-  The chart is three dimensional. However, the shadings add
-  nothing ``information-wise,'' at best, they distract.
+  % The chart is three dimensional. However, the shadings add
+  % nothing ``information-wise,'' at best, they distract.
+  图是三维的，然而阴影没有提供任何信息，顶多是让人分神。
 \item
-  In a 3D-pie-chart the relative sizes are very strongly
-  distorted. For example, the area taken up by the gray color of ``Braunkohle''
-  is larger than the area taken up by the green color of
-  ``Kernenergie'' \emph{despite the fact that the percentage of
-    Braunkohle is less than the percentage of Kernenergie}.
+  % In a 3D-pie-chart the relative sizes are very strongly
+  % distorted. For example, the area taken up by the gray color of ``Braunkohle''
+  % is larger than the area taken up by the green color of
+  % ``Kernenergie'' \emph{despite the fact that the percentage of
+  %   Braunkohle is less than the percentage of Kernenergie}.
+  三维饼图的相对尺寸失真得很厉害。
+  比如，灰色部分的 “褐煤” 比绿色部分的 “核能” 面积要大，\emph{然而实际百分比的大小却正好相反}。
 \item
-  The 3D-distortion gets worse for small areas. The area of
-  ``Regenerative'' somewhat larger  than the area of ``Erdgas.''
-  The area of ``Wind'' is slightly smaller than the area of
-  ``Mineral\"olprodukte'' \emph{although the percentage of Wind is
-    nearly three times larger than the percentage of
-    Mineral\"olprodukte.}
+  % The 3D-distortion gets worse for small areas. The area of
+  % ``Regenerative'' somewhat larger  than the area of ``Erdgas.''
+  % The area of ``Wind'' is slightly smaller than the area of
+  % ``Mineral\"olprodukte'' \emph{although the percentage of Wind is
+  %   nearly three times larger than the percentage of
+  %   Mineral\"olprodukte.}
+  对于面积小的地方，三维失真更加明显。
+  “核能” 比 “天然气” 的面积要大一些；“风能” 比 “石油” 的面积要小一点，尽管 “风能” 的百分比几乎是 “石油” 的三倍。
 
-  In the last case, the different sizes are only partly due to
-  distortion. The designer(s) of the original graphic have also made
-  the ``Wind'' slice too small, even taking distortion into
-  account. (Just compare the size of ``Wind'' to ``Regenerative'' in
-  general.)
+  % In the last case, the different sizes are only partly due to
+  % distortion. The designer(s) of the original graphic have also made
+  % the ``Wind'' slice too small, even taking distortion into
+  % account. (Just compare the size of ``Wind'' to ``Regenerative'' in
+  % general.)
+  在最后一种情况中，失真只是尺寸不同的部分原因。
+  原图的作者把 “风能” 部分画得太小了，即使是失真也不至于如此。
+  （只要比较一下 “风能” 和 “可再生能源” 的大小就能看出来了。）
 \item
-  According to its caption, this chart is supposed to inform us that
-  coal was the most important energy source in Germany in
-  2004. Ignoring the strong distortions caused by the superfluous and
-  misleading 3D-setup, it takes quite a while for this message to get
-  across.
+  % According to its caption, this chart is supposed to inform us that
+  % coal was the most important energy source in Germany in
+  % 2004. Ignoring the strong distortions caused by the superfluous and
+  % misleading 3D-setup, it takes quite a while for this message to get
+  % across.
+  根据标题，这张图是想告诉我们，煤是 2004 年德国最重要的能源。
+  然而即使不考虑多余的和误导性的三维设置造成的严重失真，要想领会这个信息也要花上一会。
 
-  Coal as an energy source is split up into two slices: one for
-  ``Steinkohle'' and one for ``Braunkohle'' (two different kinds of
-  coal). When you add them up, you see that the whole lower half of
-  the pie chart is taken up by coal.
+  % Coal as an energy source is split up into two slices: one for
+  % ``Steinkohle'' and one for ``Braunkohle'' (two different kinds of
+  % coal). When you add them up, you see that the whole lower half of
+  % the pie chart is taken up by coal.
+  煤作为能源被分成了两块：“硬煤” 和 “褐煤”（两种不同的煤）。
+  把它们加起来后，你会发现饼图的整个下半部分都被煤占据了。
 
-  The two areas for the different kinds of coal are not visually
-  linked at all. Rather, two different colors are used, the labels are
-  on different sides of the graphic. By comparison, ``Regenerative''
-  and ``Wind'' are very closely linked.
+  % The two areas for the different kinds of coal are not visually
+  % linked at all. Rather, two different colors are used, the labels are
+  % on different sides of the graphic. By comparison, ``Regenerative''
+  % and ``Wind'' are very closely linked.
+  在视觉上，这两种同属煤的区域却毫无关联，不但颜色不同，标签也位于图的两侧。
+  相比之下，“可再生能源” 和 “风能” 则联系紧密。
+
 \item
-  The color coding of the graphic follows no logical pattern at
-  all. Why is nuclear energy green? Regenerative energy is light blue,
-  ``other sources'' are blue. It seems more like a joke that the area
-  for ``Braunkohle'' (which literally translates to ``brown coal'') is
-  stone gray, while the area for ``Steinkohle'' (which literally
-  translates to ``stone coal'') is brown.
+  % The color coding of the graphic follows no logical pattern at
+  % all. Why is nuclear energy green? Regenerative energy is light blue,
+  % ``other sources'' are blue. It seems more like a joke that the area
+  % for ``Braunkohle'' (which literally translates to ``brown coal'') is
+  % stone gray, while the area for ``Steinkohle'' (which literally
+  % translates to ``stone coal'') is brown.
+  图中的色彩模式也不合逻辑。
+  为什么“核能”是绿色的？“可再生能源”是浅蓝色的，而“其他能源”是蓝色的？
+  更好笑的是，“褐煤”（字面意思是 “褐色的煤”）是石灰色的，而“硬煤”（字面意思是“石头煤”\footnote{\color{blue} 这里“硬煤”的原文是德语 Steinkohle，译者根据各种资料和德英转译，中文作“硬煤”。尽管 Stein 意为“石头”，kohle 意为“煤”，但是很多科技术语不能顾名思译。从原文括号中所附的字面含义看，也许翻译成“石煤”更符合上下文语境。“石煤”属于无烟煤，包含于“硬煤”。因此该处译文存疑。}）是褐色的。
+
 \item
-  The area with the lightest color is used for ``Erdgas.'' This area
-  stands out most because of the brighter color. However, for this
-  chart ``Erdgas'' is not really important at all.
+  % The area with the lightest color is used for ``Erdgas.'' This area
+  % stands out most because of the brighter color. However, for this
+  % chart ``Erdgas'' is not really important at all.
+  颜色最亮的区域是“天然气”，因此这个区域也最显眼，然而在这张图里“天然气”一点也不重要。
+
 \end{itemize}
-Edward Tufte calls graphics like the above ``chart junk.'' (I am happy
-to announce, however, that \emph{Die Zeit} has stopped using 3D pie
-charts and their information graphics have got somewhat better.)
 
-Here are a few recommendations that may help you avoid producing chart junk:
+\bohs
+
+% Edward Tufte calls graphics like the above ``chart junk.'' (I am happy
+% to announce, however, that \emph{Die Zeit} has stopped using 3D pie
+% charts and their information graphics have got somewhat better.)
+Edward Tufte 把上面这样的图称为“垃圾图”。（不过，我很开心德国\emph{时代周刊}不再用三维饼图了，并且信息图也好一点了。）
+
+% Here are a few recommendations that may help you avoid producing chart junk:
+这里有几条建议，也许能帮你避免画出垃圾图：
+
+\eohs
+
 \begin{itemize}
 \item
-  Do not use 3D pie charts. They are \emph{evil}.
+  % Do not use 3D pie charts. They are \emph{evil}.
+  不要用三维饼图，它们是\emph{魔鬼}。
 \item
-  Consider using a table instead of a pie chart.
+  % Consider using a table instead of a pie chart.
+  考虑用表格而不是饼图。
 \item
-  Do not apply colors randomly; use them to direct the readers's
-  focus and to group things.
+  % Do not apply colors randomly; use them to direct the readers's
+  % focus and to group things.
+  不要随便配色，要用颜色来引导读者的注意力，以及对事物分类。
 \item
-  Do not use background patterns, like a crosshatch or diagonal
-  lines, instead of colors. They distract. Background patterns in
-  information graphics are \emph{evil}.
+  % Do not use background patterns, like a crosshatch or diagonal
+  % lines, instead of colors. They distract. Background patterns in
+  % information graphics are \emph{evil}.
+  用颜色，而不是交叉线或者对角线这样的背景图案。
+  信息图中背景图案是\emph{魔鬼}。
 \end{itemize}
 
 
+% \subsection{Attention and Distraction}
+\subsection{注意力的集中与分散}
 
-\subsection{Attention and Distraction}
 
-Pick up your favorite fiction novel and have a look at a typical
-page. You will notice that the page is very uniform. Nothing is there
-to distract the reader while reading; no large headlines, no bold
-text, no large white areas. Indeed, even when the author does wish to
-emphasize something, this is done using italic letters. Such letters
-blend nicely with the main text---at a distance you will not be able to
-tell whether a page contains italic letters, but you would notice a
-single bold word immediately. The reason novels are typeset this way
-is the following paradigm: Avoid distractions.
+\bohs
 
-Good typography (like good organization) is something you do
-\emph{not} notice. The job of typography is to make reading the text,
-that is, ``absorbing'' its information content, as effortless as
-possible. For a novel, readers absorb the content by reading the text
-line-by-line, as if they were listening to someone telling the
-story. In this situation anything on the page that distracts the eye
-from  going quickly and evenly from line to line will make the text
-harder to read.
+% Pick up your favorite fiction novel and have a look at a typical
+% page. You will notice that the page is very uniform. Nothing is there
+% to distract the reader while reading; no large headlines, no bold
+% text, no large white areas. Indeed, even when the author does wish to
+% emphasize something, this is done using italic letters. Such letters
+% blend nicely with the main text---at a distance you will not be able to
+% tell whether a page contains italic letters, but you would notice a
+% single bold word immediately. The reason novels are typeset this way
+% is the following paradigm: Avoid distractions.
+拿起你最爱的小说，看一眼其中典型的一页。
+你可以注意到页面非常统一。
+没有什么让读者分神；没有大标题，没有粗体，更没有大片空白。
+事实上，即使作者想要强调某些东西，也是用斜体。
+这些斜体字很好地融入了正文——你很难看出一页中是否有斜体字，但是你能一眼看出一个粗体单词。
+小说用这种方式排版，是遵循这个范式：避免分神。
 
-Now, pick up your favorite weekly magazine or newspaper and have a
-look at a typical
-page. You will notice that there is quite a lot ``going on'' on the
-page. Fonts are used at different sizes and in different arrangements,
-the text is organized in narrow columns, typically interleaved with
-pictures. The reason magazines are typeset in this way is another
-paradigm: Steer attention.
+% Good typography (like good organization) is something you do
+% \emph{not} notice. The job of typography is to make reading the text,
+% that is, ``absorbing'' its information content, as effortless as
+% possible. For a novel, readers absorb the content by reading the text
+% line-by-line, as if they were listening to someone telling the
+% story. In this situation anything on the page that distracts the eye
+% from  going quickly and evenly from line to line will make the text
+% harder to read.
+好的排版（如同好的组织）润物细无声。
+这里排版的作用是，让人在阅读文本时，尽可能容易地“吸收”信息。
+看小说时，读者通过一行又一行的文字获取信息，就像在听人讲故事一样。
+这种情况下，只要是影响人眼迅速平滑地掠过字里行间，页面上的任何其他东西都会让文本更难读。
 
-Readers will not read a magazine like a novel. Instead of reading a
-magazine line-by-line, we use headlines and short abstracts to check
-whether we want to read a certain article or not. The job of
-typography is to steer our attention to these abstracts and headlines,
-first. Once we have decided that we want to read an article, however,
-we no longer tolerate distractions, which is why the main text of
-articles is typeset exactly the same way as a novel.
+% Now, pick up your favorite weekly magazine or newspaper and have a
+% look at a typical
+% page. You will notice that there is quite a lot ``going on'' on the
+% page. Fonts are used at different sizes and in different arrangements,
+% the text is organized in narrow columns, typically interleaved with
+% pictures. The reason magazines are typeset in this way is another
+% paradigm: Steer attention.
+现在，拿起你最爱的周刊或者报纸，看一眼其中典型的一页。
+你可以看到页面上有非常多“正在发生”的事情。
+字体大小不一、布局相异，文本放在窄列中，通常还夹杂着图片。
+杂志用这种方式排版，是遵循另一种范式：引导注意力。
 
-The two principles ``avoid distractions'' and ``steer attention'' also
-apply to graphics. When you design a graphic, you should eliminate
-everything that will ``distract the eye.'' At the same time, you
-should try to actively help the reader ``through the graphic'' by
-using fonts/colors/line widths to highlight different parts.
+% Readers will not read a magazine like a novel. Instead of reading a
+% magazine line-by-line, we use headlines and short abstracts to check
+% whether we want to read a certain article or not. The job of
+% typography is to steer our attention to these abstracts and headlines,
+% first. Once we have decided that we want to read an article, however,
+% we no longer tolerate distractions, which is why the main text of
+% articles is typeset exactly the same way as a novel.
+读者不会像读小说一样看杂志。
+我们不是读杂志的每一行，而是看大标题和短摘要，确定自己是不是想看某一篇文章。
+这里排版的作用是，先把我们的注意力引导到摘要和标题上。
+一旦我们想读某篇文章了，我们就不会再容忍令人分神的内容，因此文章正文的排版方式就和小说一样。
 
-Here is a non-exhaustive list of things that can distract readers:
+% The two principles ``avoid distractions'' and ``steer attention'' also
+% apply to graphics. When you design a graphic, you should eliminate
+% everything that will ``distract the eye.'' At the same time, you
+% should try to actively help the reader ``through the graphic'' by
+% using fonts/colors/line widths to highlight different parts.
+“避免分神”和“引导注意力”这两个原则也适用于图形。
+当你设计图形时，你应该尽可能去除所有“令人分神”的内容。
+与此同时，你也应该试着用不同的字体、颜色和线宽，来突出不同的部分，以此积极帮助读者“一览图形全貌”。
+
+% Here is a non-exhaustive list of things that can distract readers:
+这里部分列举了会让读者分神的东西：
+
+\eohs
+
 \begin{itemize}
 \item
-  Strong contrasts will always be registered first by the eye. For
-  example, consider the following two grids:
+  % Strong contrasts will always be registered first by the eye. For
+  % example, consider the following two grids:
+  强烈的对比总是会
 
   \medskip\par
   \begin{tikzpicture}[x=40pt,y=40pt]

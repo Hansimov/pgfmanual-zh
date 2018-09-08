@@ -965,7 +965,7 @@ Edward Tufte 把上面这样的图称为“垃圾图”。（不过，我很开�
 \item
   % Strong contrasts will always be registered first by the eye. For
   % example, consider the following two grids:
-  强烈的对比总是会
+  强烈的对比总是会最先吸引眼球，比如下面这两个网格：
 
   \medskip\par
   \begin{tikzpicture}[x=40pt,y=40pt]
@@ -974,34 +974,47 @@ Edward Tufte 把上面这样的图称为“垃圾图”。（不过，我很开�
   \end{tikzpicture}
 
   \medskip
-  Even though the left grid comes first in English reading order,
-  the right one is much more likely to be seen first: The
-  white-to-black contrast is higher than the gray-to-white
-  contrast. In addition, there are more ``places'' adding to the
-  overall contrast in the right grid.
+  % Even though the left grid comes first in English reading order,
+  % the right one is much more likely to be seen first: The
+  % white-to-black contrast is higher than the gray-to-white
+  % contrast. In addition, there are more ``places'' adding to the
+  % overall contrast in the right grid.
+  按照英文阅读顺序，应该先看到左边的网格，尽管如此，人们却更可能先看到右边的网格：
+  黑白对比相较于灰白对比更加强烈，而且更多的“空间”增强了右边网格整体对比。
 
-  Things like grids and, more generally, help lines usually should not
-  grab the attention of the readers and, hence, should be typeset with
-  a low contrast to the background. Also, a loosely-spaced grid is
-  less distracting than a very closely-spaced grid.
-\item
-  Dashed lines create many points at which there is black-to-white
-  contrast. Dashed or dotted lines can be very distracting and, hence,
-  should be avoided in general.
+  % Things like grids and, more generally, help lines usually should not
+  % grab the attention of the readers and, hence, should be typeset with
+  % a low contrast to the background. Also, a loosely-spaced grid is
+  % less distracting than a very closely-spaced grid.
+  像网格或者是辅助线这样更普遍的东西，通常不应该分散读者的注意力。
+  因此，排版这类内容时，同背景的对比应该弱一些。
+  另外，稠密的网格比稀疏的网格更分散注意力。
 
-  Do not use different dashing patterns to differentiate curves in
-  plots. You lose data points this way and the eye is not
-  particularly good at ``grouping things according to a dashing
-  pattern.'' The eye is \emph{much} better at grouping things
-  according to colors.
 \item
-  Background patterns filling an area using  diagonal lines or
-  horizontal and vertical lines or just dots are almost always
-  distracting and, usually, serve no real purpose.
+  % Dashed lines create many points at which there is black-to-white
+  % contrast. Dashed or dotted lines can be very distracting and, hence,
+  % should be avoided in general.
+  虚线有很多点，形成了黑白对比。
+  短划线或者点线可能很令人分神，因此一般避免使用。
+
+  % Do not use different dashing patterns to differentiate curves in
+  % plots. You lose data points this way and the eye is not
+  % particularly good at ``grouping things according to a dashing
+  % pattern.'' The eye is \emph{much} better at grouping things
+  % according to colors.
+  不要在作图中用不同类型的虚线样式来区分曲线。
+  这种方式会丢失数据点，而且眼睛并不擅长“按照虚线样式划分事物”，而是更擅长按照颜色划分。
 \item
-  Background images and shadings distract and only seldomly add
-  anything of importance to a graphic.
+  % Background patterns filling an area using  diagonal lines or
+  % horizontal and vertical lines or just dots are almost always
+  % distracting and, usually, serve no real purpose.
+  用对角线、水平线、竖直线或者只是点形来填充背景，几乎总会令人分神，而且通常毫无用处。
 \item
-  Cute little clip arts can easily draw attention away from the
-  data.
+  % Background images and shadings distract and only seldomly add
+  % anything of importance to a graphic.
+  背景图片和渐变也令人分神，只能略微增加一些图形的重要性。
+\item
+  % Cute little clip arts can easily draw attention away from the
+  % data.
+  可爱的剪贴画很容易分散读者对数据的注意。
 \end{itemize}

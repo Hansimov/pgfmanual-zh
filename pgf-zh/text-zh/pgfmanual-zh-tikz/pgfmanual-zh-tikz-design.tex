@@ -7,35 +7,52 @@
 %
 % See the file doc/generic/pgf/licenses/LICENSE for more details.
 
-\section{Design Principles}
+% \section{Design Principles}
+\section{设计原则}
 
-This section describes the design principles behind the \tikzname\
-frontend, where \tikzname\ means ``\tikzname\ ist \emph{kein}
-Zeichenprogramm.'' To use \tikzname, as a \LaTeX\ user say
-|\usepackage{tikz}| somewhere in the preamble, as a plain \TeX\ user
-say |\input tikz.tex|. \tikzname's job is to make your life easier by
-providing an easy-to-learn and easy-to-use syntax for describing
-graphics.
+\bohs
 
-The commands and syntax of \tikzname\ were influenced by several
-sources. The basic command names and the notion of  path operations is
-taken from \textsc{metafont}, the option mechanism comes from
-\textsc{pstricks}, the notion of styles is reminiscent of
-\textsc{svg}, the graph syntax is taken from \textsc{graphviz}. To make it
-all work together, some compromises were necessary. I also added some
-ideas of my own, like coordinate transformations.
+% This section describes the design principles behind the \tikzname\
+% frontend, where \tikzname\ means ``\tikzname\ ist \emph{kein}
+% Zeichenprogramm.'' To use \tikzname, as a \LaTeX\ user say
+% |\usepackage{tikz}| somewhere in the preamble, as a plain \TeX\ user
+% say |\input tikz.tex|. \tikzname's job is to make your life easier by
+% providing an easy-to-learn and easy-to-use syntax for describing
+% graphics.
+这一节论述 \tikzname\ 前端背后的设计原则，\tikzname\ 意思是“\tikzname\ 不是一个绘图程序”。
+要使用\tikzname，\LaTeX\ 用户得在序言部分加上 \ltz{\usepackage{tikz}}，而 plain\TeX\ 用户则是 \ltz{\input tikz.tex}。
+\tikzname\ 提供了一种描述图形的语法，易学易用，让你的生活更简单。
 
-The following basic design principles underlie \tikzname:
+% The commands and syntax of \tikzname\ were influenced by several
+% sources. The basic command names and the notion of  path operations is
+% taken from \textsc{metafont}, the option mechanism comes from
+% \textsc{pstricks}, the notion of styles is reminiscent of
+% \textsc{svg}, the graph syntax is taken from \textsc{graphviz}. To make it
+% all work together, some compromises were necessary. I also added some
+% ideas of my own, like coordinate transformations.
+\tikzname\ 的命令和语法受几个来源影响。
+基本的命令名称和路径操作的概念来自 \textsc{metafont}，选项机制源于 \textsc{pstricks}，样式的概念联想自\textsc{svg}，图的语法取材于\textsc{graphviz}。
+为了让它们一起工作，一些折中是必要的。
+我还加了一些自己的想法，比如坐标变换。
+
+% The following basic design principles underlie \tikzname:
+\tikzname\ 遵循下面的基本设计原则：
+
+\eohs
+
 \begin{enumerate}
-\item Special syntax for specifying points.
-\item Special syntax for path specifications.
-\item Actions on paths.
-\item Key-value syntax for graphic parameters.
-\item Special syntax for nodes.
-\item Special syntax for trees.
-\item Special syntax for graphs.
-\item Grouping of graphic parameters.
-\item Coordinate transformation system.
+% \item Special syntax for specifying points.
+\item 
+% \item Special syntax for path specifications.
+\item 指定的
+% \item Actions on paths.
+% \item Key-value syntax for graphic parameters.
+\item 图形参数用键值对
+% \item Special syntax for nodes.
+% \item Special syntax for trees.
+% \item Special syntax for graphs.
+% \item Grouping of graphic parameters.
+% \item Coordinate transformation system.
 \end{enumerate}
 
 

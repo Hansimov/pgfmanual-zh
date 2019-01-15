@@ -7,7 +7,7 @@ PGF/TikZ 是一个著名的 TeX 绘图宏包。
 
 * 宏包地址：[pgf – Create PostScript and PDF graphics in TEX](https://ctan.org/pkg/pgf)
 * 英文手册：[PGF Manual](http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf)
-* 中文手册：[PGF Manual (Chinese)](https://github.com/Hansimov/pgfmanual-zh/blob/master/pgf-zh/pgfmanual-zh.pdf)（长期施工中）
+* 中文手册：[PGF Manual (Chinese)](https://github.com/Hansimov/pgfmanual-zh/blob/master/pgf-zh/pgfmanual-zh.pdf)（长期施工中……文档仅涵盖当前正在翻译的部分，未翻译和翻译完成的内容没有纳入。）
 
 ## 其他中文资源
 PGF/TikZ 相关的学习资源很多，可以参考这个项目：

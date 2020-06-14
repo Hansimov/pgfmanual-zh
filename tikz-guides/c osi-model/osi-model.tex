@@ -1,0 +1,31 @@
+\documentclass[border=10pt]{standalone}
+\usepackage[UTF8]{ctex}
+\usepackage{tikz}
+% \usetikzlibrary{shapes}
+
+\newcommand{\iwd}{1000}
+\newcommand{\fs}[1]{\fontsize{#1 pt}{0pt}\selectfont}
+\newcommand{\osilayer}[5]{
+    \node [root] (#1) at ([yshift=30pt]#2.north east) {\kaishu \textbf{#4} \\[5pt] \color{red!70!black}{\fs{15} \textit{#5}}};
+    \node [font=\fs{25}, anchor=west, draw=black, shape=circle, line width=2pt] at ([xshift=20pt, yshift=5pt]#1.east) {\textbf{#3}};
+}
+
+\begin{document}
+\begin{tikzpicture}[
+    x=1pt, y=1pt,
+]
+
+\tikzstyle{root}=[align=right, font={\fs{20}}, anchor=south east, text=cyan!80!black]
+
+\coordinate (ori) at (0, 0);
+\osilayer{lay1}{ori}{1}{物理层}{Physical Layer}
+\osilayer{lay2}{lay1}{2}{数据链路层}{Data Link Layer}
+\osilayer{lay3}{lay2}{3}{网络层}{Network Layer}
+\osilayer{lay4}{lay3}{4}{传输层}{Transport Layer}
+\osilayer{lay5}{lay4}{5}{会话层}{Session Layer}
+\osilayer{lay6}{lay5}{6}{表示层}{Presentation Layer}
+\osilayer{lay7}{lay6}{7}{应用层}{Application Layer}
+
+
+\end{tikzpicture}
+\end{document}

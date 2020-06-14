@@ -1,0 +1,17 @@
+\documentclass[border=5pt, tikz]{standalone}
+
+\usepackage{tikz}
+% \usetikzlibrary{positioning}
+
+\begin{document}
+\begin{tikzpicture}
+% \tikzstyle{shorten <>}=[shorten >=#1, shorten <=#1]
+% \tikzset{shorten <>/.style={shorten >=#1, shorten <=#1}}
+\node [draw=green, text=red] (a) {A};
+% \node [draw, shape=circle, fill=cyan!30, text=red] (b) [right=3em of a] {B};
+\node [draw, shape=circle, fill=cyan!30, anchor=west] (b) at ([xshift=3em]b.east) {B};
+% \draw [-stealth, shorten <>=2pt, blue] (a) -- (b);
+\draw [-stealth, blue] (a) -- (b);
+% \node [fill=brown, circle, inner sep=0pt, minimum size=4pt, anchor=north west] at (b.south east) {};
+\end{tikzpicture}
+\end{document}

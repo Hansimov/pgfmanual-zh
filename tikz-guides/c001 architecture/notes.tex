@@ -1,0 +1,20 @@
+\documentclass[border=5pt, tikz]{standalone}
+
+\usepackage[scheme=plain]{ctex}
+
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{tikzpicture}
+\coordinate (a) at (0,0);
+\node [minimum width=10em, minimum height=10em, draw=blue, outer sep=0pt] (a) {节点};
+
+\foreach \pos/\qos in {east/west, south/north, west/east, north/south, south east/north west, north east/south west, south west/north east, north west/south east} {
+    \draw [draw=none, fill=red] (a.\pos) circle (1pt);
+    \node [anchor=\qos] at (a.\pos) {\pos};
+}
+
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,25 @@
+% A Venn diagram with PDF blending
+% Author: Stefan Kottwitz
+% https://www.packtpub.com/hardware-and-creative/latex-cookbook
+% :Title: A Venn diagram with PDF blending
+% :Tags: Diagrams;Cookbook
+% :Author: Stefan Kottwitz
+% :Slug: venn
+% PDF blend mode requires TikZ version 3.0 or above.
+% See: http://www.texample.net/tikz/examples/venn/
+
+\documentclass[border=10pt]{standalone} 
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+  \begin{scope}[blend group = soft light]
+    \fill[red!30!white]   ( 90:1.2) circle (2);
+    \fill[green!30!white] (210:1.2) circle (2);
+    \fill[blue!30!white]  (330:1.2) circle (2);
+  \end{scope}
+  \node at ( 90:2)    {Typography};
+  \node at ( 210:2)   {Design};
+  \node at ( 330:2)   {Coding};
+  \node [font=\Large] {\LaTeX};
+\end{tikzpicture}
+\end{document}

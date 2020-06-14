@@ -1,0 +1,47 @@
+\documentclass[border=5pt, tikz]{standalone}
+
+\usepackage{tikz}
+\usepackage[UTF8]{ctex}
+% \usepackage[scheme=plain]{ctex}
+% \usepackage{xeCJK}
+% \setCJKmainfont{微软雅黑}
+% \setCJKmainfont{黑体}
+
+\newcommand{\cenw}{12em}
+\newcommand{\cenh}{14em}
+\newcommand{\fs}[1]{\fontsize{#1 pt}{0pt}\selectfont}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\node [draw, thick, minimum width=\cenw, minimum height=\cenh, fill=teal!70] (central) {};
+
+\node [draw, thick, minimum width=\cenw-1em, minimum height=8em, anchor=north, fill=white] (cpublk) at ([yshift=-1ex]central.north) {};
+
+\node [anchor=north, yshift=-5pt] (cpu) at (cpublk.north) {中央处理器};
+
+\node [anchor=north, draw, thick, minimum width=\cenw-3em, yshift=-2ex, fill=magenta!40] (control) at (cpu.south) {控制单元};
+
+\node [anchor=north, draw, thick, minimum width=\cenw-3em, yshift=-2ex, fill=magenta!40] (logic) at (control.south) {算术逻辑单元};
+
+\node [draw, thick, minimum width=\cenw-1em, minimum height=2em, anchor=south, fill=white] (memory) at ([yshift=1ex]central.south) {存储单元};
+
+\draw [-stealth, thick, transform canvas={shift={(+3pt,0)}}] (memory) -- (cpublk);
+\draw [stealth-, thick, transform canvas={shift={(-3pt,0)}}] (memory) -- (cpublk);
+
+\node [draw, thick, xshift=-3em, anchor=east, minimum width=5em, minimum height=2em, font=\fs{10}] (input)  at (central.west) {输入设备};
+\node [draw, thick, xshift=+3em, anchor=west, minimum width=5em, minimum height=2em, font=\fs{10}] (output) at (central.east) {输出设备};
+
+
+\draw [thick, -stealth] (input)  -- (central);
+\draw [thick, -stealth] (central) -- (output);
+
+
+% \coordinate (central) at (cpu.center);
+
+
+
+\end{tikzpicture}
+
+\end{document}

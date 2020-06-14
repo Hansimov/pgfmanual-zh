@@ -1,0 +1,17 @@
+\documentclass[tikz, border=10pt]{standalone}
+\usepackage[UTF8]{ctex}
+\usepackage{tikz}
+\newcommand{\iwd}{1000}
+\newcommand{\fs}[1]{\fontsize{#1 pt}{0pt}\selectfont}
+
+\begin{document}
+
+\foreach \n in {1, ..., 5} {
+    \begin{tikzpicture}[x=1pt, y=1pt]
+        \node at (0,0) {\includegraphics[width=\iwd pt]{osi-tcp-\n}};
+        % \draw[step=40pt, line width=0.5pt, opacity=0.7, black] (-\iwd/2, -\iwd/2*1.5) grid (\iwd/2, \iwd/2*1.5);
+        % \fill [red] (0,0) circle (3pt);
+    \end{tikzpicture}
+}
+
+\end{document}

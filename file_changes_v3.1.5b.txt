@@ -1,0 +1,12 @@
+(zh) v3.1 -> v3.1.5b :
++ pgfmanual-zh-base-animation.tex
++ pgfmanual-zh-library-bbox.tex
++ pgfmanual-zh-library-perspective.tex
++ pgfmanual-zh-library-rdf.tex
++ pgfmanual-zh-library-views.tex
++ pgfmanual-zh-pgfsys-animations.tex
++ pgfmanual-zh-tikz-animations.tex
+~ pgfmanual-zh-main-*.tex/ (combine `main-body-*`)
+~ pgfmanual-zh-zh-settings (rename `*settings` to `*-zh-settings`)
+~ pgfmanual-zh-main-preamble (restore from `*preamble` to `*main-preamble`)
+- pgfmanual-zh-main.tex (combined to root path pgfmanual-zh.tex)

@@ -8,14 +8,17 @@ references/
 !*.md
 !*.txt
 
-!*.tex
 !*.bib
 !*.pdf
+!*.tex
 
+!*.bb
 !*.eps
+!*.gnuplot
 !*.jpg
 !*.png
-!*.gnuplot
+!*.table
+!*.xbb
 
-!*.py
 !*.bat
+!*.py

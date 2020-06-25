@@ -1,0 +1,385 @@
+% Copyright 2006 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Free Documentation License.
+%
+% See the file doc/generic/pgf/licenses/LICENSE for more details.
+
+
+% pgf version is defined in \pgfversion in file
+% generic/pgf/utilities/pgfrcs.code.tex
+
+\def\xcolorversion{2.00}
+
+\usepackage[version=latest]{pgf}
+
+\usepackage{xkeyval,calc,listings,tikz,fp}
+
+\usepackage{imakeidx}
+\makeindex
+\usepackage{hyperref}
+\hypersetup{%
+    colorlinks=false, % use true to enable colors below:
+    linkcolor=blue,%red,
+    filecolor=blue,%magenta,
+    urlcolor=blue,%cyan,
+    citecolor=blue,
+    pdfborder=0 0 0,
+}
+
+% We need lots of libraries...
+\usetikzlibrary{
+  3d,
+  arrows,
+  arrows.spaced,
+  arrows.meta,
+  bbox,
+  bending,
+  babel,
+  calc,
+  fit,
+  patterns,
+  patterns.meta,
+  plotmarks,
+  shapes.geometric,
+  shapes.misc,
+  shapes.symbols,
+  shapes.arrows,
+  shapes.callouts,
+  shapes.multipart,
+  shapes.gates.logic.US,
+  shapes.gates.logic.IEC,
+  circuits.logic.US,
+  circuits.logic.IEC,
+  circuits.logic.CDH,
+  circuits.ee.IEC,
+  datavisualization,
+  datavisualization.polar,
+  datavisualization.formats.functions,
+  er,
+  automata,
+  backgrounds,
+  chains,
+  topaths,
+  trees,
+  petri,
+  mindmap,
+  matrix,
+  calendar,
+  folding,
+  fadings,
+  shadings,
+  spy,
+  through,
+  turtle,
+  positioning,
+  scopes,
+  decorations.fractals,
+  decorations.shapes,
+  decorations.text,
+  decorations.pathmorphing,
+  decorations.pathreplacing,
+  decorations.footprints,
+  decorations.markings,
+  shadows,
+  lindenmayersystems,
+  intersections,
+  fixedpointarithmetic,
+  fpu,
+  svg.path,
+  external,
+  graphs,
+  graphs.standard,
+  quotes,
+  math,
+  angles,
+  views,
+  animations,
+  rdf,
+  perspective,
+}
+
+\usepackage{ifluatex}
+\newif\ifgdccodebasic
+\newif\ifgdccodeogdf
+
+\ifluatex
+
+  \usetikzlibrary{graphdrawing}
+  \usegdlibrary{trees,circular,layered,examples,force,phylogenetics,routing}
+
+  % Test whether C code is available:
+  \directlua{
+    if pcall(require,'pgf_gd_examples_c_SimpleDemoC') then
+      tex.print('\string\\gdccodebasictrue')
+    end
+  }
+
+  \ifgdccodebasic
+    \usegdlibrary{pgf_gd_examples_c_SimpleDemoC,pgf_gd_examples_c_SimpleDemoCPlusPlus}
+
+    % Test whether OGDF code is available:
+    \directlua{
+      if pcall(require,'pgf_gd_ogdf_c_SimpleDemoOGDF') then
+        tex.print('\string\\gdccodeogdftrue')
+      end
+    }
+
+    \ifgdccodeogdf
+      \usegdlibrary{pgf_gd_ogdf_c_SimpleDemoOGDF,ogdf}
+    \fi
+
+  \fi
+
+\fi
+
+\def\LuaTeX{Lua\TeX}%
+
+
+\newif\ifpgfmanualexternalize
+\pgfmanualexternalizefalse
+\ifpgfmanualexternalize
+  \tikzexternalize[
+    mode=list only,export=true,% simply skips EVERY picture -> good for debugging the text.
+  ]{pgfmanual}
+
+  \tikzifexternalizing{%
+    \pgfkeys{/pdflinks/codeexample links=false}%
+  }{}%
+\fi
+
+
+\usepackage[a4paper,left=2.25cm,right=2.25cm,top=2.5cm,bottom=2.5cm,nohead]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xxcolor}
+\usepackage{pifont}
+
+\ifluatex
+%  \usepackage[no-math]{fontspec}
+%  \usepackage{luatextra}
+
+  % TT: I have commented luatextra since it loads fontspec, which
+  % currently breaks "$\mathrm{\Omega}$" (nothing is
+  % shown). Also, fontspec loads so much stuff, I'm not really sure
+  % any of it is needed...
+
+  % \filedescription is defined in expl3, required by fontspec,
+  % required by luatextra. Needs to be \relaxed since
+  % pgfmanual-en-macros.tex defines an environment named filedescription
+  \let\filedescription\relax
+  \usepackage[utf8]{luainputenc}
+  % dvisvgm does not support OpenType fonts so we have to bite the bullet and
+  % use T1 where quotes are weird.  In LuaTeX \outputmode=0 means DVI.
+  \ifnum\outputmode=0
+    \usepackage[T1]{fontenc}
+  \fi
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+\fi
+
+\graphicspath{{../../images/}}
+\input{../../macros/pgfmanual-en-macros}
+
+\usepackage{todonotes}
+\newcommand\todosp[2][]{%        % Stefan Pinnow
+    \todo[
+        disable,
+        color=blue!40,
+        #1]{#2}
+}
+
+\makeatletter
+\renewcommand*\l@section[2]{%
+  \ifnum \c@tocdepth >\z@
+    \addpenalty\@secpenalty
+    \addvspace{1.0em \@plus\p@}%
+    \setlength\@tempdima{2.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+    \endgroup
+  \fi}
+\renewcommand*\l@subsection{\@dottedtocline{2}{2.5em}{3.3em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{5.8em}{4.2em}}
+\def\@pnumwidth{2.2em}
+\makeatother
+
+%\includeonly{pgfmanual-en-library-profiler}
+
+% Global styles:
+\tikzset{
+  every plot/.style={prefix=plots/pgf-},
+  shape example/.style={
+    color=black!30,
+    draw,
+    fill=yellow!30,
+    line width=.5cm,
+    inner xsep=2.5cm,
+    inner ysep=0.5cm}
+}
+
+\index{Options for graphics|see{Graphic options and styles}}
+\index{Styles for graphics|see{Graphic options and styles}}
+\index{Options for packages|see{Package options}}
+\index{Handlers for keys|see{Key handlers}}
+\index{File|see{Packages and files}}
+\index{Layout|see{Page layout}}
+\index{Node|see{Predefined node}}
+\index{Data formats|see{Formats}}
+
+
+% Animations:
+
+\tikzset{make snapshot if necessary}
+
+% Detect changed labels
+% by David Carlisle https://tex.stackexchange.com/a/169245
+\makeatletter
+\def\@testdef#1#2#3{%
+  \def\reserved@a{#3}%
+  \expandafter\ifx\csname #1@#2\endcsname\reserved@a\else
+    \typeout{^^JLabel `#2' changed:^^J\meaning\reserved@a^^J\expandafter\meaning\csname #1@#2\endcsname^^J}%
+    \@tempswatrue
+  \fi}
+\makeatother
+
+%% -----------------------------------------------------------------------------
+%\includeonly{
+%%    pgfmanual-en-introduction,
+%%    pgfmanual-en-tutorial,
+%%    pgfmanual-en-tutorial-nodes,
+%%    pgfmanual-en-tutorial-Euclid,
+%%    pgfmanual-en-tutorial-chains,
+%%    pgfmanual-en-tutorial-map,
+%%    pgfmanual-en-guidelines,
+%%    pgfmanual-en-installation,
+%%    pgfmanual-en-license,
+%%    pgfmanual-en-drivers,
+%%    pgfmanual-en-tikz-design,
+%%    pgfmanual-en-tikz-scopes,
+%%    pgfmanual-en-tikz-coordinates,
+%%    pgfmanual-en-tikz-paths,
+%%    pgfmanual-en-tikz-actions,
+%%    pgfmanual-en-tikz-arrows,
+%%    pgfmanual-en-tikz-shapes,
+%%    pgfmanual-en-tikz-pics,
+%%    pgfmanual-en-tikz-graphs,
+%%    pgfmanual-en-tikz-matrices,
+%%    pgfmanual-en-tikz-trees,
+%%    pgfmanual-en-tikz-plots,
+%%    pgfmanual-en-tikz-transparency,
+%%    pgfmanual-en-tikz-decorations,
+%%    pgfmanual-en-tikz-transformations,
+%%    pgfmanual-en-tikz-animations,
+%%    pgfmanual-en-gd-overview,
+%%    pgfmanual-en-gd-usage-tikz,
+%%    pgfmanual-en-gd-usage-pgf,
+%%    pgfmanual-en-gd-trees,
+%%    pgfmanual-en-gd-layered,
+%%    pgfmanual-en-gd-force,
+%%    pgfmanual-en-gd-circular,
+%%    pgfmanual-en-gd-phylogenetics,
+%%    pgfmanual-en-gd-edge-routing,
+%%%    pgfmanual-en-gd-ogdf,
+%%    pgfmanual-en-gd-algorithm-layer,
+%%    pgfmanual-en-gd-algorithms-in-c,
+%%    pgfmanual-en-gd-display-layer,
+%%    pgfmanual-en-gd-binding-layer,
+%%    pgfmanual-en-library-angles,
+%%    pgfmanual-en-library-arrows,
+%%    pgfmanual-en-library-automata,
+%%    pgfmanual-en-library-babel,
+%%    pgfmanual-en-library-backgrounds,
+%%    pgfmanual-en-library-calc,
+%%    pgfmanual-en-library-calendar,
+%%    pgfmanual-en-library-chains,
+%%    pgfmanual-en-library-circuits,
+%%    pgfmanual-en-library-decorations,
+%%    pgfmanual-en-library-er,
+%%    pgfmanual-en-library-external,
+%%    pgfmanual-en-library-fadings,
+%%    pgfmanual-en-library-fit,
+%%    pgfmanual-en-library-fixedpoint,
+%%    pgfmanual-en-library-fpu,
+%%    pgfmanual-en-library-lsystems,
+%%    pgfmanual-en-library-math,
+%%    pgfmanual-en-library-matrices,
+%%    pgfmanual-en-library-mindmaps,
+%%    pgfmanual-en-library-folding,
+%%    pgfmanual-en-library-patterns,
+%%    pgfmanual-en-library-petri,
+%%    pgfmanual-en-library-plot-handlers,
+%%    pgfmanual-en-library-plot-marks,
+%%    pgfmanual-en-library-profiler,
+%%    pgfmanual-en-library-rdf,
+%%    pgfmanual-en-library-shadings,
+%%    pgfmanual-en-library-shadows,
+%%    pgfmanual-en-library-shapes,
+%%    pgfmanual-en-library-spy,
+%%    pgfmanual-en-library-svg-path,
+%%    pgfmanual-en-library-edges,
+%%    pgfmanual-en-library-through,
+%%    pgfmanual-en-library-trees,
+%%    pgfmanual-en-library-turtle,
+%%    pgfmanual-en-library-views,
+%%    pgfmanual-en-dv-introduction,
+%%    pgfmanual-en-dv-main,
+%%    pgfmanual-en-dv-formats,
+%%    pgfmanual-en-dv-axes,
+%%    pgfmanual-en-dv-visualizers,
+%%    pgfmanual-en-dv-stylesheets,
+%%    pgfmanual-en-dv-polar,
+%%    pgfmanual-en-dv-backend,
+%%    pgfmanual-en-pgfkeys,
+%%    pgfmanual-en-pgffor,
+%%    pgfmanual-en-pgfcalendar,
+%%    pgfmanual-en-pages,
+%%    pgfmanual-en-xxcolor,
+%%    pgfmanual-en-module-parser,
+%%    pgfmanual-en-math-design,
+%%    pgfmanual-en-math-parsing,
+%%    pgfmanual-en-math-commands,
+%%    pgfmanual-en-math-algorithms,
+%%    pgfmanual-en-math-numberprinting,
+%%    pgfmanual-en-oo,
+%%    pgfmanual-en-base-design,
+%%    pgfmanual-en-base-scopes,
+%%    pgfmanual-en-base-points,
+%%    pgfmanual-en-base-paths,
+%%    pgfmanual-en-base-decorations,
+%%    pgfmanual-en-base-actions,
+%%    pgfmanual-en-base-arrows,
+%%    pgfmanual-en-base-nodes,
+%%    pgfmanual-en-base-matrices,
+%%    pgfmanual-en-base-transformations,
+%%    pgfmanual-en-base-patterns,
+%%    pgfmanual-en-base-images,
+%%    pgfmanual-en-base-external,
+%%    pgfmanual-en-base-plots,
+%%    pgfmanual-en-base-layers,
+%%    pgfmanual-en-base-shadings,
+%%    pgfmanual-en-base-transparency,
+%%    pgfmanual-en-base-animations,
+%%    pgfmanual-en-base-internalregisters,
+%%    pgfmanual-en-base-quick,
+%%    pgfmanual-en-pgfsys-overview,
+%%    pgfmanual-en-pgfsys-commands,
+%%    pgfmanual-en-pgfsys-paths,
+%%    pgfmanual-en-pgfsys-protocol,
+%%    pgfmanual-en-pgfsys-animations,
+%}
+%% -----------------------------------------------------------------------------
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "~/pgf/doc/generic/pgf/version-for-luatex/en/pgfmanual"
+%%% coding: iso-latin-1-unix
+%%% End:

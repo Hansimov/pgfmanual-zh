@@ -1,0 +1,2 @@
+The documentation consists of all files listed in ../FILES that lie in
+the doc subdirectory.

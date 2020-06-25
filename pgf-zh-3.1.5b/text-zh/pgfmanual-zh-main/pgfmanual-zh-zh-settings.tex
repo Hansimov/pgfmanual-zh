@@ -1,0 +1,53 @@
+% @author   Hansimov
+% @date     2018.07 ~ 2020.06
+
+% Compile with xelatex
+% Make sure to compile this using xelatex + xdvipdfmx.
+\usepackage[hyphens]{url}
+\usepackage[xetex]{graphics}
+\usepackage[xetex]{hyperref}
+
+%% Compile with pdftex - Cannot work currently
+% \usepackage[hyphens]{url}
+% \usepackage[pdfborder={0 0 0}]{hyperref}
+% \hypersetup{CJKbookmarks=true}
+
+\usepackage[scheme = plain]{ctex}
+
+% %% I add these lines to auto-fit the line spacing of Chinese texts and English codes.
+% \usepackage{etoolbox}
+\usepackage{setspace}
+
+% \usepackage[hang]{footmisc}
+% \renewcommand{\footnotelayout}{\setstretch{1.5}}
+% \setlength{\footnotemargin}{2mm}
+
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+% Getting verbatim with soft grey background, as in tex.stackexchange
+%   https://tex.stackexchange.com/a/141128/135822
+
+% \usepackage{xcolor}
+
+\newcommand{\bohs}{\begin{onehalfspacing}}
+\newcommand{\eohs}{\end{onehalfspacing}}
+
+\newcommand{\metazh}[1]{$\langle \text{\emph{#1}} \rangle$}
+\newcommand{\metablue}[1]{{\color{blue}$\langle \text{\emph{#1}} \rangle$}}
+
+\usepackage{listings}
+\lstdefinelanguage{tikz}{
+basicstyle={\color{blue} \ttfamily},
+breaklines = true,
+breakatwhitespace=true,
+keepspaces = true,
+% showspaces=true,
+% escapechar=`,
+% mathescape=true,
+}
+
+\newcommand{\ltz}[1]{\lstinline[language=tikz]{#1}}
+% Some chars must be escaped when using \ltz: \(backslash) |(vertical line) {}(curly braces)
+
+% \usepackage{minted}

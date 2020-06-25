@@ -1,0 +1,115 @@
+% Copyright 2012 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Free Documentation License.
+%
+% See the file doc/generic/pgf/licenses/LICENSE for more details.
+
+\section[Graph Drawing Algorithms: The Open Graph Drawing Framework]{Graph Drawing Algorithms:\\ The Open Graph Drawing Framework}
+
+% TODO:{
+% ATTENTION: this label is ALSO present in the previous algorithm.
+% Please update the labels once this section is back in the manual
+% }
+\label{section-last-graphdrawing-library-in-manual}
+
+{\emph{by Till Tantau (who copied much of the text from
+    the source documentation of \textsc{ogdf})}}
+
+\ifluatex
+\else
+    This section of the manual can only be typeset using Lua\TeX.
+    \expandafter\endinput
+\fi
+
+\ifgdccodeogdf
+\else
+    In order to typeset this section, LuaTeX\ must be able to link C code at
+    runtime and the \textsc{ogdf} graph drawing C libraries must be installed
+    on your system. You will find the sources in the |c| subdirectory of the
+    installation, where you will also find example Makefiles.
+    \expandafter\endinput
+\fi
+
+\emph{Remark:} The integration of the \textsc{ogdf} library is still under
+construction and the examples in this section are more a proof-of-concept. So,
+use at your own risk.
+
+\includeluadocumentationof{pgf.gd.ogdf.library}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.SugiyamaLayout}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.module.RankingModule}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.CoffmanGrahamRanking}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.LongestPathRanking}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.OptimalRanking}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.module.TwoLayerCrossMin}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.BarycenterHeuristic}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.GreedyInsertHeuristic}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.MedianHeuristic}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.SiftingHeuristic}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.SplitHeuristic}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.module.AcyclicSubgraphModule}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.DfsAcyclicSubgraph}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.GreedyCycleRemoval}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.module.HierarchyLayoutModule}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.FastHierarchyLayout}
+\includeluadocumentationof{pgf.gd.doc.ogdf.layered.FastSimpleHierarchyLayout}
+
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.SpringEmbedderFR}
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.SpringEmbedderFRExact}
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.SpringEmbedderKK}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.FMMMLayout}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.MultilevelLayout}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.GEMLayout}
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.FastMultipoleEmbedder}
+
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.module.InitialPlacer}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.BarycenterPlacer}
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.CirclePlacer}
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.MedianPlacer}
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.RandomPlacer}
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.SolarPlacer}
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.ZeroPlacer}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.module.MultilevelBuilder}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.EdgeCoverMerger}
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.IndependentSetMerger}
+\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.LocalBiconnectedMerger}
+%\includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.MatchingMerger}
+% \includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.RandomMerger}
+% \includeluadocumentationof{pgf.gd.doc.ogdf.energybased.multilevelmixer.SolarMerger}
+
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.planarity}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.planarity.PlanarizationLayout}
+%\includeluadocumentationof{pgf.gd.ogdf.planarity.LayoutPlanRepModule}
+
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.misclayout}
+
+\includeluadocumentationof{pgf.gd.doc.ogdf.misclayout.BalloonLayout}
+\includeluadocumentationof{pgf.gd.doc.ogdf.misclayout.CircularLayout}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "pgfmanual-pdftex-version"
+%%% End:

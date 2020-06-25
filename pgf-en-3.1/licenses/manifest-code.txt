@@ -1,0 +1,2 @@
+The code consists of all files listed in ../FILES that do not lie in
+the directory doc.

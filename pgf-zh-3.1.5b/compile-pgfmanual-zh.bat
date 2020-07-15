@@ -1,2 +1,3 @@
 @echo off
-latexmk -pv -f -xelatex pgfmanual-zh.tex
+rem pdflatex pgfmanual-zh.tex
+latexmk -pool-size=10000000 -pv -xelatex pgfmanual-zh.tex

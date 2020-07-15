@@ -15,7 +15,7 @@ PGF/TikZ 相关的学习资源很多，可以参考这个项目：
 * [xiaohanyu/awesome-tikz](https://github.com/xiaohanyu/awesome-tikz)：列出的基本都是常见的高质资源，但语言大多为英文
 
 而中文资源相对零碎，社区用户也不够活跃，资源比较集中的地方有：
-* [Tikz&pgf - LaTeX 工作室](http://www.latexstudio.net/archives/category/tex-graphics/tikz-example)：这里有不少基础教程、学习笔记和实用样例，质量也不错
+* [Tikz&pgf - LaTeX 工作室](https://www.latexstudio.net/index/lists/index/type/1.html)：这里有不少基础教程、学习笔记和实用样例，质量也不错
 * [CTEX 社区 - tikz/pgf 等 TeX 绘图宏包](http://bbs.ctex.org/forum.php?mod=forumdisplay&fid=51&filter=typeid&typeid=26)：如今已是死气沉沉，在质量上也明显不如上一个
 
 如果你英文较好，或者对 PGF/TikZ 已经有了一定了解，建议还是参考英文资源，并且善用搜索引擎，选择合适的英文关键词。
@@ -39,7 +39,7 @@ PGF/TikZ 相关的学习资源很多，可以参考这个项目：
 
 ## 翻译进度
 
-![翻译进度](https://github.com/Hansimov/pgfmanual-zh/blob/master/pgf-zh/schedule/translation-schedule.png)
+![翻译进度](https://github.com/Hansimov/pgfmanual-zh/blob/master/pgf-zh-3.1.5b/schedule/translation-schedule.png)
 
 ## 如何编译此中文版本
 
